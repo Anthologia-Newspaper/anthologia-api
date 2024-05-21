@@ -102,7 +102,7 @@ export class AuthenticationController {
           process.env.NODE_ENV === 'dev'
             ? 'localhost'
             : process.env.DOMAIN_NAME,
-        path: '/user/refresh-token',
+        path: '/authentication/refresh-token',
       });
 
       return { user };
@@ -135,7 +135,9 @@ export class AuthenticationController {
     } catch (err: unknown) {
       if (err instanceof InvalidCredentials) {
         res.clearCookie('jwt');
-        res.clearCookie('refreshToken', { path: '/user/refresh-token' });
+        res.clearCookie('refreshToken', {
+          path: '/authentication/refresh-token',
+        });
       }
 
       handleErrors(err);
@@ -152,6 +154,9 @@ export class AuthenticationController {
   ) {
     try {
       res.clearCookie('jwt');
+      res.clearCookie('refreshToken', {
+        path: '/authentication/refresh-token',
+      });
 
       return [
         await this.authService.revokeToken(req.user.jti),

@@ -47,8 +47,7 @@ export class AuthGuard implements CanActivate {
       const requiredRoles =
         this.reflector.get<Role[]>('roles', context.getHandler()) || [];
 
-      let userRoles = [];
-      userRoles = await this.checkRoles(requiredRoles, payload.sub);
+      const userRoles = await this.checkRoles(requiredRoles, payload.sub);
 
       if (
         await this.prisma.revokedToken.findUnique({
@@ -66,20 +65,17 @@ export class AuthGuard implements CanActivate {
   }
 
   private async checkRoles(requiredRoles: Role[], userId: number) {
-    const userRoles = // TODO: Use cache
-      (
-        await this.prisma.user.findUnique({
-          where: { id: userId },
-          select: { roles: true },
-        })
-      )?.roles;
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { roles: true },
+    });
 
-    if (!userRoles) throw new UnauthorizedException();
+    if (!user) throw new UnauthorizedException();
 
     for (const role of requiredRoles) {
-      if (!userRoles.includes(role)) throw new UnauthorizedException();
+      if (!user.roles.includes(role)) throw new UnauthorizedException();
     }
 
-    return userRoles;
+    return user;
   }
 }

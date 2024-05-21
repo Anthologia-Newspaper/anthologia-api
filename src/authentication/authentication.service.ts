@@ -27,10 +27,10 @@ export class AuthenticationService {
         {
           type: JwtType.ACCESS,
           refreshJti,
+          sub: user.id,
         },
         {
           jwtid: uuid(),
-          subject: user.id.toString(),
           expiresIn: '2h',
         },
       ),
@@ -38,10 +38,10 @@ export class AuthenticationService {
         {
           type: JwtType.REFRESH,
           expiresIn: '20d',
+          sub: user.id,
         },
         {
           jwtid: refreshJti,
-          subject: user.id.toString(),
         },
       ),
     };
@@ -50,7 +50,7 @@ export class AuthenticationService {
   }
 
   async signUp(newUser: SignUpDto) {
-    // newUser.password = await bcrypt.hash(newUser.password, 10);
+    newUser.password = await bcrypt.hash(newUser.password, 10);
 
     const user = await this.prisma.user.create({ data: newUser });
 
