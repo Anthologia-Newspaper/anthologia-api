@@ -23,8 +23,10 @@ export class ArticlesService {
     });
   }
 
-  async findAll() {
-    return await this.prisma.article.findMany();
+  async findAll(userId?: number) {
+    return await this.prisma.article.findMany({
+      where: { authorId: userId },
+    });
   }
 
   async findOne(id: number) {

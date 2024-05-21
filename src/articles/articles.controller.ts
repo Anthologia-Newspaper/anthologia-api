@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -38,9 +39,13 @@ export class ArticlesController {
   }
 
   @Get()
-  async findAll() {
+  async findAll(@Req() req: Request, @Query('user') userId?: number | 'me') {
     try {
-      return await this.articlesService.findAll();
+      if (userId === 'me') {
+        userId = req.user.sub as number;
+      }
+
+      return await this.articlesService.findAll(userId);
     } catch (err: unknown) {
       handleErrors(err);
     }
