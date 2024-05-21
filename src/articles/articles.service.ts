@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { EventType } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
@@ -55,7 +55,12 @@ export class ArticlesService {
   }
 
   async updateLike(id: number, user: number, isLiked: boolean) {
-    if (isLiked) {
+    const article = await this.prisma.article.findUnique({
+      where: { id },
+      include: { likes: { where: { id: user } } },
+    });
+
+    if (isLiked && !article) {
       await this.prisma.event;
       return await this.prisma.article.update({
         where: { id },
@@ -65,12 +70,16 @@ export class ArticlesService {
       });
     }
 
-    return await this.prisma.article.update({
-      where: { id },
-      data: {
-        likes: { disconnect: { id: user } },
-      },
-    });
+    if (!isLiked && article) {
+      return await this.prisma.article.update({
+        where: { id },
+        data: {
+          likes: { disconnect: { id: user } },
+        },
+      });
+    }
+
+    throw new ConflictException();
   }
 
   async remove(id: number) {
