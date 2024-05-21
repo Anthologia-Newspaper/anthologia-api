@@ -13,7 +13,7 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD="${DB_PASSWORD}"
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=anthologia
     volumes:
       - /tmp/db:/var/lib/postgresql/data
