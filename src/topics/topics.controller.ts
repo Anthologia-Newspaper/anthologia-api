@@ -1,17 +1,24 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
 } from '@nestjs/common';
-import { TopicsService } from './topics.service';
-import { CreateTopicDto } from './dto/create-topic.dto';
-import { UpdateTopicDto } from './dto/update-topic.dto';
+import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from 'src/authentication/authentication.guard';
 import { handleErrors } from 'src/utils/handle-errors';
 
+import { CreateTopicDto } from './dto/create-topic.dto';
+import { UpdateTopicDto } from './dto/update-topic.dto';
+import { TopicsService } from './topics.service';
+
+@ApiTags('Topics')
+@ApiCookieAuth()
+@UseGuards(AuthGuard)
 @Controller('topics')
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}

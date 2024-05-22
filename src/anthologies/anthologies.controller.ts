@@ -10,6 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { handleErrors } from 'src/utils/handle-errors';
@@ -19,6 +20,8 @@ import { CreateAnthologyDto } from './dto/create-anthology.dto';
 import { GetAnthologiesQueryParams } from './dto/get-anthologies-query-params.dto';
 import { UpdateAnthologyDto } from './dto/update-anthology.dto';
 
+@ApiTags('Anthologies')
+@ApiCookieAuth()
 @UseGuards(AuthGuard)
 @Controller('anthologies')
 export class AnthologiesController {

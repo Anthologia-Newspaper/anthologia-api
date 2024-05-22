@@ -24,17 +24,17 @@ import { AuthGuard } from './authentication.guard';
 import { AuthenticationService } from './authentication.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
-import { UpdatePasswordDto } from './dto/update-password.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
 import { UpdateUsernameDto } from './dto/update-username.dto';
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+@ApiTags('Auth')
 @Controller('authentication')
 export class AuthenticationController {
   constructor(private readonly authService: AuthenticationService) {}
 
-  @ApiTags('Auth')
   @Post('sign-up')
   async signUp(
     @Body() body: SignUpDto,
@@ -75,7 +75,6 @@ export class AuthenticationController {
     }
   }
 
-  @ApiTags('Auth')
   @Post('sign-in')
   @HttpCode(200)
   async signIn(
@@ -115,7 +114,6 @@ export class AuthenticationController {
     }
   }
 
-  @ApiTags('Auth')
   @ApiCookieAuth()
   @Post('refresh-token')
   async refreshToken(
@@ -148,7 +146,6 @@ export class AuthenticationController {
     }
   }
 
-  @ApiTags('Auth')
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Delete('revoke-token')
