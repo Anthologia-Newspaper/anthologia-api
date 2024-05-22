@@ -9,6 +9,7 @@ import {
   Controller,
   Delete,
   HttpCode,
+  Patch,
   Post,
   Req,
   Res,
@@ -23,6 +24,9 @@ import { AuthGuard } from './authentication.guard';
 import { AuthenticationService } from './authentication.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
+import { UpdateEmailDto } from './dto/update-email.dto';
+import { UpdateUsernameDto } from './dto/update-username.dto';
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -162,6 +166,46 @@ export class AuthenticationController {
         await this.authService.revokeToken(req.user.jti),
         await this.authService.revokeToken(req.user.refreshJti),
       ];
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Patch('password')
+  async updatePassword(@Req() req: Request, @Body() body: UpdatePasswordDto) {
+    try {
+      return await this.authService.updatePassword(
+        req.user.id,
+        body.oldPassword,
+        body.newPassword,
+      );
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Patch('email')
+  async updateEmail(@Req() req: Request, @Body() body: UpdateEmailDto) {
+    try {
+      return await this.authService.updateEmail(req.user.id, body.newEmail);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Patch('username')
+  async updateUsername(@Req() req: Request, @Body() body: UpdateUsernameDto) {
+    try {
+      return await this.authService.updateUsername(
+        req.user.id,
+        body.newUsername,
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }

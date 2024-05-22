@@ -102,4 +102,39 @@ export class AuthenticationService {
       data: { jti },
     });
   }
+
+  async updatePassword(
+    userId: number,
+    oldPassword: string,
+    newPassword: string,
+  ) {
+    const user = await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+    });
+
+    if (!(await bcrypt.compare(oldPassword, user.password))) {
+      throw new InvalidCredentials();
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    this.prisma.user.update({
+      where: { id: userId },
+      data: { password: hashedPassword },
+    });
+  }
+
+  async updateEmail(userId: number, newEmail: string) {
+    return await this.prisma.user.update({
+      where: { id: userId },
+      data: { email: newEmail },
+    });
+  }
+
+  async updateUsername(userId: number, newUsername: string) {
+    return await this.prisma.user.update({
+      where: { id: userId },
+      data: { username: newUsername },
+    });
+  }
 }
