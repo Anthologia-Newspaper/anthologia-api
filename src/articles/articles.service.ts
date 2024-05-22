@@ -23,8 +23,24 @@ export class ArticlesService {
     });
   }
 
-  async findAll() {
-    return await this.prisma.article.findMany();
+  async findAll(
+    authorId?: number,
+    topicId?: number,
+    draft?: boolean,
+    q?: string,
+  ) {
+    return await this.prisma.article.findMany({
+      where: {
+        authorId,
+        topicId,
+        draft,
+        OR: [
+          { title: { contains: q } },
+          { subtitle: { contains: q } },
+          { content: { contains: q } },
+        ],
+      },
+    });
   }
 
   async findOne(id: number) {
@@ -37,6 +53,12 @@ export class ArticlesService {
 
     return await this.prisma.article.findUnique({
       where: { id },
+    });
+  }
+
+  async findDrafts(authorId: number) {
+    return await this.prisma.article.findMany({
+      where: { AND: { authorId, draft: { equals: true } } },
     });
   }
 

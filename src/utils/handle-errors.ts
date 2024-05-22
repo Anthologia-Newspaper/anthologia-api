@@ -6,6 +6,7 @@
 
 import {
   ConflictException,
+  HttpException,
   InternalServerErrorException,
   NotFoundException,
   UnauthorizedException,
@@ -50,6 +51,8 @@ export function handleErrors(err: unknown) {
     (err instanceof Error && err.name === 'JsonWebTokenError')
   )
     throw new UnauthorizedException();
+
+  if (err instanceof HttpException) throw err;
 
   handlePrismaErrors(err);
 

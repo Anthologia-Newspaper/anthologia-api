@@ -6,18 +6,21 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   Req,
+  UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
+import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { UpdateLikeArticleDto } from './dto/update-like-article.dto';
-import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Articles')
 @UseGuards(AuthGuard)
@@ -38,9 +41,22 @@ export class ArticlesController {
   }
 
   @Get()
-  async findAll() {
+  async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
-      return await this.articlesService.findAll();
+      let { author } = query;
+      const { topic, draft, q } = query;
+
+      if (author === 'me') {
+        author = req.user.sub;
+      }
+
+      // Due to custom validator, auto-transformation is not made on this property
+      typeof author === 'string' && (author = +author);
+
+      if (draft && author !== undefined && author !== req.user.sub)
+        throw new UnauthorizedException('Cannot view drafts of other users.');
+
+      return await this.articlesService.findAll(author, topic, draft, q);
     } catch (err: unknown) {
       handleErrors(err);
     }
