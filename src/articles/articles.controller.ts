@@ -11,7 +11,7 @@ import {
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { handleErrors } from 'src/utils/handle-errors';
@@ -22,6 +22,7 @@ import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
 
 @ApiTags('Articles')
+@ApiCookieAuth()
 @UseGuards(AuthGuard)
 @Controller('articles')
 export class ArticlesController {
