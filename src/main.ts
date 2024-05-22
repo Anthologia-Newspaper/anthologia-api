@@ -16,7 +16,12 @@ async function bootstrap() {
         : `http://localhost:${process.env.PORT || 3000}`,
   });
   app.use(cookieParser());
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
+    }),
+  );
 
   const config = new DocumentBuilder()
     .setTitle('Anthologia')
