@@ -20,7 +20,6 @@ import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
-import { UpdateLikeArticleDto } from './dto/update-like-article.dto';
 
 @ApiTags('Articles')
 @UseGuards(AuthGuard)
@@ -71,18 +70,23 @@ export class ArticlesController {
     }
   }
 
+  @Get('/anthology/:id')
+  async findAllInAnthology(@Param('id') id: number) {
+    try {
+      return await this.articlesService.findAllInAnthology(id);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,
-    @Param('id') id: boolean,
-    @Body() body: UpdateLikeArticleDto,
+    @Param('id') id: number,
+    @Body() isLiked: boolean,
   ) {
     try {
-      return await this.articlesService.updateLike(
-        +id,
-        req.user.sub,
-        body.isLiked,
-      );
+      return await this.articlesService.updateLike(id, req.user.sub, isLiked);
     } catch (err: unknown) {
       handleErrors(err);
     }

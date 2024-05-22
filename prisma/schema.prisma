@@ -51,7 +51,7 @@ model Event {
 
 model Anthology {
   id          Int       @id @default(autoincrement())
-  user        User      @relation(fields: [userId], references: [id])
+  compiler    User      @relation(fields: [userId], references: [id])
   userId      Int
   articles    Article[]
   name        String

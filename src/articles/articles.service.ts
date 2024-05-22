@@ -38,8 +38,15 @@ export class ArticlesService {
           { title: { contains: q } },
           { subtitle: { contains: q } },
           { content: { contains: q } },
+          { author: { username: { contains: q } } },
         ],
       },
+    });
+  }
+
+  async findAllInAnthology(anthologyId: number) {
+    return await this.prisma.article.findMany({
+      where: { anthology: { every: { id: anthologyId } }, draft: false },
     });
   }
 
