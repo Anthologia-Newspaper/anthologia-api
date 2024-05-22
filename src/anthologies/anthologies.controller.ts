@@ -58,7 +58,11 @@ export class AnthologiesController {
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);
 
-      return await this.anthologiesService.findAll(author, q);
+      return await this.anthologiesService.findAll(
+        author === req.user.sub,
+        author,
+        q,
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }

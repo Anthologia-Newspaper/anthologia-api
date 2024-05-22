@@ -29,8 +29,22 @@ export class AnthologiesService {
     });
   }
 
-  async findAll(author?: number, q?: string) {
-    // TODO: Don't return private anthologies if the user is not the author
+  async findAll(owner: boolean, author?: number, q?: string) {
+    // Only return public anthologies unless the user is the owner
+    if (!owner) {
+      return await this.prisma.anthology.findMany({
+        where: {
+          isPublic: true,
+          compiler: { id: author },
+          OR: [
+            { name: { contains: q } },
+            { description: { contains: q } },
+            { compiler: { username: { contains: q } } },
+          ],
+        },
+      });
+    }
+
     return await this.prisma.anthology.findMany({
       where: {
         compiler: {
@@ -70,7 +84,22 @@ export class AnthologiesService {
   }
 
   async remove(id: number) {
-    // TODO: Disconnect articles before deleting anthology
+    const anthology = await this.prisma.anthology.findUniqueOrThrow({
+      where: { id },
+      include: { articles: true },
+    });
+
+    await this.prisma.anthology.update({
+      where: { id },
+      data: {
+        articles: {
+          disconnect: anthology.articles.map((article) => ({
+            id: article.id,
+          })),
+        },
+      },
+    });
+
     return await this.prisma.anthology.delete({
       where: { id },
     });
