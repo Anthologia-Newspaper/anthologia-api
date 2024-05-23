@@ -76,6 +76,7 @@ model RevokedToken {
 enum EventType {
   VIEW
   LIKE
+  UNLIKE
 }
 
 enum Role {

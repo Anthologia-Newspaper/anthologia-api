@@ -83,32 +83,50 @@ export class ArticlesService {
     });
   }
 
-  async updateLike(id: number, user: number, isLiked: boolean) {
-    const article = await this.prisma.article.findUnique({
+  // TODO: create a LIKE/UNLIKE Event in the database and link/unlink the article with the user
+  async updateLike(id: number, userId: number, isLiked: boolean) {
+    const article = await this.prisma.article.findUniqueOrThrow({
       where: { id },
-      include: { likes: { where: { id: user } } },
+      include: { likes: { where: { id: userId } } },
     });
 
-    if (isLiked && !article) {
-      await this.prisma.event;
-      return await this.prisma.article.update({
+    if (isLiked && article.likes.length)
+      throw new ConflictException('Already liked');
+    else if (!isLiked && !article.likes.length)
+      throw new ConflictException('Not liked yet');
+
+    // TODO: Check if this really works properly
+    if (isLiked) {
+      await this.prisma.article.update({
         where: { id },
         data: {
-          likes: { connect: { id: user } },
+          likes: { connect: { id: userId } },
+        },
+      });
+
+      return await this.prisma.event.create({
+        data: {
+          article: { connect: { id } },
+          type: EventType.LIKE,
         },
       });
     }
 
-    if (!isLiked && article) {
-      return await this.prisma.article.update({
-        where: { id },
-        data: {
-          likes: { disconnect: { id: user } },
-        },
-      });
-    }
+    // TODO: Check if this really works properly
+    await this.prisma.article.update({
+      where: { id },
+      data: {
+        likes: { disconnect: { id: userId } },
+      },
+    });
 
-    throw new ConflictException();
+    // If the user has already liked the article, we create an UNLIKE event
+    return await this.prisma.event.create({
+      data: {
+        article: { connect: { id } },
+        type: EventType.UNLIKE,
+      },
+    });
   }
 
   async remove(id: number) {
