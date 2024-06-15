@@ -18,7 +18,9 @@ export class ArticlesService {
         title: article.title,
         subtitle: article.subtitle,
         content: article.content,
-        anthology: { connect: { id: article.anthology } },
+        anthology: article.anthology
+          ? { connect: { id: article.anthology } }
+          : undefined,
       },
     });
   }
@@ -78,7 +80,9 @@ export class ArticlesService {
         title: articleUpdate.title,
         subtitle: articleUpdate.subtitle,
         content: articleUpdate.content,
-        anthology: { connect: { id: articleUpdate.anthology } },
+        anthology: articleUpdate.anthology
+          ? { connect: { id: articleUpdate.anthology } }
+          : undefined,
       },
     });
   }
