@@ -13,7 +13,7 @@ async function bootstrap() {
     origin:
       process.env.NODE_ENV === 'prod'
         ? process.env.DOMAIN_NAME
-        : `http://localhost:${process.env.PORT || 8080}`,
+        : 'http://localhost:3000',
   });
   app.use(cookieParser());
   app.useGlobalPipes(
