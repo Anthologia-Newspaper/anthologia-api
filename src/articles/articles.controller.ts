@@ -80,15 +80,6 @@ export class ArticlesController {
     }
   }
 
-  @Get('/anthology/:id')
-  async findAllInAnthology(@Param('id') id: number) {
-    try {
-      return await this.articlesService.findAllInAnthology(id);
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
-
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,

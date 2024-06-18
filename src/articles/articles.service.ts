@@ -47,12 +47,9 @@ export class ArticlesService {
           { author: { username: { contains: q } } },
         ],
       },
-    });
-  }
-
-  async findAllInAnthology(anthologyId: number) {
-    return await this.prisma.article.findMany({
-      where: { anthology: { every: { id: anthologyId } }, draft: false },
+      include: {
+        likes: true,
+      },
     });
   }
 
