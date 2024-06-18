@@ -1,9 +1,18 @@
-import { PartialType } from '@nestjs/swagger';
-import { IsInt } from 'class-validator';
+import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
 
-import { CreateAnthologyDto } from './create-anthology.dto';
+export class UpdateAnthologyDto {
+  @IsOptional()
+  @IsString()
+  name?: string;
 
-export class UpdateAnthologyDto extends PartialType(CreateAnthologyDto) {
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isPublic?: boolean;
+
   @IsInt({ each: true })
   addArticles: number[];
 

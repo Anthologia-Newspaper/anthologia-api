@@ -1,9 +1,11 @@
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Delete,
   Get,
   Param,
+  ParseBoolPipe,
   Patch,
   Post,
   Query,
@@ -41,12 +43,18 @@ export class ArticlesController {
   }
 
   @Get()
-  async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
+  async findAll(
+    @Req() req: Request,
+    @Query() query: GetArticlesQueryParams,
+    @Query('draft', new DefaultValuePipe(false), ParseBoolPipe) draft?: boolean,
+    @Query('isLiked', new DefaultValuePipe(false), ParseBoolPipe)
+    isLiked?: boolean,
+  ) {
     try {
       let { author } = query;
-      const { topic, draft, q } = query;
+      const { topic, q } = query;
 
-      if (author === 'me') {
+      if (author === 'me' || (draft === true && author === undefined)) {
         author = req.user.sub;
       }
 
@@ -56,7 +64,13 @@ export class ArticlesController {
       if (draft && author !== undefined && author !== req.user.sub)
         throw new UnauthorizedException('Cannot view drafts of other users.');
 
-      return await this.articlesService.findAll(author, topic, draft, q);
+      return await this.articlesService.findAll(
+        author,
+        topic,
+        draft,
+        isLiked,
+        q,
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }

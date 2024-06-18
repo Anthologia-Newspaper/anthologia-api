@@ -29,6 +29,7 @@ export class ArticlesService {
     authorId?: number,
     topicId?: number,
     draft?: boolean,
+    isLiked?: boolean,
     q?: string,
   ) {
     return await this.prisma.article.findMany({
@@ -36,6 +37,7 @@ export class ArticlesService {
         authorId,
         topicId,
         draft,
+        likes: isLiked === true ? { some: { id: authorId } } : undefined,
         OR: [
           { title: { contains: q } },
           { subtitle: { contains: q } },

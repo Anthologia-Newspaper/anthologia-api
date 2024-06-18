@@ -6,7 +6,7 @@ COPY ./ ./
 
 RUN yarn
 
-RUN yarn prisma generate
+RUN npx @snaplet/seed generate
 
 RUN yarn build
 
