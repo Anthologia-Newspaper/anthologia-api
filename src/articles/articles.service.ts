@@ -28,6 +28,7 @@ export class ArticlesService {
   async findAll(
     authorId?: number,
     topicId?: number,
+    anthologyId?: number,
     draft?: boolean,
     isLiked?: boolean,
     q?: string,
@@ -36,6 +37,7 @@ export class ArticlesService {
       where: {
         authorId,
         topicId,
+        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
         draft,
         likes: isLiked === true ? { some: { id: authorId } } : undefined,
         OR: [

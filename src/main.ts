@@ -13,13 +13,13 @@ async function bootstrap() {
     origin:
       process.env.NODE_ENV === 'prod'
         ? process.env.DOMAIN_NAME
-        : `http://localhost:${process.env.PORT || 3000}`,
+        : `http://localhost:${process.env.PORT || 8080}`,
   });
   app.use(cookieParser());
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
-      // transformOptions: { enableImplicitConversion: true },
+      transformOptions: { enableImplicitConversion: true },
     }),
   );
 
@@ -31,6 +31,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('doc', app, document);
 
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(process.env.PORT || 8080);
 }
 bootstrap();

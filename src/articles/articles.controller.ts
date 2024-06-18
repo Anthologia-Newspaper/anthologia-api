@@ -1,11 +1,11 @@
 import {
   Body,
   Controller,
-  DefaultValuePipe,
   Delete,
   Get,
   Param,
   ParseBoolPipe,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -43,16 +43,10 @@ export class ArticlesController {
   }
 
   @Get()
-  async findAll(
-    @Req() req: Request,
-    @Query() query: GetArticlesQueryParams,
-    @Query('draft', new DefaultValuePipe(false), ParseBoolPipe) draft?: boolean,
-    @Query('isLiked', new DefaultValuePipe(false), ParseBoolPipe)
-    isLiked?: boolean,
-  ) {
+  async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
       let { author } = query;
-      const { topic, q } = query;
+      const { topic, anthologyId, draft, isLiked, q } = query;
 
       if (author === 'me' || (draft === true && author === undefined)) {
         author = req.user.sub;
@@ -67,6 +61,7 @@ export class ArticlesController {
       return await this.articlesService.findAll(
         author,
         topic,
+        anthologyId,
         draft,
         isLiked,
         q,
@@ -97,8 +92,8 @@ export class ArticlesController {
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,
-    @Param('id') id: number,
-    @Body() isLiked: boolean,
+    @Param('id', new ParseIntPipe()) id: number,
+    @Body('isLiked', new ParseBoolPipe()) isLiked: boolean,
   ) {
     try {
       return await this.articlesService.updateLike(id, req.user.sub, isLiked);

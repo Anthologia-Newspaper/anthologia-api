@@ -9,6 +9,7 @@ export class AnthologiesService {
 
   async create(
     newAnthology: CreateAnthologyDto,
+    isPublic: boolean,
     userId: number,
     articles?: { id: number }[],
   ) {
@@ -16,7 +17,7 @@ export class AnthologiesService {
       data: {
         name: newAnthology.name,
         description: newAnthology.description,
-        isPublic: newAnthology.isPublic,
+        isPublic,
         articles: {
           connect: articles,
         },
@@ -60,7 +61,10 @@ export class AnthologiesService {
   }
 
   async findOne(id: number) {
-    return `This action returns a #${id} anthology`;
+    return await this.prisma.anthology.findUniqueOrThrow({
+      where: { id },
+      include: { articles: true },
+    });
   }
 
   async update(

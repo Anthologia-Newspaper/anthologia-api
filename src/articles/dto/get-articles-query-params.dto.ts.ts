@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
 import { IsMeOrUserId } from 'src/decorators/validators/IsMeOrUserId';
 
 export class GetArticlesQueryParams {
@@ -13,8 +13,16 @@ export class GetArticlesQueryParams {
   author?: number | 'me';
 
   @IsOptional()
+  @IsBoolean()
+  draft?: boolean;
+
+  @IsOptional()
   @IsInt()
   topic?: number;
+
+  @IsOptional()
+  @IsBoolean()
+  isLiked?: boolean;
 
   @IsOptional()
   @IsInt()
