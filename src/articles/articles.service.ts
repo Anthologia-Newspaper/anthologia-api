@@ -75,7 +75,6 @@ export class ArticlesService {
       include: {
         anthology: true,
         author: true,
-        dailyStats: true,
         topic: true,
       },
     });
