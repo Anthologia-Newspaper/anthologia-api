@@ -16,7 +16,7 @@ async function bootstrap() {
     // ],
     origin:
       process.env.NODE_ENV === 'prod'
-        ? (process.env.FRON_URL as string)
+        ? (process.env.FRONT_URL as string)
         : `http://localhost:${process.env.FRONT_PORT || 3000}`,
   });
   app.use(cookieParser());
