@@ -1,3 +1,9 @@
+/*
+| Developed by Alexandre Schaffner
+| Filename : anthologies.controller.ts
+| Author : Alexandre Schaffner (alexandre.schaffner@epitech.eu)
+*/
+
 import {
   Body,
   Controller,
