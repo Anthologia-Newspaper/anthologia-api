@@ -49,6 +49,18 @@ export class AuthenticationService {
     return tokens;
   }
 
+  async me(userId: number) {
+    return await this.prisma.user.findUniqueOrThrow({
+      where: { id: userId },
+      select: {
+        id: true,
+        createdAt: true,
+        email: true,
+        username: true,
+      },
+    });
+  }
+
   async signUp(newUser: SignUpDto) {
     newUser.password = await bcrypt.hash(newUser.password, 10);
 
