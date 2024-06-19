@@ -7,6 +7,7 @@ import { ArticlesModule } from './articles/articles.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { TopicsModule } from './topics/topics.module';
+import { IpfsService } from './ipfs/ipfs.service';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { TopicsModule } from './topics/topics.module';
     AnthologiesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, IpfsService],
 })
 export class AppModule {}
