@@ -1,7 +1,14 @@
+/*
+| Developed by Alexandre Schaffner
+| Filename : anthologies.service.ts
+| Author : Alexandre Schaffner (alexandre.schaffner@epitech.eu)
+*/
+
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
+
 import { CreateAnthologyDto } from './dto/create-anthology.dto';
 import { UpdateAnthologyDto } from './dto/update-anthology.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class AnthologiesService {
