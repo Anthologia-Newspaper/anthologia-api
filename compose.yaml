@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ./
+    build: ./Dockerfile.dev
     ports:
       - ${BACK_PORT}:${BACK_PORT}
       - 5555:5555

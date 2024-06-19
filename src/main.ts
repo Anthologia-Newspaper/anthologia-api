@@ -12,7 +12,7 @@ async function bootstrap() {
     credentials: true,
     origin:
       process.env.NODE_ENV === 'prod'
-        ? process.env.DOMAIN_NAME
+        ? '*' // process.env.DOMAIN_NAME
         : `http://localhost:${process.env.FRONT_PORT || 3000}`,
   });
   app.use(cookieParser());

@@ -12,4 +12,6 @@ RUN yarn build
 
 EXPOSE ${BACK_PORT}
 
-CMD ["yarn", "start:prod"]
+EXPOSE 5555
+
+CMD ["yarn", "start:dev"]
