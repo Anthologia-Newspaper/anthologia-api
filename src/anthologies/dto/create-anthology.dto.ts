@@ -1,4 +1,4 @@
-import { IsBoolean, IsInt, IsString } from 'class-validator';
+import { IsInt, IsString } from 'class-validator';
 
 export class CreateAnthologyDto {
   @IsString()
@@ -6,9 +6,6 @@ export class CreateAnthologyDto {
 
   @IsString()
   description: string;
-
-  @IsBoolean()
-  isPublic: boolean;
 
   @IsInt({ each: true })
   articles: number[];

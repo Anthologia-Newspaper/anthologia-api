@@ -4,6 +4,8 @@ import {
   Delete,
   Get,
   Param,
+  ParseBoolPipe,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -44,9 +46,9 @@ export class ArticlesController {
   async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
       let { author } = query;
-      const { topic, draft, q } = query;
+      const { topic, anthologyId, draft, isLiked, q } = query;
 
-      if (author === 'me') {
+      if (author === 'me' || (draft === true && author === undefined)) {
         author = req.user.sub;
       }
 
@@ -56,7 +58,14 @@ export class ArticlesController {
       if (draft && author !== undefined && author !== req.user.sub)
         throw new UnauthorizedException('Cannot view drafts of other users.');
 
-      return await this.articlesService.findAll(author, topic, draft, q);
+      return await this.articlesService.findAll(
+        author,
+        topic,
+        anthologyId,
+        draft,
+        isLiked,
+        q,
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -71,20 +80,11 @@ export class ArticlesController {
     }
   }
 
-  @Get('/anthology/:id')
-  async findAllInAnthology(@Param('id') id: number) {
-    try {
-      return await this.articlesService.findAllInAnthology(id);
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
-
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,
-    @Param('id') id: number,
-    @Body() isLiked: boolean,
+    @Param('id', new ParseIntPipe()) id: number,
+    @Body('isLiked', new ParseBoolPipe()) isLiked: boolean,
   ) {
     try {
       return await this.articlesService.updateLike(id, req.user.sub, isLiked);

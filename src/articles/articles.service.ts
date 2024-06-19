@@ -18,7 +18,9 @@ export class ArticlesService {
         title: article.title,
         subtitle: article.subtitle,
         content: article.content,
-        anthology: { connect: { id: article.anthology } },
+        anthology: article.anthology
+          ? { connect: { id: article.anthology } }
+          : undefined,
       },
     });
   }
@@ -26,14 +28,18 @@ export class ArticlesService {
   async findAll(
     authorId?: number,
     topicId?: number,
+    anthologyId?: number,
     draft?: boolean,
+    isLiked?: boolean,
     q?: string,
   ) {
     return await this.prisma.article.findMany({
       where: {
         authorId,
         topicId,
+        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
         draft,
+        likes: isLiked === true ? { some: { id: authorId } } : undefined,
         OR: [
           { title: { contains: q } },
           { subtitle: { contains: q } },
@@ -41,12 +47,18 @@ export class ArticlesService {
           { author: { username: { contains: q } } },
         ],
       },
-    });
-  }
-
-  async findAllInAnthology(anthologyId: number) {
-    return await this.prisma.article.findMany({
-      where: { anthology: { every: { id: anthologyId } }, draft: false },
+      select: {
+        id: true,
+        title: true,
+        subtitle: true,
+        topic: true,
+        author: true,
+        createdAt: true,
+        updatedAt: true,
+        draft: true,
+        likeCounter: true,
+        viewCounter: true,
+      },
     });
   }
 
@@ -60,12 +72,11 @@ export class ArticlesService {
 
     return await this.prisma.article.findUnique({
       where: { id },
-    });
-  }
-
-  async findDrafts(authorId: number) {
-    return await this.prisma.article.findMany({
-      where: { AND: { authorId, draft: { equals: true } } },
+      include: {
+        anthology: true,
+        author: true,
+        topic: true,
+      },
     });
   }
 
@@ -78,7 +89,9 @@ export class ArticlesService {
         title: articleUpdate.title,
         subtitle: articleUpdate.subtitle,
         content: articleUpdate.content,
-        anthology: { connect: { id: articleUpdate.anthology } },
+        anthology: articleUpdate.anthology
+          ? { connect: { id: articleUpdate.anthology } }
+          : undefined,
       },
     });
   }
@@ -95,11 +108,11 @@ export class ArticlesService {
     else if (!isLiked && !article.likes.length)
       throw new ConflictException('Not liked yet');
 
-    // TODO: Check if this really works properly
     if (isLiked) {
       await this.prisma.article.update({
         where: { id },
         data: {
+          likeCounter: { increment: 1 },
           likes: { connect: { id: userId } },
         },
       });
@@ -116,6 +129,7 @@ export class ArticlesService {
     await this.prisma.article.update({
       where: { id },
       data: {
+        likeCounter: { decrement: 1 },
         likes: { disconnect: { id: userId } },
       },
     });

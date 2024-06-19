@@ -9,6 +9,7 @@ export class AnthologiesService {
 
   async create(
     newAnthology: CreateAnthologyDto,
+    isPublic: boolean,
     userId: number,
     articles?: { id: number }[],
   ) {
@@ -16,7 +17,7 @@ export class AnthologiesService {
       data: {
         name: newAnthology.name,
         description: newAnthology.description,
-        isPublic: newAnthology.isPublic,
+        isPublic,
         articles: {
           connect: articles,
         },
@@ -42,6 +43,33 @@ export class AnthologiesService {
             { compiler: { username: { contains: q } } },
           ],
         },
+        select: {
+          id: true,
+          name: true,
+          description: true,
+          createdAt: true,
+          updatedAt: true,
+          compiler: {
+            select: {
+              id: true,
+              username: true,
+            },
+          },
+          articles: {
+            select: {
+              id: true,
+              title: true,
+              subtitle: true,
+              topic: true,
+              author: true,
+              createdAt: true,
+              updatedAt: true,
+              draft: true,
+              likeCounter: true,
+              viewCounter: true,
+            },
+          },
+        },
       });
     }
 
@@ -56,11 +84,41 @@ export class AnthologiesService {
           { compiler: { username: { contains: q } } },
         ],
       },
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        createdAt: true,
+        updatedAt: true,
+        compiler: {
+          select: {
+            id: true,
+            username: true,
+          },
+        },
+        articles: {
+          select: {
+            id: true,
+            title: true,
+            subtitle: true,
+            topic: true,
+            author: true,
+            createdAt: true,
+            updatedAt: true,
+            draft: true,
+            likeCounter: true,
+            viewCounter: true,
+          },
+        },
+      },
     });
   }
 
   async findOne(id: number) {
-    return `This action returns a #${id} anthology`;
+    return await this.prisma.anthology.findUniqueOrThrow({
+      where: { id },
+      include: { articles: true },
+    });
   }
 
   async update(

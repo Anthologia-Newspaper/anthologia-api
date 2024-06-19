@@ -21,6 +21,14 @@ export class GetArticlesQueryParams {
   topic?: number;
 
   @IsOptional()
+  @IsBoolean()
+  isLiked?: boolean;
+
+  @IsOptional()
+  @IsInt()
+  anthologyId?: number;
+
+  @IsOptional()
   @IsString()
   q?: string;
 }

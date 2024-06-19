@@ -2,7 +2,7 @@ services:
   backend:
     build: ./
     ports:
-      - 3000:3000
+      - ${BACK_PORT}:${BACK_PORT}
       - 5555:5555
     volumes:
       - ./:/app
@@ -18,6 +18,6 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=anthologia
     volumes:
-      - /tmp/db:/var/lib/postgresql/data
+      - /tmp/db/anthologia:/var/lib/postgresql/data/
     ports:
       - 5432:5432

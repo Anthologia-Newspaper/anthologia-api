@@ -1,9 +1,11 @@
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Delete,
   Get,
   Param,
+  ParseBoolPipe,
   Patch,
   Post,
   Query,
@@ -28,12 +30,18 @@ export class AnthologiesController {
   constructor(private readonly anthologiesService: AnthologiesService) {}
 
   @Post()
-  async create(@Req() req: Request, @Body() newAnthology: CreateAnthologyDto) {
+  async create(
+    @Req() req: Request,
+    @Body('isPublic', new DefaultValuePipe(false), ParseBoolPipe)
+    isPublic: boolean,
+    @Body() newAnthology: CreateAnthologyDto,
+  ) {
     try {
       const articles = newAnthology.articles.map((id) => ({ id }));
 
       return await this.anthologiesService.create(
         newAnthology,
+        isPublic,
         req.user.sub,
         articles,
       );
@@ -68,7 +76,7 @@ export class AnthologiesController {
     }
   }
 
-  @Get(':id')
+  @Get(':id/articles')
   async findOne(@Param('id') id: number) {
     try {
       return await this.anthologiesService.findOne(id);
