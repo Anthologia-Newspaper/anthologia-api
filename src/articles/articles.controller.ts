@@ -72,9 +72,9 @@ export class ArticlesController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
+  async findOne(@Req() req: Request, @Param('id') id: string) {
     try {
-      return await this.articlesService.findOne(+id);
+      return await this.articlesService.findOne(+id, req.user.sub);
     } catch (err: unknown) {
       handleErrors(err);
     }
