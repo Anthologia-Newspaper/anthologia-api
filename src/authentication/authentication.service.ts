@@ -85,6 +85,7 @@ export class AuthenticationService {
     return { user, tokens };
   }
 
+  // TODO: also refresh refresh token
   async refreshTokens(refreshToken: string) {
     const { sub, type, jti } = (await this.jwtService.decode(
       refreshToken,
@@ -100,10 +101,13 @@ export class AuthenticationService {
     });
 
     return await this.jwtService.signAsync(
-      { type: JwtType.ACCESS, refreshJti: jti },
+      {
+        type: JwtType.ACCESS,
+        refreshJti: jti,
+        sub,
+      },
       {
         jwtid: uuid(),
-        subject: sub.toString(),
         expiresIn: '2h',
       },
     );
