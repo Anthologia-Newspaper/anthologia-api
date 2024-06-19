@@ -68,6 +68,7 @@ export class AuthenticationController {
               ? 'localhost'
               : process.env.DOMAIN_NAME,
           path: '/authentication/refresh-token',
+          sameSite: 'none',
         })
         .cookie('jwt', tokens.accessToken, {
           httpOnly: true,
@@ -79,6 +80,7 @@ export class AuthenticationController {
               ? 'localhost'
               : process.env.DOMAIN_NAME,
           path: '/',
+          sameSite: 'none',
         });
 
       return { user };
@@ -107,6 +109,7 @@ export class AuthenticationController {
             ? 'localhost'
             : process.env.DOMAIN_NAME,
         path: '/',
+        sameSite: 'none',
       });
 
       res.cookie('refreshToken', tokens.refreshToken, {
@@ -118,6 +121,7 @@ export class AuthenticationController {
             ? 'localhost'
             : process.env.DOMAIN_NAME,
         path: '/authentication/refresh-token',
+        sameSite: 'none',
       });
 
       return { user };
@@ -147,6 +151,7 @@ export class AuthenticationController {
               ? 'localhost'
               : process.env.DOMAIN_NAME,
           path: '/',
+          sameSite: 'none',
         },
       );
     } catch (err: unknown) {
