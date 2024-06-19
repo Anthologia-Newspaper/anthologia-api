@@ -11,11 +11,11 @@ async function bootstrap() {
   app.enableCors({
     credentials: true,
     origin: [
-      process.env.DOMAIN_NAME as string,
+      process.env.FRONT_URL as string,
       `http://localhost:${process.env.FRONT_PORT || 3000}`,
     ],
     // process.env.NODE_ENV === 'prod'
-    //   ? '*' // process.env.DOMAIN_NAME
+    //   ? '*' // process.env.FRON_URL as string
     //   : `http://localhost:${process.env.FRONT_PORT || 3000}`,
   });
   app.use(cookieParser());

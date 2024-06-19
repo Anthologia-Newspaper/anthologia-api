@@ -142,7 +142,9 @@ export class AuthenticationController {
             process.env.NODE_ENV === 'prod' ||
             process.env.NODE_ENV === 'staging',
           domain:
-            process.env.NODE_ENV === 'dev' ? 'localhost' : 'tamana-company.com',
+            process.env.NODE_ENV === 'dev'
+              ? 'localhost'
+              : process.env.DOMAIN_NAME,
           path: '/',
         },
       );
