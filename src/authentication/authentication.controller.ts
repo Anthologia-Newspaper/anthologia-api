@@ -135,7 +135,8 @@ export class AuthenticationController {
     try {
       res.cookie(
         'jwt',
-        await this.authService.refreshTokens(req.cookies['refreshToken']),
+        (await this.authService.refreshTokens(req.cookies['refreshToken']))
+          .accessToken,
         {
           httpOnly: true,
           secure:

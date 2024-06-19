@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { RevokedToken, User } from '@prisma/client';
+import { RevokedToken } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { InvalidCredentials } from 'src/errors/InvalidCredentials';
 import { v4 as uuid } from 'uuid';
@@ -19,7 +19,7 @@ export class AuthenticationService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async generateTokens(user: User) {
+  async generateTokens(sub: number) {
     const refreshJti = uuid();
 
     const tokens = {
@@ -27,7 +27,7 @@ export class AuthenticationService {
         {
           type: JwtType.ACCESS,
           refreshJti,
-          sub: user.id,
+          sub,
         },
         {
           jwtid: uuid(),
@@ -38,7 +38,7 @@ export class AuthenticationService {
         {
           type: JwtType.REFRESH,
           expiresIn: '20d',
-          sub: user.id,
+          sub,
         },
         {
           jwtid: refreshJti,
@@ -66,7 +66,7 @@ export class AuthenticationService {
 
     const user = await this.prisma.user.create({ data: newUser });
 
-    const tokens = await this.generateTokens(user);
+    const tokens = await this.generateTokens(user.id);
 
     return { user, tokens };
   }
@@ -80,7 +80,7 @@ export class AuthenticationService {
       throw new InvalidCredentials();
     }
 
-    const tokens = await this.generateTokens(user);
+    const tokens = await this.generateTokens(user.id);
 
     return { user, tokens };
   }
@@ -100,17 +100,7 @@ export class AuthenticationService {
       secret: process.env.JWT_SECRET,
     });
 
-    return await this.jwtService.signAsync(
-      {
-        type: JwtType.ACCESS,
-        refreshJti: jti,
-        sub,
-      },
-      {
-        jwtid: uuid(),
-        expiresIn: '2h',
-      },
-    );
+    return await this.generateTokens(sub);
   }
 
   async revokeToken(jti: string): Promise<RevokedToken> {
