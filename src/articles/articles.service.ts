@@ -62,15 +62,8 @@ export class ArticlesService {
     });
   }
 
-  async findOne(id: number) {
-    await this.prisma.event.create({
-      data: {
-        article: { connect: { id } },
-        type: EventType.VIEW,
-      },
-    });
-
-    return await this.prisma.article.findUnique({
+  async findOne(id: number, requesterId?: number) {
+    const article = await this.prisma.article.findUniqueOrThrow({
       where: { id },
       include: {
         anthology: true,
@@ -78,6 +71,25 @@ export class ArticlesService {
         topic: true,
       },
     });
+
+    if (article.draft && article.authorId !== requesterId)
+      throw new ConflictException('Cannot view drafts of other users.');
+
+    await this.prisma.event.create({
+      data: {
+        article: { connect: { id } },
+        type: EventType.VIEW,
+      },
+    });
+
+    await this.prisma.article.update({
+      where: { id },
+      data: {
+        viewCounter: { increment: 1 },
+      },
+    });
+
+    return article;
   }
 
   async update(id: number, articleUpdate: UpdateArticleDto) {
