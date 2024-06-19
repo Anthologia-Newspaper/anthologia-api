@@ -100,7 +100,7 @@ export class AuthenticationService {
     });
 
     return await this.jwtService.signAsync(
-      { type, refreshJti: jti },
+      { type: JwtType.ACCESS, refreshJti: jti },
       {
         jwtid: uuid(),
         subject: sub.toString(),
