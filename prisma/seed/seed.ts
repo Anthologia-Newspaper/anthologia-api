@@ -6,7 +6,7 @@
  */
 
 import { createSeedClient } from '@snaplet/seed';
-import { copycat } from '@snaplet/copycat';
+import copycat_1, { copycat } from '@snaplet/copycat';
 import bcrypt from 'bcrypt';
 
 const main = async () => {
@@ -33,6 +33,33 @@ const main = async () => {
             image: copycat.url(seed),
           },
         })),
+    })),
+  );
+
+  await seed.anthology((x) =>
+    x(10, ({ seed }) => ({
+      name: copycat.username(seed),
+      description: copycat.sentence(seed),
+      articles: (x) =>
+        x(5, ({ seed }) => ({
+          title: copycat.sentence(seed),
+          subtitle: copycat.sentence(seed),
+          content: copycat.paragraph(seed),
+          draft: copycat.bool(seed),
+          topic: {
+            name: copycat.word(seed),
+            description: copycat.sentence(seed),
+            image: copycat.url(seed),
+          },
+        })),
+    })),
+  );
+
+  await seed.topic((x) =>
+    x(10, ({ seed }) => ({
+      name: copycat_1.copycat.word(seed),
+      description: copycat_1.copycat.sentence(seed),
+      image: copycat_1.copycat.url(seed),
     })),
   );
 
