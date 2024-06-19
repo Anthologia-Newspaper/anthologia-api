@@ -47,8 +47,17 @@ export class ArticlesService {
           { author: { username: { contains: q } } },
         ],
       },
-      include: {
-        likes: true,
+      select: {
+        id: true,
+        title: true,
+        subtitle: true,
+        topic: true,
+        author: true,
+        createdAt: true,
+        updatedAt: true,
+        draft: true,
+        likeCounter: true,
+        viewCounter: true,
       },
     });
   }
@@ -63,12 +72,12 @@ export class ArticlesService {
 
     return await this.prisma.article.findUnique({
       where: { id },
-    });
-  }
-
-  async findDrafts(authorId: number) {
-    return await this.prisma.article.findMany({
-      where: { AND: { authorId, draft: { equals: true } } },
+      include: {
+        anthology: true,
+        author: true,
+        dailyStats: true,
+        topic: true,
+      },
     });
   }
 
@@ -100,11 +109,11 @@ export class ArticlesService {
     else if (!isLiked && !article.likes.length)
       throw new ConflictException('Not liked yet');
 
-    // TODO: Check if this really works properly
     if (isLiked) {
       await this.prisma.article.update({
         where: { id },
         data: {
+          likeCounter: { increment: 1 },
           likes: { connect: { id: userId } },
         },
       });
@@ -121,6 +130,7 @@ export class ArticlesService {
     await this.prisma.article.update({
       where: { id },
       data: {
+        likeCounter: { decrement: 1 },
         likes: { disconnect: { id: userId } },
       },
     });

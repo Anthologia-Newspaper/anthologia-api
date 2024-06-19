@@ -24,21 +24,22 @@ model User {
 }
 
 model Article {
-  id         Int         @id @default(autoincrement())
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
-  draft      Boolean     @default(true)
-  title      String
-  subtitle   String?
-  content    String
-  author     User        @relation(name: "WrittenArticles", fields: [authorId], references: [id])
-  authorId   Int
-  totalViews Int         @default(0)
-  likes      User[]      @relation(name: "LikedArticles")
-  dailyStats Event[]
-  topic      Topic       @relation(fields: [topicId], references: [id])
-  topicId    Int
-  anthology  Anthology[]
+  id          Int         @id @default(autoincrement())
+  title       String
+  subtitle    String?
+  topic       Topic       @relation(fields: [topicId], references: [id])
+  topicId     Int
+  author      User        @relation(name: "WrittenArticles", fields: [authorId], references: [id])
+  authorId    Int
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  content     String
+  draft       Boolean     @default(true)
+  anthology   Anthology[]
+  viewCounter Int         @default(0)
+  likeCounter Int         @default(0)
+  likes       User[]      @relation(name: "LikedArticles")
+  dailyStats  Event[]
 }
 
 model Event {
