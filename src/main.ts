@@ -13,7 +13,7 @@ async function bootstrap() {
     origin:
       process.env.NODE_ENV === 'prod'
         ? process.env.DOMAIN_NAME
-        : `http://localhost:${process.env.PORT || 8080}`,
+        : `http://localhost:${process.env.FRONT_PORT || 3000}`,
   });
   app.use(cookieParser());
   app.useGlobalPipes(
@@ -31,6 +31,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('doc', app, document);
 
-  await app.listen(process.env.PORT || 8080);
+  await app.listen(process.env.BACK_PORT || 8080);
 }
 bootstrap();
