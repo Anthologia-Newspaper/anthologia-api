@@ -63,10 +63,6 @@ export class AuthenticationController {
           secure:
             process.env.NODE_ENV === 'prod' ||
             process.env.NODE_ENV === 'staging',
-          domain:
-            process.env.NODE_ENV === 'dev'
-              ? 'localhost'
-              : process.env.DOMAIN_NAME,
           path: '/authentication/refresh-token',
           sameSite: 'none',
         })
@@ -75,10 +71,6 @@ export class AuthenticationController {
           secure:
             process.env.NODE_ENV === 'prod' ||
             process.env.NODE_ENV === 'staging',
-          domain:
-            process.env.NODE_ENV === 'dev'
-              ? 'localhost'
-              : process.env.DOMAIN_NAME,
           path: '/',
           sameSite: 'none',
         });
@@ -104,10 +96,6 @@ export class AuthenticationController {
         httpOnly: true,
         secure:
           process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging',
-        domain:
-          process.env.NODE_ENV === 'dev'
-            ? 'localhost'
-            : process.env.DOMAIN_NAME,
         path: '/',
         sameSite: 'none',
       });
@@ -116,10 +104,6 @@ export class AuthenticationController {
         httpOnly: true,
         secure:
           process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging',
-        domain:
-          process.env.NODE_ENV === 'dev'
-            ? 'localhost'
-            : process.env.DOMAIN_NAME,
         path: '/authentication/refresh-token',
         sameSite: 'none',
       });
@@ -148,10 +132,6 @@ export class AuthenticationController {
           secure:
             process.env.NODE_ENV === 'prod' ||
             process.env.NODE_ENV === 'staging',
-          domain:
-            process.env.NODE_ENV === 'dev'
-              ? 'localhost'
-              : process.env.DOMAIN_NAME,
           path: '/',
           sameSite: 'none',
         },
