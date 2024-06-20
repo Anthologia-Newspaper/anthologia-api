@@ -137,6 +137,8 @@ export class AuthenticationController {
     @Res({ passthrough: true }) res: Response,
   ) {
     try {
+      if (!req.cookies['refreshToken']) throw new InvalidCredentials();
+
       res.cookie(
         'jwt',
         (await this.authService.refreshTokens(req.cookies['refreshToken']))
@@ -154,6 +156,8 @@ export class AuthenticationController {
           sameSite: 'none',
         },
       );
+
+      return;
     } catch (err: unknown) {
       if (err instanceof InvalidCredentials) {
         res.clearCookie('jwt');
