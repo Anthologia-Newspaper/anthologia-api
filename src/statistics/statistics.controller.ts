@@ -19,4 +19,13 @@ export class StatisticsController {
       handleErrors(err);
     }
   }
+
+  @Get('users/:id')
+  async getUserStatistics(@Param('id') id: number) {
+    try {
+      return await this.statisticsService.getUserStatistics(id);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
 }

@@ -19,15 +19,16 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Article" (
     "id" SERIAL NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-    "draft" BOOLEAN NOT NULL DEFAULT true,
     "title" TEXT NOT NULL,
     "subtitle" TEXT,
-    "content" TEXT NOT NULL,
-    "authorId" INTEGER NOT NULL,
-    "totalViews" INTEGER NOT NULL DEFAULT 0,
     "topicId" INTEGER NOT NULL,
+    "authorId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "content" TEXT NOT NULL,
+    "draft" BOOLEAN NOT NULL DEFAULT true,
+    "viewCounter" INTEGER NOT NULL DEFAULT 0,
+    "likeCounter" INTEGER NOT NULL DEFAULT 0,
 
     CONSTRAINT "Article_pkey" PRIMARY KEY ("id")
 );
@@ -37,6 +38,7 @@ CREATE TABLE "Event" (
     "id" SERIAL NOT NULL,
     "type" "EventType" NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "createdById" INTEGER NOT NULL,
     "articleId" INTEGER NOT NULL,
 
     CONSTRAINT "Event_pkey" PRIMARY KEY ("id")
@@ -108,10 +110,13 @@ CREATE UNIQUE INDEX "_AnthologyToArticle_AB_unique" ON "_AnthologyToArticle"("A"
 CREATE INDEX "_AnthologyToArticle_B_index" ON "_AnthologyToArticle"("B");
 
 -- AddForeignKey
+ALTER TABLE "Article" ADD CONSTRAINT "Article_topicId_fkey" FOREIGN KEY ("topicId") REFERENCES "Topic"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "Article" ADD CONSTRAINT "Article_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Article" ADD CONSTRAINT "Article_topicId_fkey" FOREIGN KEY ("topicId") REFERENCES "Topic"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Event" ADD CONSTRAINT "Event_createdById_fkey" FOREIGN KEY ("createdById") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Event" ADD CONSTRAINT "Event_articleId_fkey" FOREIGN KEY ("articleId") REFERENCES "Article"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

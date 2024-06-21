@@ -74,4 +74,66 @@ export class StatisticsService {
       dailyViews,
     };
   }
+
+  async getUserStatistics(id: number) {
+    const { createdAt } = await this.prisma.user.findUniqueOrThrow({
+      where: { id },
+      select: { createdAt: true },
+    });
+
+    const articleIds = (
+      await this.prisma.article.findMany({
+        where: { authorId: id },
+        select: { id: true },
+      })
+    ).map((article) => article.id);
+
+    const likeCounter = await this.prisma.event.count({
+      where: { articleId: { in: articleIds }, type: 'LIKE' },
+    });
+    const viewCounter = await this.prisma.event.count({
+      where: { articleId: { in: articleIds }, type: 'VIEW' },
+    });
+
+    const viewEvents: Event[] = await this.prisma.event.findMany({
+      where: {
+        articleId: { in: articleIds },
+        type: 'VIEW',
+      },
+      orderBy: { createdAt: 'asc' },
+    });
+
+    const likeEvents: Event[] = await this.prisma.event.findMany({
+      where: {
+        articleId: { in: articleIds },
+        type: 'LIKE',
+      },
+      orderBy: { createdAt: 'asc' },
+    });
+
+    // Create an array of dates from the user's creation date to today
+    //--------------------------------------------------------------------------
+    const dates = [];
+    for (
+      const date = new Date(createdAt);
+      date.toDateString() !== new Date().toDateString();
+      date.setDate(date.getDate() + 1)
+    ) {
+      dates.push(date.toDateString());
+    }
+
+    dates.push(new Date().toDateString());
+
+    // Count the number of events for each day
+    //--------------------------------------------------------------------------
+    const dailyViews = this.getDailyStats(dates, viewEvents);
+    const dailyLikes = this.getDailyStats(dates, likeEvents);
+
+    return {
+      viewCounter,
+      likeCounter,
+      dailyViews,
+      dailyLikes,
+    };
+  }
 }

@@ -79,6 +79,7 @@ export class ArticlesService {
       data: {
         article: { connect: { id } },
         type: EventType.VIEW,
+        createdBy: { connect: { id: requesterId } },
       },
     });
 
@@ -133,6 +134,7 @@ export class ArticlesService {
         data: {
           article: { connect: { id } },
           type: EventType.LIKE,
+          createdBy: { connect: { id: userId } },
         },
       });
     }
@@ -151,6 +153,7 @@ export class ArticlesService {
       data: {
         article: { connect: { id } },
         type: EventType.UNLIKE,
+        createdBy: { connect: { id: userId } },
       },
     });
   }
