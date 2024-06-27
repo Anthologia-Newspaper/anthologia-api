@@ -33,7 +33,6 @@ model Article {
   authorId    Int
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  cid         String      @default("")
   content     String
   draft       Boolean     @default(true)
   anthology   Anthology[]
