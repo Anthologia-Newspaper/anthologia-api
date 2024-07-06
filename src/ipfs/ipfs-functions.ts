@@ -3,10 +3,12 @@ import { handleErrors } from "src/utils/handle-errors";
 const JWT = process.env.JWT;
 
 export class IPFSInteraction {
-    async pinToIpfs(articleContent: string, id: number) : Promise<string> {
+    async pinToIpfs(articleContent: string, subtitle: string, id: number) : Promise<string> {
         try {
             const data = JSON.stringify({
                 pinataContent: {
+                    id: id,
+                    subtitle: subtitle,
                     content: articleContent
                 },
                 pinataMetadata: {
@@ -45,9 +47,9 @@ export class IPFSInteraction {
         }
     }
 
-    async updateIpfsHash(newContent: string, hashToUpdate: string, id: number) : Promise<string>{
+    async updateIpfsHash(newContent: string, subtitle: string, hashToUpdate: string, id: number) : Promise<string>{
         this.removeFromIpfs(hashToUpdate)
-        const res = await this.pinToIpfs(newContent, id);
+        const res = await this.pinToIpfs(newContent, subtitle, id);
 
         return res
     }

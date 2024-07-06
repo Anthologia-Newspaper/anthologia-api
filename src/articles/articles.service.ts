@@ -32,7 +32,7 @@ export class ArticlesService {
         },
       });
   
-      const cid = await this.ipfsInteraction.pinToIpfs(article.content, createdArticle.id)
+      const cid = await this.ipfsInteraction.pinToIpfs(article.content, createdArticle.subtitle ?? '', createdArticle.id)
   
       const articleWithCID = await this.prisma.article.update({
         where: { id: createdArticle.id },
@@ -120,7 +120,7 @@ export class ArticlesService {
         where: { id }
       })
 
-      const new_cid = await this.ipfsInteraction.updateIpfsHash(articleUpdate.content, article.cid, id);
+      const new_cid = await this.ipfsInteraction.updateIpfsHash(articleUpdate.content, article.subtitle ?? '',article.cid, id);
 
       return await this.prisma.article.update({
         where: { id },
