@@ -22,14 +22,15 @@ import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { ApiKeyOrAuthGuard } from 'src/utils/apikeyorauth.guard';
 
 @ApiTags('Articles')
 @ApiCookieAuth()
-@UseGuards(AuthGuard)
 @Controller('articles')
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   async create(
     @Req() req: Request,
@@ -42,6 +43,7 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(ApiKeyOrAuthGuard)
   @Get()
   async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
@@ -71,6 +73,7 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Get(':id')
   async findOne(@Req() req: Request, @Param('id') id: string) {
     try {
@@ -80,6 +83,7 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,
@@ -93,6 +97,7 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -105,6 +110,7 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {
