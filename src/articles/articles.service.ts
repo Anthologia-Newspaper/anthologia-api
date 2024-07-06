@@ -98,7 +98,30 @@ export class ArticlesService {
     });
   }
 
-  async update(id: number, articleUpdate: UpdateArticleDto) {
+  async update(id: number, articleUpdate: UpdateArticleDto) {  
+    if (articleUpdate.content && articleUpdate.content.trim() !== "") {
+      const article = await this.prisma.article.findFirstOrThrow({
+        where: { id }
+      })
+
+      const new_cid = await this.ipfsInteraction.updateIpfsHash(articleUpdate.content, article.cid, id);
+
+      return await this.prisma.article.update({
+        where: { id },
+        data: {
+          draft: articleUpdate.draft,
+          topic: { connect: { id: articleUpdate.topic } },
+          title: articleUpdate.title,
+          subtitle: articleUpdate.subtitle,
+          content: articleUpdate.content,
+          cid: new_cid,
+          anthology: articleUpdate.anthology
+            ? { connect: { id: articleUpdate.anthology } }
+            : undefined,
+        },
+      });
+    }
+
     return await this.prisma.article.update({
       where: { id },
       data: {
