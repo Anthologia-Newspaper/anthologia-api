@@ -4,13 +4,20 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { IPFSInteraction } from 'src/ipfs/ipfs-functions';
 
 @Injectable()
 export class ArticlesService {
-  constructor(private readonly prisma: PrismaService) {}
+  private ipfsInteraction : IPFSInteraction;
+
+  constructor(
+    private readonly prisma: PrismaService,
+  ) {
+    this.ipfsInteraction = new IPFSInteraction()
+  }
 
   async create(author: number, article: CreateArticleDto) {
-    return await this.prisma.article.create({
+    const createdArticle = await this.prisma.article.create({
       data: {
         author: { connect: { id: author } },
         draft: article.draft,
@@ -23,6 +30,17 @@ export class ArticlesService {
           : undefined,
       },
     });
+
+    const cid = await this.ipfsInteraction.pinToIpfs(article.content, createdArticle.id)
+
+    const articleWithCID = await this.prisma.article.update({
+      where: { id: createdArticle.id },
+      data: {
+        cid: cid
+      }
+    })
+
+    return articleWithCID
   }
 
   async findAll(
@@ -144,8 +162,15 @@ export class ArticlesService {
   }
 
   async remove(id: number) {
+    const article = await this.prisma.article.findFirstOrThrow({
+      where: { id }
+    })
+
+    await this.ipfsInteraction.removeFromIpfs(article.cid)
+
     return await this.prisma.article.delete({
       where: { id },
     });
   }
+
 }
