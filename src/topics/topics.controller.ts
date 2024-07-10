@@ -15,14 +15,15 @@ import { handleErrors } from 'src/utils/handle-errors';
 import { CreateTopicDto } from './dto/create-topic.dto';
 import { UpdateTopicDto } from './dto/update-topic.dto';
 import { TopicsService } from './topics.service';
+import { ApiKeyOrAuthGuard } from 'src/utils/apikeyorauth.guard';
 
 @ApiTags('Topics')
 @ApiCookieAuth()
-@UseGuards(AuthGuard)
 @Controller('topics')
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   async create(@Body() createTopicDto: CreateTopicDto) {
     try {
@@ -32,6 +33,7 @@ export class TopicsController {
     }
   }
 
+  @UseGuards(ApiKeyOrAuthGuard)
   @Get()
   async findAll() {
     try {
@@ -41,6 +43,7 @@ export class TopicsController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
     @Param('id') id: number,
@@ -53,6 +56,7 @@ export class TopicsController {
     }
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: number) {
     try {
