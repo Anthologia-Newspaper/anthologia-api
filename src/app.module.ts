@@ -7,6 +7,7 @@ import { ArticlesModule } from './articles/articles.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { TopicsModule } from './topics/topics.module';
+import { IpfsModule } from './ipfs/ipfs.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { TopicsModule } from './topics/topics.module';
     ArticlesModule,
     TopicsModule,
     AnthologiesModule,
+    IpfsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

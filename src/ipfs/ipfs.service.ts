@@ -1,8 +1,10 @@
+import { Injectable } from '@nestjs/common';
 import { handleErrors } from "src/utils/handle-errors";
 
 const JWT = process.env.JWT;
 
-export class IPFSInteraction {
+@Injectable()
+export class IPFSService {
     async pinToIpfs(articleContent: string, subtitle: string, id: number) : Promise<string> {
         try {
             const data = JSON.stringify({

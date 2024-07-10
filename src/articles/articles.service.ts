@@ -4,17 +4,15 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
-import { IPFSInteraction } from 'src/ipfs/ipfs-functions';
+import { IPFSService } from 'src/ipfs/ipfs.service';
 
 @Injectable()
 export class ArticlesService {
-  private ipfsInteraction : IPFSInteraction;
 
   constructor(
     private readonly prisma: PrismaService,
-  ) {
-    this.ipfsInteraction = new IPFSInteraction()
-  }
+    private readonly ipfs: IPFSService
+  ) {}
 
   async create(author: number, article: CreateArticleDto) {
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
@@ -32,7 +30,7 @@ export class ArticlesService {
         },
       });
   
-      const cid = await this.ipfsInteraction.pinToIpfs(article.content, createdArticle.subtitle ?? '', createdArticle.id)
+      const cid = await this.ipfs.pinToIpfs(article.content, createdArticle.subtitle ?? '', createdArticle.id)
   
       const articleWithCID = await this.prisma.article.update({
         where: { id: createdArticle.id },
@@ -120,7 +118,7 @@ export class ArticlesService {
         where: { id }
       })
 
-      const new_cid = await this.ipfsInteraction.updateIpfsHash(articleUpdate.content, article.subtitle ?? '',article.cid, id);
+      const new_cid = await this.ipfs.updateIpfsHash(articleUpdate.content, article.subtitle ?? '',article.cid, id);
 
       return await this.prisma.article.update({
         where: { id },
@@ -206,7 +204,7 @@ export class ArticlesService {
         where: { id }
       })
   
-      await this.ipfsInteraction.removeFromIpfs(article.cid)
+      await this.ipfs.removeFromIpfs(article.cid)
     }
 
     return await this.prisma.article.delete({
