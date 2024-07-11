@@ -8,10 +8,9 @@ import { IPFSService } from 'src/ipfs/ipfs.service';
 
 @Injectable()
 export class ArticlesService {
-
   constructor(
     private readonly prisma: PrismaService,
-    private readonly ipfs: IPFSService
+    private readonly ipfs: IPFSService,
   ) {}
 
   async create(author: number, article: CreateArticleDto) {
@@ -29,25 +28,30 @@ export class ArticlesService {
             : undefined,
         },
       });
-  
-      const cid = await this.ipfs.pinToIpfs(article.content, createdArticle.subtitle ?? '', createdArticle.id)
-  
+
+      const cid = await this.ipfs.pinToIpfs(
+        article.content,
+        createdArticle.subtitle ?? '',
+        createdArticle.id,
+      );
+
       const articleWithCID = await this.prisma.article.update({
         where: { id: createdArticle.id },
         data: {
-          cid: cid
-        }
-      })
-  
-      return articleWithCID
+          cid,
+        },
+      });
+
+      return articleWithCID;
     }
+
     return await this.prisma.article.create({
       data: {
         author: { connect: { id: author } },
         draft: article.draft,
         topic: { connect: { id: article.topic } },
         title: article.title,
-        cid: "QmYmddzbQTktSj6ajQ5JQmQyNChKVzznpcKoZ2tGu6DdGh",
+        cid: 'QmYmddzbQTktSj6ajQ5JQmQyNChKVzznpcKoZ2tGu6DdGh',
         subtitle: article.subtitle,
         content: article.content,
         anthology: article.anthology
@@ -112,13 +116,22 @@ export class ArticlesService {
     });
   }
 
-  async update(id: number, articleUpdate: UpdateArticleDto) {  
-    if (articleUpdate.content && articleUpdate.content.trim() !== "" && (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')) {
+  async update(id: number, articleUpdate: UpdateArticleDto) {
+    if (
+      articleUpdate.content &&
+      articleUpdate.content.trim() !== '' &&
+      (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
+    ) {
       const article = await this.prisma.article.findFirstOrThrow({
-        where: { id }
-      })
+        where: { id },
+      });
 
-      const new_cid = await this.ipfs.updateIpfsHash(articleUpdate.content, article.subtitle ?? '',article.cid, id);
+      const new_cid = await this.ipfs.updateIpfsHash(
+        articleUpdate.content,
+        article.subtitle ?? '',
+        article.cid,
+        id,
+      );
 
       return await this.prisma.article.update({
         where: { id },
@@ -201,15 +214,14 @@ export class ArticlesService {
   async remove(id: number) {
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
       const article = await this.prisma.article.findFirstOrThrow({
-        where: { id }
-      })
-  
-      await this.ipfs.removeFromIpfs(article.cid)
+        where: { id },
+      });
+
+      await this.ipfs.removeFromIpfs(article.cid);
     }
 
     return await this.prisma.article.delete({
       where: { id },
     });
   }
-
 }
