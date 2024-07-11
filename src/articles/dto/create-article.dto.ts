@@ -20,4 +20,8 @@ export class CreateArticleDto {
   @IsOptional()
   @IsInt()
   anthology: number | undefined;
+
+  @IsOptional()
+  @IsString()
+  cid: string;
 }

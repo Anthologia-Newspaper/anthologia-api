@@ -4,13 +4,17 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { IPFSService } from 'src/ipfs/ipfs.service';
 
 @Injectable()
 export class ArticlesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly ipfs: IPFSService,
+  ) {}
 
   async create(author: number, article: CreateArticleDto) {
-    return await this.prisma.article.create({
+    const createdArticle = await this.prisma.article.create({
       data: {
         author: { connect: { id: author } },
         draft: article.draft,
@@ -23,6 +27,25 @@ export class ArticlesService {
           : undefined,
       },
     });
+
+    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+      const cid = await this.ipfs.pinToIpfs(
+        article.content,
+        createdArticle.subtitle ?? '',
+        createdArticle.id,
+      );
+
+      const articleWithCID = await this.prisma.article.update({
+        where: { id: createdArticle.id },
+        data: {
+          cid,
+        },
+      });
+
+      return articleWithCID;
+    }
+
+    return createdArticle;
   }
 
   async findAll(
@@ -94,6 +117,38 @@ export class ArticlesService {
   }
 
   async update(id: number, articleUpdate: UpdateArticleDto) {
+    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+      const article = await this.prisma.article.findFirstOrThrow({
+        where: { id },
+      });
+
+      let newCid = article.cid;
+
+      if (article.cid) {
+        newCid = await this.ipfs.updateIpfsHash(
+          articleUpdate.content ?? article.content,
+          articleUpdate.subtitle ?? article.subtitle ?? '',
+          article.cid,
+          id,
+        );
+      }
+
+      return await this.prisma.article.update({
+        where: { id },
+        data: {
+          draft: articleUpdate.draft,
+          topic: { connect: { id: articleUpdate.topic } },
+          title: articleUpdate.title,
+          subtitle: articleUpdate.subtitle,
+          content: articleUpdate.content,
+          cid: newCid,
+          anthology: articleUpdate.anthology
+            ? { connect: { id: articleUpdate.anthology } }
+            : undefined,
+        },
+      });
+    }
+
     return await this.prisma.article.update({
       where: { id },
       data: {
@@ -159,6 +214,17 @@ export class ArticlesService {
   }
 
   async remove(id: number) {
+    const article = await this.prisma.article.findFirstOrThrow({
+      where: { id },
+    });
+
+    if (
+      article.cid !== null &&
+      (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
+    ) {
+      await this.ipfs.removeFromIpfs(article.cid);
+    }
+
     return await this.prisma.article.delete({
       where: { id },
     });
