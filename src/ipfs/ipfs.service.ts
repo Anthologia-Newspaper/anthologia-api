@@ -23,7 +23,7 @@ export class IPFSService {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.pinataToken}`,
+            Authorization: `Bearer ${process.env.PINATA_KEY}`,
           },
           body,
         },
@@ -43,7 +43,7 @@ export class IPFSService {
       await fetch(`https://api.pinata.cloud/pinning/unpin/${hashToUnpin}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${process.env.pinataToken}`,
+          Authorization: `Bearer ${process.env.PINATA_KEY}`,
         },
       });
     } catch (error) {

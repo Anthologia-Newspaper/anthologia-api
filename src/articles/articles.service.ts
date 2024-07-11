@@ -98,6 +98,7 @@ export class ArticlesService {
     if (article.draft && article.authorId !== requesterId)
       throw new ConflictException('Cannot view drafts of other users.');
 
+    if (requesterId === undefined) return article;
     await this.prisma.event.create({
       data: {
         article: { connect: { id } },

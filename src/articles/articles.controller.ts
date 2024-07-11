@@ -24,12 +24,12 @@ import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
 
 @ApiTags('Articles')
-@ApiCookieAuth()
-@UseGuards(AuthGuard)
 @Controller('articles')
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Post()
   async create(
     @Req() req: Request,
@@ -80,6 +80,8 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Patch('/:id/like')
   async updateLike(
     @Req() req: Request,
@@ -93,6 +95,8 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -105,6 +109,8 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {

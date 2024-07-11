@@ -17,12 +17,12 @@ import { UpdateTopicDto } from './dto/update-topic.dto';
 import { TopicsService } from './topics.service';
 
 @ApiTags('Topics')
-@ApiCookieAuth()
-@UseGuards(AuthGuard)
 @Controller('topics')
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Post()
   async create(@Body() createTopicDto: CreateTopicDto) {
     try {
@@ -41,6 +41,8 @@ export class TopicsController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
     @Param('id') id: number,
@@ -53,6 +55,8 @@ export class TopicsController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: number) {
     try {
