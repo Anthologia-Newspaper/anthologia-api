@@ -29,7 +29,7 @@ export class ArticlesService {
     });
 
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
-      const cid = await this.ipfs.pinToIpfs(
+      const cid = await this.ipfs.pin(
         article.content,
         createdArticle.subtitle ?? '',
         createdArticle.id,
@@ -125,7 +125,7 @@ export class ArticlesService {
       let newCid = article.cid;
 
       if (article.cid) {
-        newCid = await this.ipfs.updateIpfsHash(
+        newCid = await this.ipfs.update(
           articleUpdate.content ?? article.content,
           articleUpdate.subtitle ?? article.subtitle ?? '',
           article.cid,
@@ -222,7 +222,7 @@ export class ArticlesService {
       article.cid !== null &&
       (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
     ) {
-      await this.ipfs.removeFromIpfs(article.cid);
+      await this.ipfs.delete(article.cid);
     }
 
     return await this.prisma.article.delete({
