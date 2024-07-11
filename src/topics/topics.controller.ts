@@ -9,8 +9,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
-import { AuthGuard } from 'src/authentication/authentication.guard';
-import { handleErrors } from 'src/utils/handle-errors';
+import { AuthGuard } from '../authentication/authentication.guard';
+import { handleErrors } from '../utils/handle-errors';
 
 import { CreateTopicDto } from './dto/create-topic.dto';
 import { UpdateTopicDto } from './dto/update-topic.dto';
