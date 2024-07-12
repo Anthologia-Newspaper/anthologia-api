@@ -70,18 +70,6 @@ export class ArticlesService {
           { author: { username: { contains: q } } },
         ],
       },
-      select: {
-        id: true,
-        title: true,
-        subtitle: true,
-        topic: true,
-        author: true,
-        createdAt: true,
-        updatedAt: true,
-        draft: true,
-        likeCounter: true,
-        viewCounter: true,
-      },
     });
   }
 
