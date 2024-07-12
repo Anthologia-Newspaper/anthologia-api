@@ -22,6 +22,7 @@ model User {
   anthology Anthology[]
   roles     Role[]      @default([USER])
   Event     Event[]
+  Comment   Comment[]
 }
 
 model Article {
@@ -42,6 +43,17 @@ model Article {
   likeCounter Int         @default(0)
   likes       User[]      @relation(name: "LikedArticles")
   dailyStats  Event[]
+  Comment     Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  article   Article  @relation(fields: [articleId], references: [id])
+  articleId Int
+  content   String
 }
 
 model Event {
