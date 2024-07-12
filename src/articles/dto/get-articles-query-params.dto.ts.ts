@@ -13,16 +13,16 @@ export class GetArticlesQueryParams {
   author?: number | 'me';
 
   @IsOptional()
-  @IsBoolean()
-  draft?: boolean;
+  @IsString()
+  draft?: string;
 
   @IsOptional()
   @IsInt()
   topic?: number;
 
   @IsOptional()
-  @IsBoolean()
-  isLiked?: boolean;
+  @IsString()
+  isLiked?: string;
 
   @IsOptional()
   @IsInt()

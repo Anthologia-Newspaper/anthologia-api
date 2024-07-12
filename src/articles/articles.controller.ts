@@ -22,6 +22,7 @@ import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { ApiKeyOrAuthGuard } from 'src/utils/apiKeyOrAuth.guard';
 
 @ApiTags('Articles')
 @ApiCookieAuth()
@@ -42,28 +43,31 @@ export class ArticlesController {
     }
   }
 
+  @UseGuards(ApiKeyOrAuthGuard)
   @Get()
   async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
       let { author } = query;
       const { topic, anthologyId, draft, isLiked, q } = query;
+      const draftBoolean = draft === 'true' ? true : draft === 'false' ? false : undefined;
+      const isLikedBoolean = isLiked === 'true' ? true : isLiked === 'false' ? false : undefined;
 
-      if (author === 'me' || (draft === true && author === undefined)) {
+      if (author === 'me' || (draftBoolean === true && author === undefined)) {
         author = req.user.sub;
       }
 
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);
 
-      if (draft && author !== undefined && author !== req.user.sub)
+      if (draftBoolean && author !== undefined && author !== req.user.sub)
         throw new UnauthorizedException('Cannot view drafts of other users.');
 
       return await this.articlesService.findAll(
         author,
         topic,
         anthologyId,
-        draft,
-        isLiked,
+        draftBoolean,
+        isLikedBoolean,
         q,
       );
     } catch (err: unknown) {

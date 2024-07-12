@@ -15,6 +15,7 @@ import { handleErrors } from 'src/utils/handle-errors';
 import { CreateTopicDto } from './dto/create-topic.dto';
 import { UpdateTopicDto } from './dto/update-topic.dto';
 import { TopicsService } from './topics.service';
+import { ApiKeyOrAuthGuard } from 'src/utils/apiKeyOrAuth.guard';
 
 @ApiTags('Topics')
 @ApiCookieAuth()
@@ -32,6 +33,7 @@ export class TopicsController {
     }
   }
 
+  @UseGuards(ApiKeyOrAuthGuard)
   @Get()
   async findAll() {
     try {
