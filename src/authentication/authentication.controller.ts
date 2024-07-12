@@ -60,17 +60,13 @@ export class AuthenticationController {
       res
         .cookie('refreshToken', tokens.refreshToken, {
           httpOnly: true,
-          secure:
-            process.env.NODE_ENV === 'prod' ||
-            process.env.NODE_ENV === 'staging',
+          secure: true,
           path: '/authentication/refresh-token',
           sameSite: 'none',
         })
         .cookie('jwt', tokens.accessToken, {
           httpOnly: true,
-          secure:
-            process.env.NODE_ENV === 'prod' ||
-            process.env.NODE_ENV === 'staging',
+          secure: true,
           path: '/',
           sameSite: 'none',
         });
@@ -94,16 +90,14 @@ export class AuthenticationController {
       //--------------------------------------------------------------------------
       res.cookie('jwt', tokens.accessToken, {
         httpOnly: true,
-        secure:
-          process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging',
+        secure: true,
         path: '/',
         sameSite: 'none',
       });
 
       res.cookie('refreshToken', tokens.refreshToken, {
         httpOnly: true,
-        secure:
-          process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging',
+        secure: true,
         path: '/authentication/refresh-token',
         sameSite: 'none',
       });
@@ -129,9 +123,7 @@ export class AuthenticationController {
           .accessToken,
         {
           httpOnly: true,
-          secure:
-            process.env.NODE_ENV === 'prod' ||
-            process.env.NODE_ENV === 'staging',
+          secure: true,
           path: '/',
           sameSite: 'none',
         },
