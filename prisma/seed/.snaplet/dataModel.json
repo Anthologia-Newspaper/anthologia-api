@@ -658,7 +658,7 @@
           "name": "createdById",
           "columnName": "createdById",
           "type": "int4",
-          "isRequired": true,
+          "isRequired": false,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -702,7 +702,7 @@
         {
           "name": "User",
           "type": "User",
-          "isRequired": true,
+          "isRequired": false,
           "kind": "object",
           "relationName": "EventToUser",
           "relationFromFields": [
@@ -967,11 +967,11 @@
           "maxLength": null
         },
         {
-          "id": "public.User.roles",
-          "name": "roles",
-          "columnName": "roles",
-          "type": "Role[]",
-          "isRequired": false,
+          "id": "public.User.profilePic",
+          "name": "profilePic",
+          "columnName": "profilePic",
+          "type": "text",
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -981,11 +981,11 @@
           "maxLength": null
         },
         {
-          "id": "public.User.photo",
-          "name": "photo",
-          "columnName": "photo",
-          "type": "text",
-          "isRequired": true,
+          "id": "public.User.roles",
+          "name": "roles",
+          "columnName": "roles",
+          "type": "Role[]",
+          "isRequired": false,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,

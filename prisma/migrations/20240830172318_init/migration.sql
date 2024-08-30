@@ -11,7 +11,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "username" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "photo" TEXT NOT NULL DEFAULT '',
+    "profilePic" TEXT NOT NULL DEFAULT '',
     "roles" "Role"[] DEFAULT ARRAY['USER']::"Role"[],
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
