@@ -18,11 +18,13 @@ import {
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
+import { User } from 'src/decorators/user.decorator';
 
 import { InvalidCredentials } from '../errors/InvalidCredentials';
 import { handleErrors } from '../utils/handle-errors';
 import { AuthGuard } from './authentication.guard';
 import { AuthenticationService } from './authentication.service';
+import { JwtPayload } from './contracts/JwtPayload.interface';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
@@ -39,9 +41,9 @@ export class AuthenticationController {
   @Get('me')
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
-  async me(@Req() req: Request) {
+  async me(@User() user: JwtPayload) {
     try {
-      return await this.authService.me(req.user.sub);
+      return await this.authService.me(user.sub);
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -154,7 +156,7 @@ export class AuthenticationController {
   @UseGuards(AuthGuard)
   @Delete('revoke-token')
   async revokeToken(
-    @Req() req: Request,
+    @User() user: JwtPayload,
     @Res({ passthrough: true }) res: Response,
   ) {
     try {
@@ -164,8 +166,10 @@ export class AuthenticationController {
       });
 
       return [
-        await this.authService.revokeToken(req.user.jti),
-        await this.authService.revokeToken(req.user.refreshJti),
+        await this.authService.revokeToken(user.jti),
+        user.refreshJti
+          ? await this.authService.revokeToken(user.refreshJti)
+          : null,
       ];
     } catch (err: unknown) {
       handleErrors(err);
@@ -175,10 +179,13 @@ export class AuthenticationController {
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch('password')
-  async updatePassword(@Req() req: Request, @Body() body: UpdatePasswordDto) {
+  async updatePassword(
+    @User() user: JwtPayload,
+    @Body() body: UpdatePasswordDto,
+  ) {
     try {
       return await this.authService.updatePassword(
-        req.user.id,
+        user.sub,
         body.oldPassword,
         body.newPassword,
       );
@@ -190,9 +197,9 @@ export class AuthenticationController {
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch('email')
-  async updateEmail(@Req() req: Request, @Body() body: UpdateEmailDto) {
+  async updateEmail(@User() user: JwtPayload, @Body() body: UpdateEmailDto) {
     try {
-      return await this.authService.updateEmail(req.user.id, body.newEmail);
+      return await this.authService.updateEmail(user.sub, body.newEmail);
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -201,12 +208,12 @@ export class AuthenticationController {
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch('username')
-  async updateUsername(@Req() req: Request, @Body() body: UpdateUsernameDto) {
+  async updateUsername(
+    @User() user: JwtPayload,
+    @Body() body: UpdateUsernameDto,
+  ) {
     try {
-      return await this.authService.updateUsername(
-        req.user.id,
-        body.newUsername,
-      );
+      return await this.authService.updateUsername(user.sub, body.newUsername);
     } catch (err: unknown) {
       handleErrors(err);
     }

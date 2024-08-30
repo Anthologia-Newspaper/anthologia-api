@@ -12,17 +12,18 @@ datasource db {
 }
 
 model User {
-  id        Int         @id @default(autoincrement())
-  createdAt DateTime    @default(now())
-  email     String      @unique
-  username  String      @unique
-  password  String
-  articles  Article[]   @relation(name: "WrittenArticles")
-  likes     Article[]   @relation(name: "LikedArticles")
-  anthology Anthology[]
-  roles     Role[]      @default([USER])
-  Event     Event[]
-  Comment   Comment[]
+  id         Int         @id @default(autoincrement())
+  createdAt  DateTime    @default(now())
+  email      String      @unique
+  username   String      @unique
+  password   String
+  profilePic String      @default("")
+  articles   Article[]   @relation(name: "WrittenArticles")
+  likes      Article[]   @relation(name: "LikedArticles")
+  anthology  Anthology[]
+  roles      Role[]      @default([USER])
+  events     Event[]
+  comments   Comment[]
 }
 
 model Article {
@@ -43,25 +44,28 @@ model Article {
   likeCounter Int         @default(0)
   likes       User[]      @relation(name: "LikedArticles")
   dailyStats  Event[]
-  Comment     Comment[]
+  comments    Comment[]
 }
 
 model Comment {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  author    User     @relation(fields: [authorId], references: [id])
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  author    User      @relation(fields: [authorId], references: [id])
   authorId  Int
-  article   Article  @relation(fields: [articleId], references: [id])
+  article   Article   @relation(fields: [articleId], references: [id])
   articleId Int
   content   String
+  replies   Comment[] @relation("Replies")
+  replyTo   Comment?  @relation("Replies", fields: [replyToId], references: [id])
+  replyToId Int?
 }
 
 model Event {
   id          Int       @id @default(autoincrement())
   type        EventType
   createdAt   DateTime  @default(now())
-  createdBy   User      @relation(fields: [createdById], references: [id])
-  createdById Int
+  createdBy   User?     @relation(fields: [createdById], references: [id])
+  createdById Int?
   article     Article   @relation(fields: [articleId], references: [id])
   articleId   Int
 }

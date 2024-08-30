@@ -18,7 +18,7 @@ export class GetArticlesQueryParams {
 
   @IsOptional()
   @IsInt()
-  topic?: number;
+  topicId?: number;
 
   @IsOptional()
   @IsBoolean()

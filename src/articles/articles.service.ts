@@ -52,7 +52,6 @@ export class ArticlesService {
     authorId?: number,
     topicId?: number,
     anthologyId?: number,
-    draft?: boolean,
     isLiked?: boolean,
     q?: string,
   ) {
@@ -61,7 +60,7 @@ export class ArticlesService {
         authorId,
         topicId,
         anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
-        draft,
+        draft: false,
         likes: isLiked === true ? { some: { id: authorId } } : undefined,
         OR: [
           { title: { contains: q } },
@@ -73,25 +72,47 @@ export class ArticlesService {
     });
   }
 
-  async findOne(id: number, requesterId?: number) {
+  async findAllDrafts(
+    authorId: number,
+    topicId?: number,
+    anthologyId?: number,
+    isLiked?: boolean,
+    q?: string,
+  ) {
+    return await this.prisma.article.findMany({
+      where: {
+        authorId,
+        topicId,
+        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
+        draft: true,
+        likes: isLiked === true ? { some: { id: authorId } } : undefined,
+        OR: [
+          { title: { contains: q } },
+          { subtitle: { contains: q } },
+          { content: { contains: q } },
+        ],
+      },
+    });
+  }
+
+  async findOne(id: number) {
     const article = await this.prisma.article.findUniqueOrThrow({
       where: { id },
       include: {
         anthology: true,
         author: true,
         topic: true,
+        comments: true,
       },
     });
 
-    if (article.draft && article.authorId !== requesterId)
+    if (article.draft)
       throw new ConflictException('Cannot view drafts of other users.');
 
-    if (requesterId === undefined) return article;
     await this.prisma.event.create({
       data: {
         article: { connect: { id } },
         type: EventType.VIEW,
-        createdBy: { connect: { id: requesterId } },
       },
     });
 

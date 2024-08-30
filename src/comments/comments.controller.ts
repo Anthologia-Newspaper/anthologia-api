@@ -11,42 +11,52 @@ import {
   Get,
   Param,
   Post,
-  Req,
   UseGuards,
 } from '@nestjs/common';
 import { ApiCookieAuth } from '@nestjs/swagger';
-import { Request } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
+import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
+import { User } from 'src/decorators/user.decorator';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 
-@ApiCookieAuth()
-@UseGuards(AuthGuard)
 @Controller('comments')
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Post()
   async create(
-    @Req() req: Request,
+    @User() user: JwtPayload,
     @Body() createCommentDto: CreateCommentDto,
   ) {
     try {
-      return await this.commentsService.create(req.user.sub, createCommentDto);
+      return await this.commentsService.create(user.sub, createCommentDto);
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
-  @Get('/article/:articleId')
-  findAll(@Param('articleId') articleId: number) {
-    return this.commentsService.findByArticleId(articleId);
+  @Get('article/:articleId')
+  async findAll(@Param('articleId') articleId: number) {
+    try {
+      return await this.commentsService.findByArticleId(articleId);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
   @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.commentsService.remove(id);
+  async remove(@User() user: JwtPayload, @Param('id') id: number) {
+    try {
+      return await this.commentsService.remove(id, user.sub);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
   }
 }

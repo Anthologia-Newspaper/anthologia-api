@@ -28,17 +28,17 @@ export function handlePrismaErrors(error: unknown) {
 
   switch (error.code) {
     case 'P2002':
-      throw new ConflictException();
+      throw new ConflictException(error.message);
 
     case 'P2003':
-      throw new NotFoundException();
+      throw new NotFoundException(error.message);
 
     case 'P2025':
-      throw new NotFoundException();
+      throw new NotFoundException(error.message);
 
     default:
       console.error(error);
-      throw new InternalServerErrorException();
+      throw new InternalServerErrorException(error.message);
   }
 }
 

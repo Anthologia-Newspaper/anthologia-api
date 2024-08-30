@@ -15,12 +15,12 @@ import {
   Patch,
   Post,
   Query,
-  Req,
   UseGuards,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
-import { Request } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
+import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
+import { User } from 'src/decorators/user.decorator';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { AnthologiesService } from './anthologies.service';
@@ -37,7 +37,7 @@ export class AnthologiesController {
 
   @Post()
   async create(
-    @Req() req: Request,
+    @User() user: JwtPayload,
     @Body('isPublic', new DefaultValuePipe(false), ParseBoolPipe)
     isPublic: boolean,
     @Body() newAnthology: CreateAnthologyDto,
@@ -48,7 +48,7 @@ export class AnthologiesController {
       return await this.anthologiesService.create(
         newAnthology,
         isPublic,
-        req.user.sub,
+        user.sub,
         articles,
       );
     } catch (err: unknown) {
@@ -58,7 +58,7 @@ export class AnthologiesController {
 
   @Get()
   async findAll(
-    @Req() req: Request,
+    @User() user: JwtPayload,
     @Query() query: GetAnthologiesQueryParams,
   ) {
     try {
@@ -66,14 +66,14 @@ export class AnthologiesController {
       const { q } = query;
 
       if (author === 'me') {
-        author = req.user.sub;
+        author = user.sub;
       }
 
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);
 
       return await this.anthologiesService.findAll(
-        author === req.user.sub,
+        author === user.sub,
         author,
         q,
       );
