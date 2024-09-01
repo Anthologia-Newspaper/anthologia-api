@@ -8,6 +8,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { TopicsModule } from './topics/topics.module';
+import { IpfsModule } from './ipfs/ipfs.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { TopicsModule } from './topics/topics.module';
     TopicsModule,
     AnthologiesModule,
     StatisticsModule,
+    IpfsModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -25,11 +25,11 @@ import { UpdateArticleDto } from './dto/update-article.dto';
 import { ApiKeyOrAuthGuard } from 'src/utils/apiKeyOrAuth.guard';
 
 @ApiTags('Articles')
-@ApiCookieAuth()
 @Controller('articles')
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Post()
   async create(
@@ -85,6 +85,7 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch('/:id/like')
   async updateLike(
@@ -99,6 +100,7 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
@@ -112,6 +114,7 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: string) {

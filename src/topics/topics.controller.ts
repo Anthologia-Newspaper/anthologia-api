@@ -18,11 +18,11 @@ import { TopicsService } from './topics.service';
 import { ApiKeyOrAuthGuard } from 'src/utils/apiKeyOrAuth.guard';
 
 @ApiTags('Topics')
-@ApiCookieAuth()
 @Controller('topics')
 export class TopicsController {
   constructor(private readonly topicsService: TopicsService) {}
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Post()
   async create(@Body() createTopicDto: CreateTopicDto) {
@@ -43,6 +43,7 @@ export class TopicsController {
     }
   }
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Patch(':id')
   async update(
@@ -56,6 +57,7 @@ export class TopicsController {
     }
   }
 
+  @ApiCookieAuth()
   @UseGuards(AuthGuard)
   @Delete(':id')
   async remove(@Param('id') id: number) {

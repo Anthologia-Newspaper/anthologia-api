@@ -25,6 +25,7 @@ CREATE TABLE "Article" (
     "authorId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "cid" TEXT,
     "content" TEXT NOT NULL,
     "draft" BOOLEAN NOT NULL DEFAULT true,
     "viewCounter" INTEGER NOT NULL DEFAULT 0,
