@@ -48,25 +48,24 @@ export class ArticlesController {
   async findAll(@Req() req: Request, @Query() query: GetArticlesQueryParams) {
     try {
       let { author } = query;
-      const { topic, anthologyId, draft, isLiked, q } = query;
-      const draftBoolean = draft === 'true' ? true : draft === 'false' ? false : undefined;
+      const { topic, anthologyId, state, isLiked, q } = query;
       const isLikedBoolean = isLiked === 'true' ? true : isLiked === 'false' ? false : undefined;
 
-      if (author === 'me' || (draftBoolean === true && author === undefined)) {
+      if (author === 'me' || author === undefined) {
         author = req.user.sub;
       }
 
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);
 
-      if (draftBoolean && author !== undefined && author !== req.user.sub)
+      if (author !== undefined && author !== req.user.sub)
         throw new UnauthorizedException('Cannot view drafts of other users.');
 
       return await this.articlesService.findAll(
         author,
         topic,
         anthologyId,
-        draftBoolean,
+        state,
         isLikedBoolean,
         q,
       );

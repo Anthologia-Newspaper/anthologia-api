@@ -14,7 +14,7 @@ export class GetArticlesQueryParams {
 
   @IsOptional()
   @IsString()
-  draft?: string;
+  state?: string;
 
   @IsOptional()
   @IsInt()

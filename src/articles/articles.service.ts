@@ -52,25 +52,33 @@ export class ArticlesService {
     authorId?: number,
     topicId?: number,
     anthologyId?: number,
-    draft?: boolean,
+    state?: string,
     isLiked?: boolean,
     q?: string,
   ) {
-    return await this.prisma.article.findMany({
-      where: {
-        authorId,
-        topicId,
-        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
-        draft,
-        likes: isLiked === true ? { some: { id: authorId } } : undefined,
-        OR: [
-          { title: { contains: q } },
-          { subtitle: { contains: q } },
-          { content: { contains: q } },
-          { author: { username: { contains: q } } },
-        ],
-      },
-    });
+    const draftStates = state === 'draft' ? true : state === 'both' ? undefined : false;
+
+  // Build query conditions dynamically to avoid repetition
+  const where: any = {
+    authorId,
+    topicId,
+    anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
+    draft: draftStates,  // Automatically handles undefined for 'both'
+    likes: isLiked ? { some: { id: authorId } } : undefined,
+    OR: q ? [
+      { title: { contains: q } },
+      { subtitle: { contains: q } },
+      { content: { contains: q } },
+      { author: { username: { contains: q } } }
+    ] : undefined,
+  };
+
+  // Filter out undefined fields from the `where` condition
+  Object.keys(where).forEach((key) => where[key] === undefined && delete where[key]);
+
+  return this.prisma.article.findMany({
+    where,
+  });
   }
 
   async findOne(id: number, requesterId?: number) {
