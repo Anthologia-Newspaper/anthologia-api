@@ -114,7 +114,7 @@ export class ArticlesService {
   }
 
   async update(id: number, articleUpdate: UpdateArticleDto) {
-    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+    // if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
       const article = await this.prisma.article.findFirstOrThrow({
         where: { id },
       });
@@ -122,19 +122,26 @@ export class ArticlesService {
       let newCid = article.cid;
 
       if (article.cid) {
+        console.log('there')
         newCid = await this.ipfs.update(
           articleUpdate.content ?? article.content,
           articleUpdate.subtitle ?? article.subtitle ?? '',
           article.cid,
           id,
         );
+      } else if (article.draft && !articleUpdate.draft) { // case if we go from a draft article to a published one
+        newCid = await this.ipfs.pin(
+          articleUpdate.content ?? article.content,
+          articleUpdate.subtitle ?? article.subtitle ?? '',
+          id,
+        )
       }
 
       return await this.prisma.article.update({
         where: { id },
         data: {
           draft: articleUpdate.draft,
-          topic: { connect: { id: articleUpdate.topic } },
+          topic: { connect: { id: articleUpdate.topic ?? article.topicId } },
           title: articleUpdate.title,
           subtitle: articleUpdate.subtitle,
           content: articleUpdate.content,
@@ -144,21 +151,21 @@ export class ArticlesService {
             : undefined,
         },
       });
-    }
+    // }
 
-    return await this.prisma.article.update({
-      where: { id },
-      data: {
-        draft: articleUpdate.draft,
-        topic: { connect: { id: articleUpdate.topic } },
-        title: articleUpdate.title,
-        subtitle: articleUpdate.subtitle,
-        content: articleUpdate.content,
-        anthology: articleUpdate.anthology
-          ? { connect: { id: articleUpdate.anthology } }
-          : undefined,
-      },
-    });
+    // return await this.prisma.article.update({
+    //   where: { id },
+    //   data: {
+    //     draft: articleUpdate.draft,
+    //     topic: { connect: { id: articleUpdate.topic } },
+    //     title: articleUpdate.title,
+    //     subtitle: articleUpdate.subtitle,
+    //     content: articleUpdate.content,
+    //     anthology: articleUpdate.anthology
+    //       ? { connect: { id: articleUpdate.anthology } }
+    //       : undefined,
+    //   },
+    // });
   }
 
   // TODO: create a LIKE/UNLIKE Event in the database and link/unlink the article with the user
