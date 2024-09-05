@@ -28,24 +28,33 @@ export class ArticlesService {
       },
     });
 
-    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
-      const cid = await this.ipfs.pin(
-        article.content,
-        createdArticle.subtitle ?? '',
-        createdArticle.id,
-      );
-
-      const articleWithCID = await this.prisma.article.update({
-        where: { id: createdArticle.id },
-        data: {
-          cid,
-        },
-      });
-
-      return articleWithCID;
-    }
+    // if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+    this.updateCID(createdArticle.id, article.content, article.subtitle);
+    // }
 
     return createdArticle;
+  }
+
+  async updateCID(
+    articleId: number,
+    content: string,
+    subtitle? :string
+  ) {
+    try {
+      const cid = await this.ipfs.pin(
+        content,
+        subtitle ?? '',
+        articleId,
+      );
+  
+      // Update the article with the CID in the background
+      await this.prisma.article.update({
+        where: { id: articleId },
+        data: { cid },
+      });
+    } catch (err: unknown) {
+      console.error(`Failed to pin article with ID ${articleId}:`, err);
+    }
   }
 
   async findAll(
@@ -58,7 +67,6 @@ export class ArticlesService {
   ) {
     const draftStates = state === 'draft' ? true : state === 'both' ? undefined : false;
 
-  // Build query conditions dynamically to avoid repetition
   const where: any = {
     authorId,
     topicId,
@@ -73,7 +81,6 @@ export class ArticlesService {
     ] : undefined,
   };
 
-  // Filter out undefined fields from the `where` condition
   Object.keys(where).forEach((key) => where[key] === undefined && delete where[key]);
 
   return this.prisma.article.findMany({
@@ -122,7 +129,6 @@ export class ArticlesService {
       let newCid = article.cid;
 
       if (article.cid) {
-        console.log('there')
         newCid = await this.ipfs.update(
           articleUpdate.content ?? article.content,
           articleUpdate.subtitle ?? article.subtitle ?? '',
@@ -217,17 +223,21 @@ export class ArticlesService {
     });
   }
 
+  //TODO see if we can:article    Article  @relation(fields: [articleId], references: [id], onDelete: Cascade), for simplicity so we don't delete the event manually
   async remove(id: number) {
     const article = await this.prisma.article.findFirstOrThrow({
       where: { id },
     });
 
     if (
-      article.cid !== null &&
-      (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
+      article.cid !== null 
+      // (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
     ) {
       await this.ipfs.delete(article.cid);
     }
+    await this.prisma.event.deleteMany({
+      where: { articleId: id },
+    });
 
     return await this.prisma.article.delete({
       where: { id },
