@@ -10,6 +10,7 @@ import { StatisticsModule } from './statistics/statistics.module';
 import { TopicsModule } from './topics/topics.module';
 import { IpfsModule } from './ipfs/ipfs.module';
 import { CommentsModule } from './comments/comments.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CommentsModule } from './comments/comments.module';
     StatisticsModule,
     IpfsModule,
     CommentsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
