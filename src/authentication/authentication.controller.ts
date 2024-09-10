@@ -8,7 +8,6 @@ import {
   Body,
   Controller,
   Delete,
-  Get,
   HttpCode,
   Patch,
   Post,
@@ -37,17 +36,6 @@ import { UpdateUsernameDto } from './dto/update-username.dto';
 @Controller('authentication')
 export class AuthenticationController {
   constructor(private readonly authService: AuthenticationService) {}
-
-  @Get('me')
-  @ApiCookieAuth()
-  @UseGuards(AuthGuard)
-  async me(@User() user: JwtPayload) {
-    try {
-      return await this.authService.me(user.sub);
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
 
   @Post('sign-up')
   async signUp(

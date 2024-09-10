@@ -65,9 +65,7 @@ export class AnthologiesController {
       let { author } = query;
       const { q } = query;
 
-      if (author === 'me') {
-        author = user.sub;
-      }
+      if (author === 'me') author = user.sub;
 
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);

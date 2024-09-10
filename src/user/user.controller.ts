@@ -1,4 +1,4 @@
-import { Controller, Patch, UseGuards } from '@nestjs/common';
+import { Controller, Get, Patch, UseGuards } from '@nestjs/common';
 import { ApiCookieAuth } from '@nestjs/swagger';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
@@ -13,6 +13,17 @@ import { UserService } from './user.service';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Get('me')
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  async me(@User() user: JwtPayload) {
+    try {
+      return await this.userService.me(user.sub);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
 
   @Patch('profile-pic')
   async uploadProfilePic(
