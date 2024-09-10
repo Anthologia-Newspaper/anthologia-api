@@ -73,11 +73,11 @@ export class ArticlesController {
     @Query() query: GetArticlesQueryParamsDto,
   ) {
     try {
-      const { topicId, anthologyId, q } = query;
+      const { draft, topicId, anthologyId, q } = query;
 
       return await this.articlesService.findAll({
         authorId: user.sub,
-        draft: query.draft,
+        draft,
         topicId,
         anthologyId,
         q,
