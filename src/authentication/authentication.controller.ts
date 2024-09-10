@@ -28,7 +28,6 @@ import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
-import { UpdateUsernameDto } from './dto/update-username.dto';
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -188,20 +187,6 @@ export class AuthenticationController {
   async updateEmail(@User() user: JwtPayload, @Body() body: UpdateEmailDto) {
     try {
       return await this.authService.updateEmail(user.sub, body.newEmail);
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
-
-  @ApiCookieAuth()
-  @UseGuards(AuthGuard)
-  @Patch('username')
-  async updateUsername(
-    @User() user: JwtPayload,
-    @Body() body: UpdateUsernameDto,
-  ) {
-    try {
-      return await this.authService.updateUsername(user.sub, body.newUsername);
     } catch (err: unknown) {
       handleErrors(err);
     }

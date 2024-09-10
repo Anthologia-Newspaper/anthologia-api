@@ -23,4 +23,11 @@ export class UserService {
       data: { profilePic: profilePic },
     });
   }
+
+  async updateUsername(userId: number, newUsername: string) {
+    return await this.prisma.user.update({
+      where: { id: userId },
+      data: { username: newUsername },
+    });
+  }
 }

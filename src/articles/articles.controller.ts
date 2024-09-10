@@ -89,7 +89,7 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
-  @Get('me/draft')
+  @Get('me/drafts')
   async findAllDrafts(
     @User() user: JwtPayload,
     @Query() query: GetArticlesQueryParamsDto,
@@ -107,7 +107,7 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
-  @Get('me/draft/:id')
+  @Get('me/drafts/:id')
   async findOneDraft(@User() user: JwtPayload, @Param('id') id: string) {
     try {
       return await this.articlesService.findOne(+id, user.sub);
