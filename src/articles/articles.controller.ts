@@ -9,18 +9,20 @@ import {
   Patch,
   Post,
   Query,
+  Res,
   UseGuards,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
+import { Response } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
+import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
+import { User } from 'src/decorators/user.decorator';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
-import { GetArticlesQueryParams } from './dto/get-articles-query-params.dto.ts';
+import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
-import { User } from 'src/decorators/user.decorator';
-import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
 
 @ApiTags('Articles')
 @Controller('articles')
@@ -43,24 +45,20 @@ export class ArticlesController {
 
   @Get()
   async findAll(
-    @User() user: JwtPayload,
-    @Query() query: GetArticlesQueryParams,
+    @Query() query: GetArticlesQueryParamsDto,
+    @Res() res: Response,
   ) {
     try {
-      let { author } = query;
-      const { topicId, anthologyId, isLiked, q } = query;
+      const { authorId, topicId, anthologyId, q } = query;
 
-      if (author === 'me') author = user.sub;
-
-      // Due to custom validator, auto-transformation is not made on this property
-      typeof author === 'string' && (author = +author);
-
-      return await this.articlesService.findAll(
-        author,
-        topicId,
-        anthologyId,
-        isLiked,
-        q,
+      return res.send(
+        await this.articlesService.findAll({
+          authorId,
+          topicId,
+          anthologyId,
+          q,
+          draft: false,
+        }),
       );
     } catch (err: unknown) {
       handleErrors(err);
@@ -69,21 +67,70 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
-  @Get('drafts')
-  async findAllDraft(
+  @Get('me')
+  async findAllMyArticles(
     @User() user: JwtPayload,
-    @Query() query: GetArticlesQueryParams,
+    query: GetArticlesQueryParamsDto,
   ) {
     try {
-      const { topicId, anthologyId, isLiked, q } = query;
+      const { draft, topicId, anthologyId, q } = query;
 
-      return await this.articlesService.findAllDrafts(
-        user.sub,
+      return await this.articlesService.findAll({
+        authorId: user.sub,
+        draft,
         topicId,
         anthologyId,
-        isLiked,
         q,
-      );
+      });
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Get('me/draft')
+  async findAllDrafts(
+    @User() user: JwtPayload,
+    @Query() query: GetArticlesQueryParamsDto,
+  ) {
+    try {
+      return await this.articlesService.findAll({
+        ...query,
+        authorId: user.sub,
+        draft: true,
+      });
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Get('me/draft/:id')
+  async findOneDraft(@User() user: JwtPayload, @Param('id') id: string) {
+    try {
+      return await this.articlesService.findOne(+id, user.sub);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @Get('liked')
+  async findAllLiked(
+    @User() user: JwtPayload,
+    @Query() query: GetArticlesQueryParamsDto,
+  ) {
+    try {
+      return await this.articlesService.findAll({
+        authorId: user.sub,
+        isLiked: true,
+        topicId: query.topicId,
+        anthologyId: query.anthologyId,
+        q: query.q,
+      });
     } catch (err: unknown) {
       handleErrors(err);
     }

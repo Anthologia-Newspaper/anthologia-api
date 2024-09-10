@@ -5,6 +5,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { IPFSService } from 'src/ipfs/ipfs.service';
+import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
 
 @Injectable()
 export class ArticlesService {
@@ -48,56 +49,30 @@ export class ArticlesService {
     return createdArticle;
   }
 
-  async findAll(
-    authorId?: number,
-    topicId?: number,
-    anthologyId?: number,
-    isLiked?: boolean,
-    q?: string,
-  ) {
+  async findAll(query: GetArticlesQueryParamsDto) {
     return await this.prisma.article.findMany({
       where: {
-        authorId,
-        topicId,
-        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
-        draft: false,
-        likes: isLiked === true ? { some: { id: authorId } } : undefined,
+        authorId: query.authorId,
+        topicId: query.topicId,
+        anthology: query.anthologyId
+          ? { some: { id: query.anthologyId } }
+          : undefined,
+        draft: query.draft,
+        likes:
+          query.isLiked === true ? { some: { id: query.authorId } } : undefined,
         OR: [
-          { title: { contains: q } },
-          { subtitle: { contains: q } },
-          { content: { contains: q } },
-          { author: { username: { contains: q } } },
+          { title: { contains: query.q } },
+          { subtitle: { contains: query.q } },
+          { content: { contains: query.q } },
+          { author: { username: { contains: query.q } } },
         ],
       },
     });
   }
 
-  async findAllDrafts(
-    authorId: number,
-    topicId?: number,
-    anthologyId?: number,
-    isLiked?: boolean,
-    q?: string,
-  ) {
-    return await this.prisma.article.findMany({
-      where: {
-        authorId,
-        topicId,
-        anthology: anthologyId ? { some: { id: anthologyId } } : undefined,
-        draft: true,
-        likes: isLiked === true ? { some: { id: authorId } } : undefined,
-        OR: [
-          { title: { contains: q } },
-          { subtitle: { contains: q } },
-          { content: { contains: q } },
-        ],
-      },
-    });
-  }
-
-  async findOne(id: number) {
+  async findOne(id: number, authorId?: number) {
     const article = await this.prisma.article.findUniqueOrThrow({
-      where: { id },
+      where: { id, authorId, draft: authorId ? true : false },
       include: {
         anthology: true,
         author: true,
@@ -106,8 +81,7 @@ export class ArticlesService {
       },
     });
 
-    if (article.draft)
-      throw new ConflictException('Cannot view drafts of other users.');
+    if (article.draft) return article;
 
     await this.prisma.event.create({
       data: {

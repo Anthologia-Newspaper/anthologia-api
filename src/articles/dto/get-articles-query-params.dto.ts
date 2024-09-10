@@ -1,16 +1,9 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
-import { IsMeOrUserId } from 'src/decorators/validators/IsMeOrUserId';
 
-export class GetArticlesQueryParams {
-  @ApiProperty({
-    name: 'author',
-    type: 'number or me',
-    required: false,
-  })
+export class GetArticlesQueryParamsDto {
   @IsOptional()
-  @IsMeOrUserId()
-  author?: number | 'me';
+  @IsInt()
+  authorId?: number;
 
   @IsOptional()
   @IsBoolean()
