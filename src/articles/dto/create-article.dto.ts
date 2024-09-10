@@ -1,7 +1,9 @@
+import { Transform } from 'class-transformer';
 import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
 
 export class CreateArticleDto {
   @IsBoolean()
+  @Transform(({ value }) => value === 'true')
   draft: boolean;
 
   @IsInt()

@@ -70,14 +70,14 @@ export class ArticlesController {
   @Get('me')
   async findAllMyArticles(
     @User() user: JwtPayload,
-    query: GetArticlesQueryParamsDto,
+    @Query() query: GetArticlesQueryParamsDto,
   ) {
     try {
-      const { draft, topicId, anthologyId, q } = query;
+      const { topicId, anthologyId, q } = query;
 
       return await this.articlesService.findAll({
         authorId: user.sub,
-        draft,
+        draft: query.draft,
         topicId,
         anthologyId,
         q,
@@ -89,25 +89,7 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
-  @Get('me/drafts')
-  async findAllDrafts(
-    @User() user: JwtPayload,
-    @Query() query: GetArticlesQueryParamsDto,
-  ) {
-    try {
-      return await this.articlesService.findAll({
-        ...query,
-        authorId: user.sub,
-        draft: true,
-      });
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
-
-  @ApiCookieAuth()
-  @UseGuards(AuthGuard)
-  @Get('me/drafts/:id')
+  @Get('drafts/:id')
   async findOneDraft(@User() user: JwtPayload, @Param('id') id: string) {
     try {
       return await this.articlesService.findOne(+id, user.sub);

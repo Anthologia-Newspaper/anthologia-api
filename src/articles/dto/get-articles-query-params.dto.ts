@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer';
 import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
 
 export class GetArticlesQueryParamsDto {
@@ -7,6 +8,7 @@ export class GetArticlesQueryParamsDto {
 
   @IsOptional()
   @IsBoolean()
+  @Transform(({ value }) => value === 'true')
   draft?: boolean;
 
   @IsOptional()
@@ -15,6 +17,7 @@ export class GetArticlesQueryParamsDto {
 
   @IsOptional()
   @IsBoolean()
+  @Transform(({ value }) => value === 'true')
   isLiked?: boolean;
 
   @IsOptional()

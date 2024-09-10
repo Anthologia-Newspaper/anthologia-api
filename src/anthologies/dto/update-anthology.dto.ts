@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer';
 import { IsBoolean, IsInt, IsOptional, IsString } from 'class-validator';
 
 export class UpdateAnthologyDto {
@@ -11,6 +12,7 @@ export class UpdateAnthologyDto {
 
   @IsOptional()
   @IsBoolean()
+  @Transform(({ value }) => value === 'true')
   isPublic?: boolean;
 
   @IsInt({ each: true })
