@@ -8,14 +8,35 @@ export class IPFSService {
     data.append('file', new Blob([image.buffer]), image.originalname);
 
     return (
-      await axios.post(String(process.env.STARTON_API_IPFS_ENDPOINT), data, {
-        headers: {
-          'x-api-key': process.env.STARTON_API_KEY,
-          'Content-Type': 'multipart/form-data',
+      await axios.post(
+        String(process.env.STARTON_API_IPFS_FILE_ENDPOINT),
+        data,
+        {
+          headers: {
+            'x-api-key': process.env.STARTON_API_KEY,
+            'Content-Type': 'multipart/form-data',
+          },
         },
-      })
+      )
     ).data.cid;
   }
+
+  async uploadJson(name: string, content: object) {
+    return (
+      await axios.post(
+        String(process.env.STARTON_API_IPFS_JSON_ENDPOINT),
+        { name, content },
+        {
+          headers: {
+            'x-api-key': process.env.STARTON_API_KEY,
+            'Content-Type': 'application/json',
+          },
+        },
+      )
+    ).data.cid;
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
 
   async pin(articleContent: string, subtitle: string, id: number) {
     try {
