@@ -12,18 +12,18 @@ datasource db {
 }
 
 model User {
-  id         Int         @id @default(autoincrement())
-  createdAt  DateTime    @default(now())
-  email      String      @unique
-  username   String      @unique
-  password   String
-  profilePic String      @default("")
-  articles   Article[]   @relation(name: "WrittenArticles")
-  likes      Article[]   @relation(name: "LikedArticles")
-  anthology  Anthology[]
-  roles      Role[]      @default([USER])
-  events     Event[]
-  comments   Comment[]
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  email         String      @unique
+  username      String      @unique
+  password      String
+  profilePicCid String      @default("")
+  articles      Article[]   @relation(name: "WrittenArticles")
+  likes         Article[]   @relation(name: "LikedArticles")
+  anthology     Anthology[]
+  roles         Role[]      @default([USER])
+  events        Event[]
+  comments      Comment[]
 }
 
 model Article {

@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   FileTypeValidator,
   Get,
@@ -21,6 +22,7 @@ import { handleErrors } from 'src/utils/handle-errors';
 
 import { UpdateUsernameDto } from './dto/update-username.dto';
 import { UserService } from './user.service';
+import { UserEntity } from './entities/User.entity';
 
 @ApiCookieAuth()
 @UseGuards(AuthGuard)
@@ -31,18 +33,19 @@ export class UserController {
     private readonly ipfsService: IPFSService,
   ) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get('me')
   async me(@User() user: JwtPayload) {
     try {
-      return await this.userService.me(user.sub);
+      return new UserEntity(await this.userService.me(user.sub));
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
-  // TODO: Add gateway prefix in interceptor
-  @Post('profile-pic')
+  @UseInterceptors(ClassSerializerInterceptor)
   @UseInterceptors(FileInterceptor('profilePic'))
+  @Post('profile-pic')
   async uploadProfilePic(
     @User() user: JwtPayload,
     @UploadedFile(
@@ -59,19 +62,24 @@ export class UserController {
     try {
       const cid = await this.ipfsService.uploadImage(profilePic);
 
-      return await this.userService.updateProfilePic(user.sub, cid);
+      return new UserEntity(
+        await this.userService.updateProfilePic(user.sub, cid),
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Patch('username')
   async updateUsername(
     @User() user: JwtPayload,
     @Body() body: UpdateUsernameDto,
   ) {
     try {
-      return await this.userService.updateUsername(user.sub, body.newUsername);
+      return new UserEntity(
+        await this.userService.updateUsername(user.sub, body.newUsername),
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }

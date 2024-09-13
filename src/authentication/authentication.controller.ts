@@ -6,6 +6,7 @@
 
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   HttpCode,
@@ -14,6 +15,7 @@ import {
   Req,
   Res,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 import { Request, Response } from 'express';
@@ -28,6 +30,7 @@ import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
 import { UpdatePasswordDto } from './dto/update-password.dto';
+import { UserEntity } from 'src/user/entities/User.entity';
 
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -36,6 +39,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 export class AuthenticationController {
   constructor(private readonly authService: AuthenticationService) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post('sign-up')
   async signUp(
     @Body() body: SignUpDto,
@@ -64,12 +68,13 @@ export class AuthenticationController {
           sameSite: 'none',
         });
 
-      return { user };
+      return new UserEntity(user);
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post('sign-in')
   @HttpCode(200)
   async signIn(
@@ -97,7 +102,7 @@ export class AuthenticationController {
         sameSite: 'none',
       });
 
-      return { user };
+      return new UserEntity(user);
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -171,11 +176,13 @@ export class AuthenticationController {
     @Body() body: UpdatePasswordDto,
   ) {
     try {
-      return await this.authService.updatePassword(
+      await this.authService.updatePassword(
         user.sub,
         body.oldPassword,
         body.newPassword,
       );
+
+      return { success: true, message: 'Password updated successfully.' };
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -186,7 +193,9 @@ export class AuthenticationController {
   @Patch('email')
   async updateEmail(@User() user: JwtPayload, @Body() body: UpdateEmailDto) {
     try {
-      return await this.authService.updateEmail(user.sub, body.newEmail);
+      await this.authService.updateEmail(user.sub, body.newEmail);
+
+      return { success: true, message: 'Email updated successfully.' };
     } catch (err: unknown) {
       handleErrors(err);
     }

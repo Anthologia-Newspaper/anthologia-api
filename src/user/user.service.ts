@@ -6,21 +6,13 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
   async me(userId: number) {
-    return await this.prisma.user.findUniqueOrThrow({
-      where: { id: userId },
-      select: {
-        id: true,
-        createdAt: true,
-        email: true,
-        username: true,
-      },
-    });
+    return await this.prisma.user.findUniqueOrThrow({ where: { id: userId } });
   }
 
   async updateProfilePic(userId: number, profilePicCid: string) {
     return await this.prisma.user.update({
       where: { id: userId },
-      data: { profilePic: profilePicCid },
+      data: { profilePicCid },
     });
   }
 
