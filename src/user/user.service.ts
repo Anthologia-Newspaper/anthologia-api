@@ -17,10 +17,10 @@ export class UserService {
     });
   }
 
-  async uploadProfilePic(userId: number, profilePic: string) {
+  async updateProfilePic(userId: number, profilePicCid: string) {
     return await this.prisma.user.update({
       where: { id: userId },
-      data: { profilePic: profilePic },
+      data: { profilePic: profilePicCid },
     });
   }
 

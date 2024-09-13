@@ -1,8 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import axios from 'axios';
 import { handleErrors } from 'src/utils/handle-errors';
 @Injectable()
 export class IPFSService {
-  constructor() {}
+  async uploadImage(image: Express.Multer.File) {
+    const data = new FormData();
+    data.append('file', new Blob([image.buffer]), image.originalname);
+
+    return (
+      await axios.post(String(process.env.STARTON_API_IPFS_ENDPOINT), data, {
+        headers: {
+          'x-api-key': process.env.STARTON_API_KEY,
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+    ).data.cid;
+  }
 
   async pin(articleContent: string, subtitle: string, id: number) {
     try {

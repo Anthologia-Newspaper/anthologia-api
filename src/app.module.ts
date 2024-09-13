@@ -8,7 +8,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { TopicsModule } from './topics/topics.module';
-import { IpfsModule } from './ipfs/ipfs.module';
+import { IPFSModule } from './ipfs/ipfs.module';
 import { CommentsModule } from './comments/comments.module';
 import { UserModule } from './user/user.module';
 
@@ -20,7 +20,7 @@ import { UserModule } from './user/user.module';
     TopicsModule,
     AnthologiesModule,
     StatisticsModule,
-    IpfsModule,
+    IPFSModule,
     CommentsModule,
     UserModule,
   ],

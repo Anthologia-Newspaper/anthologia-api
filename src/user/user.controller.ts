@@ -1,19 +1,35 @@
-import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  FileTypeValidator,
+  Get,
+  ParseFilePipe,
+  Patch,
+  Post,
+  UploadedFile,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiCookieAuth } from '@nestjs/swagger';
+import { Express } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
 import { User } from 'src/decorators/user.decorator';
+import { IPFSService } from 'src/ipfs/ipfs.service';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { UpdateUsernameDto } from './dto/update-username.dto';
-import { UploadProfilePicDto } from './dto/upload-profile-pic.dto';
 import { UserService } from './user.service';
 
 @ApiCookieAuth()
 @UseGuards(AuthGuard)
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly ipfsService: IPFSService,
+  ) {}
 
   @Get('me')
   async me(@User() user: JwtPayload) {
@@ -24,16 +40,26 @@ export class UserController {
     }
   }
 
-  @Patch('profile-pic')
+  // TODO: Add gateway prefix in interceptor
+  @Post('profile-pic')
+  @UseInterceptors(FileInterceptor('profilePic'))
   async uploadProfilePic(
     @User() user: JwtPayload,
-    uploadProfilePicDto: UploadProfilePicDto,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new FileTypeValidator({
+            fileType: '[image/png,image.jpeg,image.jpg]',
+          }),
+        ],
+      }),
+    )
+    profilePic: Express.Multer.File,
   ) {
     try {
-      return await this.userService.uploadProfilePic(
-        user.sub,
-        uploadProfilePicDto.profilePic,
-      );
+      const cid = await this.ipfsService.uploadImage(profilePic);
+
+      return await this.userService.updateProfilePic(user.sub, cid);
     } catch (err: unknown) {
       handleErrors(err);
     }
