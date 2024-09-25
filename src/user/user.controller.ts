@@ -4,6 +4,7 @@ import {
   Controller,
   FileTypeValidator,
   Get,
+  Param,
   ParseFilePipe,
   Patch,
   Post,
@@ -21,8 +22,8 @@ import { IPFSService } from 'src/ipfs/ipfs.service';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { UpdateUsernameDto } from './dto/update-username.dto';
-import { UserService } from './user.service';
 import { UserEntity } from './entities/User.entity';
+import { UserService } from './user.service';
 
 @ApiCookieAuth()
 @UseGuards(AuthGuard)
@@ -38,6 +39,16 @@ export class UserController {
   async me(@User() user: JwtPayload) {
     try {
       return new UserEntity(await this.userService.me(user.sub));
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @UseInterceptors(ClassSerializerInterceptor)
+  @Get(':id')
+  async getUser(@Param('id') id: number) {
+    try {
+      return new UserEntity(await this.userService.getUser(id));
     } catch (err: unknown) {
       handleErrors(err);
     }

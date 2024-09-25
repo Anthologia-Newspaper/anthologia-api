@@ -9,6 +9,10 @@ export class UserService {
     return await this.prisma.user.findUniqueOrThrow({ where: { id: userId } });
   }
 
+  async getUser(userId: number) {
+    return await this.prisma.user.findUniqueOrThrow({ where: { id: userId } });
+  }
+
   async updateProfilePic(userId: number, profilePicCid: string) {
     return await this.prisma.user.update({
       where: { id: userId },

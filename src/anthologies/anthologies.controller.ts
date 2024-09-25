@@ -80,7 +80,7 @@ export class AnthologiesController {
     }
   }
 
-  @Get(':id/articles')
+  @Get(':id')
   async findOne(@Param('id') id: number) {
     try {
       return await this.anthologiesService.findOne(id);
