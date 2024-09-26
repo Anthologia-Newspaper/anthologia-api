@@ -49,6 +49,13 @@ export class ArticlesService {
     return createdArticle;
   }
 
+  async updateBanner(articleId: number, bannerCid: string) {
+    await this.prisma.article.update({
+      where: { id: articleId },
+      data: { bannerCid },
+    });
+  }
+
   // ─── Find Many Articles ──────────────────────────────────────────────
 
   async findAll(query: GetArticlesQueryParamsDto) {

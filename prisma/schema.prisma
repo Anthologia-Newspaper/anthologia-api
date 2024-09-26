@@ -36,6 +36,7 @@ model Article {
   authorId    Int
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+  bannerCid   String      @default("")
   cid         String?
   content     String
   draft       Boolean     @default(true)

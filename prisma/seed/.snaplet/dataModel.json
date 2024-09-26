@@ -328,6 +328,20 @@
           "maxLength": null
         },
         {
+          "id": "public.Article.bannerCid",
+          "name": "bannerCid",
+          "columnName": "bannerCid",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
           "name": "Topic",
           "type": "Topic",
           "isRequired": true,

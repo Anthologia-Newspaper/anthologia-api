@@ -3,13 +3,16 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Delete,
+  FileTypeValidator,
   Get,
   Param,
   ParseBoolPipe,
+  ParseFilePipe,
   ParseIntPipe,
   Patch,
   Post,
   Query,
+  UploadedFile,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -26,11 +29,16 @@ import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { ArticleEntity, ArticlesEntity } from './entities/Article.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { IPFSService } from 'src/ipfs/ipfs.service';
 
 @ApiTags('Articles')
 @Controller('articles')
 export class ArticlesController {
-  constructor(private readonly articlesService: ArticlesService) {}
+  constructor(
+    private readonly articlesService: ArticlesService,
+    private readonly ipfsService: IPFSService,
+  ) {}
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
@@ -51,12 +59,36 @@ export class ArticlesController {
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @UseInterceptors(FileInterceptor('banner'))
+  @Patch(':id/banner')
+  async updateBanner(
+    @Param('id') id: string,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new FileTypeValidator({
+            fileType: '[image/png,image.jpeg,image.jpg]',
+          }),
+        ],
+      }),
+    )
+    banner: Express.Multer.File,
+  ) {
+    try {
+      const cid = await this.ipfsService.uploadImage(banner);
+      return await this.articlesService.updateBanner(+id, cid);
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
   // @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async findAll(@Query() query: GetArticlesQueryParamsDto) {
     try {
       const { authorId, topicId, anthologyId, q, items, page } = query;
-      console.log(query);
       const articles = await this.articlesService.findAll({
         authorId,
         topicId,
