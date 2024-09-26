@@ -51,20 +51,24 @@ export class ArticlesController {
     }
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
+  // @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async findAll(@Query() query: GetArticlesQueryParamsDto) {
     try {
-      const { authorId, topicId, anthologyId, q } = query;
+      const { authorId, topicId, anthologyId, q, items, page } = query;
+      console.log(query);
       const articles = await this.articlesService.findAll({
         authorId,
         topicId,
         anthologyId,
         q,
         draft: false,
+        items,
+        page,
       });
 
-      return new ArticlesEntity({ articles });
+      return articles;
+      // return new ArticlesEntity({ articles });
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -79,13 +83,15 @@ export class ArticlesController {
     @Query() query: GetArticlesQueryParamsDto,
   ) {
     try {
-      const { draft, topicId, anthologyId, q } = query;
+      const { draft, topicId, anthologyId, q, items, page } = query;
       const articles = await this.articlesService.findAll({
         authorId: user.sub,
         draft,
         topicId,
         anthologyId,
         q,
+        items,
+        page,
       });
 
       return new ArticlesEntity({ articles });
@@ -126,6 +132,8 @@ export class ArticlesController {
         topicId: query.topicId,
         anthologyId: query.anthologyId,
         q: query.q,
+        items: query.items,
+        page: query.page,
       });
 
       return new ArticlesEntity({ articles });

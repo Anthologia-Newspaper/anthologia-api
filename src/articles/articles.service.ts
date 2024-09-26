@@ -49,8 +49,16 @@ export class ArticlesService {
     return createdArticle;
   }
 
+  // ─── Find Many Articles ──────────────────────────────────────────────
+
   async findAll(query: GetArticlesQueryParamsDto) {
+    const items = query.items ? query.items : 20;
+    const page = query.page ? query.page * items : 0;
+
     return await this.prisma.article.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: items,
+      skip: page,
       where: {
         authorId: query.authorId,
         topicId: query.topicId,

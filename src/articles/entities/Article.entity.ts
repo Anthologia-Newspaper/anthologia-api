@@ -37,7 +37,6 @@ export class ArticleEntity {
 export class ArticlesEntity {
   @Type(() => ArticleEntity)
   articles: ArticleEntity[];
-
   @Expose()
   get total(): number {
     return this.articles.length;

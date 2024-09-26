@@ -7,6 +7,7 @@ export class CreateArticleDto {
   draft: boolean;
 
   @IsInt()
+  @Transform(({ value }) => +value)
   topic: number;
 
   @IsString()
@@ -21,6 +22,9 @@ export class CreateArticleDto {
 
   @IsOptional()
   @IsInt()
+  @Transform(({ value }) => {
+    if (value) return +value;
+  })
   anthology: number | undefined;
 
   @IsOptional()
