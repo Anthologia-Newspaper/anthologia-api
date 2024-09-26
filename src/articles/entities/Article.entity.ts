@@ -1,5 +1,5 @@
 import { Anthology, Comment, Event } from '@prisma/client';
-import { Expose, Type } from 'class-transformer';
+import { Type } from 'class-transformer';
 import { AnthologyEntity } from 'src/anthologies/entities/Anthology.entity';
 import { CommentEntity } from 'src/comments/entities/Comments.entity';
 import { DailyStatsEntity } from 'src/statistics/entities/Statistics.entity';
@@ -30,19 +30,6 @@ export class ArticleEntity {
   comments?: Comment[];
 
   constructor(partial: Partial<ArticleEntity>) {
-    Object.assign(this, partial);
-  }
-}
-
-export class ArticlesEntity {
-  @Type(() => ArticleEntity)
-  articles: ArticleEntity[];
-  @Expose()
-  get total(): number {
-    return this.articles.length;
-  }
-
-  constructor(partial: Partial<ArticlesEntity>) {
     Object.assign(this, partial);
   }
 }

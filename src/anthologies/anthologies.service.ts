@@ -50,32 +50,8 @@ export class AnthologiesService {
             { compiler: { username: { contains: q } } },
           ],
         },
-        select: {
-          id: true,
-          name: true,
-          description: true,
-          createdAt: true,
-          updatedAt: true,
-          compiler: {
-            select: {
-              id: true,
-              username: true,
-            },
-          },
-          articles: {
-            select: {
-              id: true,
-              title: true,
-              subtitle: true,
-              topic: true,
-              author: true,
-              createdAt: true,
-              updatedAt: true,
-              draft: true,
-              likeCounter: true,
-              viewCounter: true,
-            },
-          },
+        include: {
+          articles: true,
         },
       });
     }
@@ -91,32 +67,8 @@ export class AnthologiesService {
           { compiler: { username: { contains: q } } },
         ],
       },
-      select: {
-        id: true,
-        name: true,
-        description: true,
-        createdAt: true,
-        updatedAt: true,
-        compiler: {
-          select: {
-            id: true,
-            username: true,
-          },
-        },
-        articles: {
-          select: {
-            id: true,
-            title: true,
-            subtitle: true,
-            topic: true,
-            author: true,
-            createdAt: true,
-            updatedAt: true,
-            draft: true,
-            likeCounter: true,
-            viewCounter: true,
-          },
-        },
+      include: {
+        articles: true,
       },
     });
   }

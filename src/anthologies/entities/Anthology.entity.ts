@@ -1,5 +1,5 @@
-import { Type } from 'class-transformer';
-import { ArticlesEntity } from 'src/articles/entities/Article.entity';
+import { Expose, Type } from 'class-transformer';
+import { ArticleEntity } from 'src/articles/entities/Article.entity';
 import { UserEntity } from 'src/user/entities/User.entity';
 
 export class AnthologyEntity {
@@ -7,15 +7,28 @@ export class AnthologyEntity {
   @Type(() => UserEntity)
   compiler: UserEntity;
   userId: number;
-  @Type(() => ArticlesEntity)
-  articles: ArticlesEntity;
+  @Type(() => ArticleEntity)
+  articles: ArticleEntity[];
+  @Expose()
+  get articleCount(): number {
+    return this.articles.length;
+  }
   name: string;
-  description: string;
+  description: string | null;
   isPublic: boolean;
   createdAt: Date;
   updatedAt: Date;
 
   constructor(partial: Partial<AnthologyEntity>) {
+    Object.assign(this, partial);
+  }
+}
+
+export class AnthologiesEntities {
+  @Type(() => AnthologyEntity)
+  anthologies: AnthologyEntity[];
+
+  constructor(partial: Partial<AnthologiesEntities>) {
     Object.assign(this, partial);
   }
 }

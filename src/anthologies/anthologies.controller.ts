@@ -6,6 +6,7 @@
 
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   DefaultValuePipe,
   Delete,
@@ -16,6 +17,7 @@ import {
   Post,
   Query,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/authentication/authentication.guard';
@@ -27,6 +29,8 @@ import { AnthologiesService } from './anthologies.service';
 import { CreateAnthologyDto } from './dto/create-anthology.dto';
 import { GetAnthologiesQueryParams } from './dto/get-anthologies-query-params.dto';
 import { UpdateAnthologyDto } from './dto/update-anthology.dto';
+import { AnthologyEntity } from './entities/Anthology.entity';
+import { ArticleEntity } from 'src/articles/entities/Article.entity';
 
 @ApiTags('Anthologies')
 @ApiCookieAuth()
@@ -35,6 +39,7 @@ import { UpdateAnthologyDto } from './dto/update-anthology.dto';
 export class AnthologiesController {
   constructor(private readonly anthologiesService: AnthologiesService) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post()
   async create(
     @User() user: JwtPayload,
@@ -45,17 +50,20 @@ export class AnthologiesController {
     try {
       const articles = newAnthology.articles.map((id) => ({ id }));
 
-      return await this.anthologiesService.create(
-        newAnthology,
-        isPublic,
-        user.sub,
-        articles,
+      return new AnthologyEntity(
+        await this.anthologiesService.create(
+          newAnthology,
+          isPublic,
+          user.sub,
+          articles,
+        ),
       );
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async findAll(
     @User() user: JwtPayload,
@@ -70,25 +78,34 @@ export class AnthologiesController {
       // Due to custom validator, auto-transformation is not made on this property
       typeof author === 'string' && (author = +author);
 
-      return await this.anthologiesService.findAll(
+      const anthologies = await this.anthologiesService.findAll(
         author === user.sub,
         author,
         q,
       );
+
+      return anthologies.map((anthology) => {
+        const articles = anthology.articles.map(
+          (article) => new ArticleEntity(article),
+        );
+        return new AnthologyEntity({ ...anthology, articles });
+      });
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get(':id')
   async findOne(@Param('id') id: number) {
     try {
-      return await this.anthologiesService.findOne(id);
+      return new AnthologyEntity(await this.anthologiesService.findOne(id));
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Patch(':id')
   async update(
     @Param('id') id: number,
@@ -100,21 +117,24 @@ export class AnthologiesController {
         id,
       }));
 
-      return await this.anthologiesService.update(
-        id,
-        updateAnthologyDto,
-        addArticles,
-        removeArticles,
+      return new AnthologyEntity(
+        await this.anthologiesService.update(
+          id,
+          updateAnthologyDto,
+          addArticles,
+          removeArticles,
+        ),
       );
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Delete(':id')
   async remove(@Param('id') id: number) {
     try {
-      return await this.anthologiesService.remove(id);
+      return new AnthologyEntity(await this.anthologiesService.remove(id));
     } catch (err: unknown) {
       handleErrors(err);
     }

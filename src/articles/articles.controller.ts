@@ -28,7 +28,7 @@ import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
-import { ArticleEntity, ArticlesEntity } from './entities/Article.entity';
+import { ArticleEntity } from './entities/Article.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { IPFSService } from 'src/ipfs/ipfs.service';
 
@@ -84,7 +84,7 @@ export class ArticlesController {
     }
   }
 
-  // @UseInterceptors(ClassSerializerInterceptor)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async findAll(@Query() query: GetArticlesQueryParamsDto) {
     try {
@@ -99,8 +99,7 @@ export class ArticlesController {
         page,
       });
 
-      return articles;
-      // return new ArticlesEntity({ articles });
+      return articles.map((article) => new ArticleEntity(article));
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -126,7 +125,7 @@ export class ArticlesController {
         page,
       });
 
-      return new ArticlesEntity({ articles });
+      return articles.map((article) => new ArticleEntity(article));
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -168,7 +167,7 @@ export class ArticlesController {
         page: query.page,
       });
 
-      return new ArticlesEntity({ articles });
+      return articles.map((article) => new ArticleEntity(article));
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -224,6 +223,7 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {
