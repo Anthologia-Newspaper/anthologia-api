@@ -1,11 +1,11 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { EventType } from '@prisma/client';
+import { IPFSService } from 'src/ipfs/ipfs.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 import { CreateArticleDto } from './dto/create-article.dto';
-import { UpdateArticleDto } from './dto/update-article.dto';
-import { IPFSService } from 'src/ipfs/ipfs.service';
 import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
+import { UpdateArticleDto } from './dto/update-article.dto';
 
 @Injectable()
 export class ArticlesService {
@@ -70,6 +70,8 @@ export class ArticlesService {
     });
   }
 
+  // ─── Find One Article ────────────────────────────────────────────────
+
   async findOne(id: number, authorId?: number) {
     const article = await this.prisma.article.findUniqueOrThrow({
       where: { id, authorId, draft: authorId ? true : false },
@@ -99,6 +101,8 @@ export class ArticlesService {
 
     return article;
   }
+
+  // ─── Update An Article ───────────────────────────────────────────────
 
   async update(id: number, articleUpdate: UpdateArticleDto) {
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {

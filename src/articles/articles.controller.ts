@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -9,20 +10,22 @@ import {
   Patch,
   Post,
   Query,
-  Res,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { ApiCookieAuth, ApiTags } from '@nestjs/swagger';
-import { Response } from 'express';
 import { AuthGuard } from 'src/authentication/authentication.guard';
 import { JwtPayload } from 'src/authentication/contracts/JwtPayload.interface';
 import { User } from 'src/decorators/user.decorator';
+import { TopicEntity } from 'src/topics/entities/Topic.entity';
+import { UserEntity } from 'src/user/entities/User.entity';
 import { handleErrors } from 'src/utils/handle-errors';
 
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { GetArticlesQueryParamsDto } from './dto/get-articles-query-params.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { ArticleEntity, ArticlesEntity } from './entities/Article.entity';
 
 @ApiTags('Articles')
 @Controller('articles')
@@ -31,35 +34,37 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post()
   async create(
     @User() user: JwtPayload,
     @Body() createArticleDto: CreateArticleDto,
   ) {
     try {
-      return await this.articlesService.create(user.sub, createArticleDto);
+      const newArticle = await this.articlesService.create(
+        user.sub,
+        createArticleDto,
+      );
+      return new ArticleEntity(newArticle);
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
-  async findAll(
-    @Query() query: GetArticlesQueryParamsDto,
-    @Res() res: Response,
-  ) {
+  async findAll(@Query() query: GetArticlesQueryParamsDto) {
     try {
       const { authorId, topicId, anthologyId, q } = query;
+      const articles = await this.articlesService.findAll({
+        authorId,
+        topicId,
+        anthologyId,
+        q,
+        draft: false,
+      });
 
-      return res.send(
-        await this.articlesService.findAll({
-          authorId,
-          topicId,
-          anthologyId,
-          q,
-          draft: false,
-        }),
-      );
+      return new ArticlesEntity({ articles });
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -67,6 +72,7 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get('me')
   async findAllMyArticles(
     @User() user: JwtPayload,
@@ -74,14 +80,15 @@ export class ArticlesController {
   ) {
     try {
       const { draft, topicId, anthologyId, q } = query;
-
-      return await this.articlesService.findAll({
+      const articles = await this.articlesService.findAll({
         authorId: user.sub,
         draft,
         topicId,
         anthologyId,
         q,
       });
+
+      return new ArticlesEntity({ articles });
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -89,39 +96,55 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get('drafts/:id')
   async findOneDraft(@User() user: JwtPayload, @Param('id') id: string) {
     try {
-      return await this.articlesService.findOne(+id, user.sub);
-    } catch (err: unknown) {
-      handleErrors(err);
-    }
-  }
-
-  @ApiCookieAuth()
-  @UseGuards(AuthGuard)
-  @Get('liked')
-  async findAllLiked(
-    @User() user: JwtPayload,
-    @Query() query: GetArticlesQueryParamsDto,
-  ) {
-    try {
-      return await this.articlesService.findAll({
-        authorId: user.sub,
-        isLiked: true,
-        topicId: query.topicId,
-        anthologyId: query.anthologyId,
-        q: query.q,
+      const draft = await this.articlesService.findOne(+id, user.sub);
+      return new ArticleEntity({
+        ...draft,
+        author: new UserEntity(draft.author),
+        topic: new TopicEntity(draft.topic),
       });
     } catch (err: unknown) {
       handleErrors(err);
     }
   }
 
+  @ApiCookieAuth()
+  @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
+  @Get('liked')
+  async findAllLiked(
+    @User() user: JwtPayload,
+    @Query() query: GetArticlesQueryParamsDto,
+  ) {
+    try {
+      const articles = await this.articlesService.findAll({
+        authorId: user.sub,
+        isLiked: true,
+        topicId: query.topicId,
+        anthologyId: query.anthologyId,
+        q: query.q,
+      });
+
+      return new ArticlesEntity({ articles });
+    } catch (err: unknown) {
+      handleErrors(err);
+    }
+  }
+
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get(':id')
   async findOne(@Param('id') id: string) {
     try {
-      return await this.articlesService.findOne(+id);
+      const article = await this.articlesService.findOne(+id);
+
+      return new ArticleEntity({
+        ...article,
+        author: new UserEntity(article.author),
+        topic: new TopicEntity(article.topic),
+      });
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -144,13 +167,16 @@ export class ArticlesController {
 
   @ApiCookieAuth()
   @UseGuards(AuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Patch(':id')
   async update(
     @Param('id') id: string,
     @Body() updateArticleDto: UpdateArticleDto,
   ) {
     try {
-      return this.articlesService.update(+id, updateArticleDto);
+      return new ArticleEntity(
+        await this.articlesService.update(+id, updateArticleDto),
+      );
     } catch (err: unknown) {
       handleErrors(err);
     }
@@ -161,7 +187,7 @@ export class ArticlesController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {
-      return this.articlesService.remove(+id);
+      return new ArticleEntity(await this.articlesService.remove(+id));
     } catch (err: unknown) {
       handleErrors(err);
     }

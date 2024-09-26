@@ -1,8 +1,10 @@
+import { Role } from '@prisma/client';
 import { Exclude, Expose } from 'class-transformer';
 
 export class UserEntity {
   id: number;
   createdAt: Date;
+  email: string;
   username: string;
   profilePicCid: string;
 
@@ -15,7 +17,7 @@ export class UserEntity {
   password: string;
 
   @Exclude()
-  roles: string[];
+  roles: Role[];
 
   constructor(partial: Partial<UserEntity>) {
     Object.assign(this, partial);
