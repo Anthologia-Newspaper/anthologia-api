@@ -10,6 +10,7 @@ COPY package.json .
 COPY package-lock.json .
 
 RUN npm install --omit=dev
+RUN npm install --only=production
 
 # Copy source (see .dockerignore)
 COPY . .
