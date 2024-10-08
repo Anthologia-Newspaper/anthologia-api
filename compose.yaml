@@ -1,24 +1,57 @@
+version: "3"
+
 services:
   backend:
-    build: 
-      dockerfile: Dockerfile.dev
+    container_name: anthologia-api
+    build: .
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${PROD_DB_URL}
     ports:
       - ${BACK_PORT}:${BACK_PORT}
-      - 5555:5555
-    volumes:
-      - ./:/app
-      - /app/node_modules
-  #   depends_on:
-  #     - db
+    depends_on:
+      - database
+    networks:
+      - backend_network
 
-  # db:
-  #   image: postgres
-  #   restart: always
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
-  #     - POSTGRES_DB=anthologia
-  #   volumes:
-  #     - /tmp/db/anthologia:/var/lib/postgresql/data/
-  #   ports:
-  #     - 5432:5432
+  database:
+    container_name: anthologia-db
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+      - backend_network
+      - database_network
+    volumes:
+      - database_volume:/var/lib/postgresql/data/
+
+  studio:
+    container_name: anthologia-studio
+    image: timothyjmiller/prisma-studio:latest
+    restart: unless-stopped
+    env_file:
+     - .env
+    environment:
+      - POSTGRES_USERNAME=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT}
+      - POSTGRES_NAME=${DB_NAME}
+      - POSTGRES_URL=${PROD_DB_URL}
+    ports:
+      - 5555:5555
+    depends_on:
+      - database
+      - backend
+    networks:
+      - database_network
+
+networks:
+  backend_network:
+  database_network:
+
+volumes:
+  database_volume:

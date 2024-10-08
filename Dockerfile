@@ -1,15 +1,44 @@
-FROM node:lts
+###
+# Builder image
+###
+FROM node:lts AS builder
 
 WORKDIR /app
 
-COPY ./ ./
+# Install dependecies
+COPY package.json .
+COPY package-lock.json .
 
-RUN yarn
+RUN npm install --only=production
 
-RUN npx @snaplet/seed generate
+# Copy source (see .dockerignore)
+COPY . .
 
-RUN yarn build
+# Build source
+RUN npm run build
 
-EXPOSE ${BACK_PORT}
+###
+# Production image
+###
+FROM node:lts as app
 
-CMD ["yarn", "start:prod"]
+WORKDIR /app
+
+# Copy package manager
+COPY --from=builder /app/package.json .
+
+# Copy dependencies
+COPY --from=builder /app/node_modules node_modules
+
+# Copy code
+COPY --from=builder /app/dist dist
+COPY --from=builder /app/prisma prisma
+
+EXPOSE 5555
+EXPOSE 8080
+
+# Prefix commands
+ENTRYPOINT ["npm", "run"]
+
+# Start production (migrate database, generate prisma client and run app)
+CMD ["start:prod"]
