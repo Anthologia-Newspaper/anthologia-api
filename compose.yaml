@@ -8,17 +8,17 @@ services:
     volumes:
       - ./:/app
       - /app/node_modules
-  #   depends_on:
-  #     - db
+    depends_on:
+      - db
 
-  # db:
-  #   image: postgres
-  #   restart: always
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
-  #     - POSTGRES_DB=anthologia
-  #   volumes:
-  #     - /tmp/db/anthologia:/var/lib/postgresql/data/
-  #   ports:
-  #     - 5432:5432
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=anthologia
+    volumes:
+      - /tmp/db/anthologia:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
