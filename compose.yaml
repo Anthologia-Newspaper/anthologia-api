@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   backend:
@@ -11,15 +11,22 @@ services:
     ports:
       - ${BACK_PORT}:${BACK_PORT}
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - backend_network
+    healthcheck:
+      test: 'npx prisma migrate status'
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   database:
     container_name: anthologia-db
     image: postgres:17-alpine
     environment:
       - POSTGRES_USER=${DB_USER}
+      - PGUSER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
     networks:
@@ -27,13 +34,18 @@ services:
       - database_network
     volumes:
       - database_volume:/var/lib/postgresql/data/
+    healthcheck:
+      test: 'pg_isready -d $DB_NAME -U $DB_USER'
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   studio:
     container_name: anthologia-studio
     image: timothyjmiller/prisma-studio:latest
     restart: unless-stopped
     env_file:
-     - .env
+      - .env
     environment:
       - POSTGRES_USERNAME=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -44,8 +56,11 @@ services:
     ports:
       - 5555:5555
     depends_on:
-      - database
-      - backend
+      database:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+        restart: true
     networks:
       - database_network
 
