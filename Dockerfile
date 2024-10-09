@@ -9,7 +9,9 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm install --only=production
+RUN npm install
+RUN npm uninstall bcrypt
+RUN npm install bcrypt
 
 # Copy source (see .dockerignore)
 COPY . .
