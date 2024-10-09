@@ -14,6 +14,8 @@ RUN npm install --omit=dev
 # Copy source (see .dockerignore)
 COPY . .
 
+RUN npx prisma generate
+
 # Build source
 RUN npm run build
 

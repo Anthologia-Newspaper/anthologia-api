@@ -4,3 +4,4 @@
 .eslintrc.js
 .env.example
 Dockerfile
+node_modules
