@@ -38,11 +38,12 @@ export class IPFSService {
 
   // ─────────────────────────────────────────────────────────────────────
 
-  async pin(articleContent: string, subtitle: string, id: number) {
+  async pin(articleContent: string, title: string, subtitle: string, id: number) {
     try {
       const body = JSON.stringify({
         pinataContent: {
           id: id,
+          title: title,
           subtitle: subtitle,
           content: articleContent,
         },
@@ -87,11 +88,12 @@ export class IPFSService {
 
   async update(
     newContent: string,
+    title: string,
     subtitle: string,
     hashToUpdate: string,
     id: number,
   ): Promise<string> {
     this.delete(hashToUpdate);
-    return await this.pin(newContent, subtitle, id);
+    return await this.pin(newContent, title, subtitle, id);
   }
 }
