@@ -1,0 +1,848 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "john.1@outlook.fr",
+            "username": "John Doe",
+            "password": "John123!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 2,
+            "email": "jane.smith@yahoo.com",
+            "username": "Jane Smith",
+            "password": "Jane123!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 3,
+            "email": "mike.johnson@gmail.com",
+            "username": "Mike Johnson",
+            "password": "Mike123!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 4,
+            "email": "alice.davis@hotmail.com",
+            "username": "Alice Davis",
+            "password": "Alice123!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 5,
+            "email": "bob.brown@gmail.com",
+            "username": "Bob Brown",
+            "password": "Bob123!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 6,
+            "email": "romain.lienard@gmail.com",
+            "username": "Rom1",
+            "password": "Roro1!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        },
+        {
+            "id": 7,
+            "email": "melv@gmail.com",
+            "username": "Melv",
+            "password": "Melv1!",
+            "profilePicCid": "QmTPDGMazWT2XQT2eL5XcSCaQDvYdDr9LAE4Wr22r289qW",
+            "roles": [
+                "USER"
+            ]
+        }
+    ],
+    "topics": [
+        {
+            "id": 1,
+            "name": "Météo",
+            "description": "Tout sur la météo !",
+            "image": "https://cdn-icons-png.flaticon.com/512/10127/10127236.png"
+        },
+        {
+            "id": 2,
+            "name": "Politique",
+            "description": "Les dernières nouvelles sur la politique",
+            "image": "https://cdn-icons-png.flaticon.com/512/3852/3852276.png"
+        },
+        {
+            "id": 3,
+            "name": "Environnement",
+            "description": "Toutes les informations concernant l'environnement",
+            "image": "https://cdn-icons-png.flaticon.com/512/4514/4514815.png"
+        },
+        {
+            "id": 4,
+            "name": "Agriculture",
+            "description": "Les news de l'agriculture",
+            "image": "https://cdn-icons-png.flaticon.com/512/1772/1772243.png"
+        },
+        {
+            "id": 5,
+            "name": "Guerre",
+            "description": "Les dernières nouvelles sur les guerres dans le monde",
+            "image": "https://cdn-icons-png.flaticon.com/512/7154/7154800.png"
+        },
+        {
+            "id": 6,
+            "name": "Anime",
+            "description": "Les news sur les anime",
+            "image": "https://cdn-icons-png.flaticon.com/512/6259/6259201.png"
+        },
+        {
+            "id": 7,
+            "name": "Manga",
+            "description": "Les news sur les manga",
+            "image": "https://cdn-icons-png.flaticon.com/512/4916/4916991.png"
+        },
+        {
+            "id": 8,
+            "name": "Technologie",
+            "description": "Les dernières infos technologie",
+            "image": "https://cdn-icons-png.flaticon.com/512/4257/4257824.png"
+        },
+        {
+            "id": 9,
+            "name": "Film",
+            "description": "Votre filmographie ici",
+            "image": "https://cdn-icons-png.flaticon.com/512/4615/4615731.png"
+        },
+        {
+            "id": 10,
+            "name": "Documentaire",
+            "description": "Des documentaires en tous genre",
+            "image": "https://cdn-icons-png.flaticon.com/512/5190/5190261.png"
+        },
+        {
+            "id": 11,
+            "name": "Sports",
+            "description": "Sport et compétitivités",
+            "image": "https://cdn-icons-png.flaticon.com/512/857/857455.png"
+        },
+        {
+            "id": 12,
+            "name": "Science",
+            "description": "Les infos scientifiques",
+            "image": "https://cdn-icons-png.flaticon.com/512/2637/2637156.png"
+        },
+        {
+            "id": 13,
+            "name": "Santé",
+            "description": "Dernières news santé",
+            "image": "https://cdn-icons-png.flaticon.com/512/2460/2460257.png"
+        }
+    ],
+    "articles": [
+        {
+            "id": 1,
+            "title": "Inondations en Seine-et-Marne après le passage de l'ouragan Leslie",
+            "subtitle": "pluie, inondations, ouragan",
+            "topicId": 1,
+            "authorId": 1,
+            "cid": "tmp",
+            "content": "{\"a3dcc117-7a3a-410f-98fa-8cbf620acebf\": {\"id\": \"a3dcc117-7a3a-410f-98fa-8cbf620acebf\",\"value\": [{\"id\": \"e3599711-7674-498b-bcba-099b600d6eb3\",\"type\": \"heading-one\",\"children\": [{\"text\": \"Les récentes inondations en Seine-et-Marne\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingOne\",\"meta\": {\"order\": 0,\"depth\": 0}},\"bf2fcbb8-80fc-4956-a287-75f4fefb7798\": {\"id\": \"bf2fcbb8-80fc-4956-a287-75f4fefb7798\",\"value\": [{\"id\": \"1765b208-3b8a-4d1e-942c-bdd40ca55fdc\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 15,\"depth\": 0}},\"c8bd4e3d-9a98-4e8e-9953-4647d58e7c12\": {\"id\": \"c8bd4e3d-9a98-4e8e-9953-4647d58e7c12\",\"value\": [{\"id\": \"91bee1f2-c5c8-4bb9-8aa4-0537525f5227\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les petites villes de la Seine-et-Marne, comme Pommeuse, viennent de traverser une période éprouvante marquée par des inondations à répétition, conséquence des conditions météo et du passage de l’ouragan Leslie.\"}]}],\"type\": \"Paragraph\",\"meta\": {\"order\": 2,\"depth\": 0}},\"4e80417c-87fb-4610-8a91-1bae5e729acf\": {\"id\": \"4e80417c-87fb-4610-8a91-1bae5e729acf\",\"value\": [{\"id\": \"d014e15a-a269-445e-9035-a801fac67081\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Cet \"},{\"text\": \"ouragan\",\"bold\": true},{\"text\": \", qui a déferlé avec une intensité exceptionnelle, a\"},{\"text\": \" provoqué des pluies torrentielles, saturant les sols déjà fragilisés par les épisodes pluvieux antérieurs\",\"italic\": true},{\"text\": \". Le village de \"},{\"text\": \"Pommeuse\",\"underline\": true},{\"text\": \", paisible commune habituellement épargnée par ce type de catastrophe, a été \"},{\"text\": \"inondé à deux reprises en seulement trois semaines\",\"bold\": true},{\"text\": \". Le petit Morin qui traversent le village n'a pas \"},{\"text\": \"résisté à la montée des eaux\",\"italic\": true},{\"text\": \", entraînant des débordements massifs dans plusieurs quartiers résidentiels. Les habitants, encore sous le choc des premières inondations, ont vu leurs efforts de nettoyage anéantis par une nouvelle crue. La gestion des infrastructures locales, bien que réactive, a montré les limites face à des événements climatiques aussi imprévisibles. \"},{\"text\": \"Les systèmes de drainage, surchargés, n'ont pas réussi à évacuer les quantités d'eau inhabituelles\",\"italic\": true},{\"text\": \", laissant plusieurs zones \"},{\"text\": \"sous plusieurs centimètres d'eau\",\"bold\": true},{\"text\": \". \"},{\"text\": \"Les routes ont été temporairement impraticables, et certaines familles ont dû être évacuées en urgence\",\"italic\": true},{\"text\": \".\"}]}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"9d723468-35a3-416d-9072-9c999a205a3b\": {\"id\": \"9d723468-35a3-416d-9072-9c999a205a3b\",\"value\": [{\"id\": \"ca6ce1f8-e325-4275-9142-61db70a0a02e\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 7,\"depth\": 0}},\"6717f834-c90a-4c25-aa15-dae05d68e173\": {\"id\": \"6717f834-c90a-4c25-aa15-dae05d68e173\",\"value\": [{\"id\": \"7e69196d-6e51-4648-ab5f-879041921938\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"77fd0ffa-6550-4ac3-b2c6-8d375646896f\": {\"id\": \"77fd0ffa-6550-4ac3-b2c6-8d375646896f\",\"value\": [{\"id\": \"0e87a77d-032d-41e9-8794-b7277ae308e6\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"c105505a-b4ae-4b88-8a6b-a4f1003ad4fa\": {\"id\": \"c105505a-b4ae-4b88-8a6b-a4f1003ad4fa\",\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0},\"value\": [{\"id\": \"882dc167-3887-4c09-a1de-f2b7a06e94d4\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En attendant, les habitants de Pommeuse s’organisent tant bien que mal, espérant que les semaines à venir ne réservent pas de nouvelles surprises météorologiques.\"}]}]},\"732e1736-0805-4e8e-9b28-6d36111af5f9\": {\"id\": \"732e1736-0805-4e8e-9b28-6d36111af5f9\",\"value\": [{\"id\": \"cdb40aca-a849-48b3-812f-4e98e506946c\",\"type\": \"image\",\"props\": {\"src\": \"https://static.actu.fr/uploads/2016/06/13335981_10209442289151547_395091885790019720_n.jpg\",\"alt\": null,\"srcSet\": null,\"bgColor\": null,\"fit\": \"cover\",\"sizes\": {\"width\": 650,\"height\": 500},\"nodeType\": \"void\"},\"children\": [{\"text\": \"\"}]}],\"type\": \"Image\",\"meta\": {\"order\": 10,\"depth\": 0}},\"5d09b9d9-3719-4eed-9d18-ce65bd8c787e\": {\"id\": \"5d09b9d9-3719-4eed-9d18-ce65bd8c787e\",\"type\": \"Callout\",\"meta\": {\"order\": 6,\"depth\": 0},\"value\": [{\"id\": \"f33e6205-68ac-4902-b25f-95d2ca1271b0\",\"type\": \"callout\",\"props\": {\"theme\": \"info\"},\"children\": [{\"text\": \"Le passage de \"},{\"text\": \"l'ouragan Leslie\",\"bold\": true},{\"text\": \", bien qu'atténué en France, a clairement mis en lumière la \"},{\"text\": \"vulnérabilité de certaines zones rurales face à des phénomènes météorologiques extrêmes\",\"italic\": true},{\"text\": \". \"},{\"text\": \"Les pouvoirs publics sont désormais appelés à agir\",\"highlight\": {\"color\": \"#C4554D\"}},{\"text\": \", non seulement pour réparer les dégâts, mais aussi pour anticiper de futures catastrophes de ce genre. \"},{\"text\": \"Les experts appellent déjà à la mise en place de dispositifs plus robustes\",\"underline\": true},{\"text\": \" pour faire face à une fréquence accrue d'inondations dans les années à venir.\"}]}]}}",
+            "draft": false,
+            "viewCounter": 5,
+            "likeCounter": 3
+        },
+        {
+            "id": 2,
+            "title": "Réchauffement Climatique : Les Impacts Récents sur Notre Environnement",
+            "subtitle": "",
+            "topicId": 3,
+            "authorId": 2,
+            "cid": "tmp",
+            "content": "{\"a3dcc117-7a3a-410f-98fa-8cbf620acebf\": {\"id\": \"a3dcc117-7a3a-410f-98fa-8cbf620acebf\",\"value\": [{\"id\": \"e3599711-7674-498b-bcba-099b600d6eb3\",\"type\": \"heading-one\",\"children\": [{\"text\": \"Les récentes inondations en Seine-et-Marne\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingOne\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"77fd0ffa-6550-4ac3-b2c6-8d375646896f\": {\"id\": \"77fd0ffa-6550-4ac3-b2c6-8d375646896f\",\"value\": [{\"id\": \"0e87a77d-032d-41e9-8794-b7277ae308e6\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le réchauffement climatique, conséquence directe de l’augmentation des émissions de gaz à effet de serre, continue d’avoir des répercussions dramatiques sur notre planète. Les effets du changement climatique se sont intensifiés au cours des derniers mois, modifiant profondément notre environnement naturel et urbain.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 2,\"depth\": 0}},\"38d0598b-0861-47c1-8596-31fd723de780\": {\"id\": \"38d0598b-0861-47c1-8596-31fd723de780\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 4,\"depth\": 0},\"value\": [{\"id\": \"de32371a-59cc-489d-b021-480f740e1ca6\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Des Étés de Plus en Plus Chauds\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"e483dc66-5814-4443-a883-d83c07991172\": {\"id\": \"e483dc66-5814-4443-a883-d83c07991172\",\"value\": [{\"id\": \"4ea583d3-a271-453f-a96d-41357f9de612\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Cet été\",\"underline\": true},{\"text\": \" a été marqué par des vagues de chaleur extrêmes dans plusieurs régions du monde, atteignant des températures record. En Europe, certaines villes ont enregistré des températures avoisinant les 45°C, provoquant des crises sanitaires et une surcharge des infrastructures de santé. Aux États-Unis, des \"},{\"text\": \"incendies de forêts\",\"underline\": true},{\"text\": \" dévastateurs, notamment en Californie et dans le sud-ouest, ont \"},{\"text\": \"ravagé des milliers d’hectares\",\"underline\": true},{\"text\": \" de terres et forcé des milliers de personnes à évacuer leurs maisons.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"42610594-ce0b-4cb9-b1d6-e60d4357db97\": {\"id\": \"42610594-ce0b-4cb9-b1d6-e60d4357db97\",\"value\": [{\"id\": \"81501bbe-67db-476a-b345-8436918f1c66\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"38fb3061-b074-456a-b24d-5b89db604054\": {\"id\": \"38fb3061-b074-456a-b24d-5b89db604054\",\"type\": \"Callout\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"callout\",\"children\": [{\"text\": \"Les températures anormalement élevées ne se limitent plus aux saisons estivales. Les \"},{\"text\": \"vagues de chaleur automnales\",\"bold\": true},{\"text\": \" sont devenues plus fréquentes, entraînant des sécheresses prolongées et un stress hydrique dans de nombreuses régions, affectant à la fois l’agriculture et les ressources en eau.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"1de630bf-a396-4f1b-9568-00dbd2787625\": {\"id\": \"1de630bf-a396-4f1b-9568-00dbd2787625\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"62e33536-e074-4528-a005-bbe6e5fc0e95\",\"type\": \"heading-three\",\"children\": [{\"text\": \"La Montée des Eaux et les Inondations\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"31a47919-b6ce-4c97-bb6c-d4fe3ddfcb3d\": {\"id\": \"31a47919-b6ce-4c97-bb6c-d4fe3ddfcb3d\",\"value\": [{\"id\": \"05246705-fc57-4945-85ff-636f1699fac8\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\": {\"id\": \"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\",\"value\": [{\"id\": \"52f92137-ca32-4f14-96a1-8f34683a75c3\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le \"},{\"text\": \"réchauffement des océans et la fonte des glaciers\",\"underline\": true},{\"text\": \" contribuent à la montée du niveau de la mer. Ces derniers mois, plusieurs villes côtières ont été gravement touchées par des \"},{\"text\": \"inondations soudaines\",\"bold\": true},{\"text\": \" dues aux tempêtes et à l’élévation du niveau des eaux. Des villes comme Jakarta, aux prises avec des marées toujours plus hautes, sont confrontées à des problèmes de déplacement de population, certaines zones devenant littéralement inhabitables.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 11,\"depth\": 0}},\"f76853ee-c30f-4e7a-8909-6306631cf7dd\": {\"id\": \"f76853ee-c30f-4e7a-8909-6306631cf7dd\",\"value\": [{\"id\": \"9eeda8b9-484f-4185-9a0b-4e004c2d793f\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les \"},{\"text\": \"phénomènes météorologiques extrêmes\",\"underline\": true},{\"text\": \", amplifiés par le réchauffement climatique, ont multiplié les inondations dans des régions auparavant peu concernées. En Asie du Sud-Est, des \"},{\"text\": \"pluies torrentielles ont balayé des centaines de villages\",\"underline\": true},{\"text\": \", submergeant les cultures et \"},{\"text\": \"détruisant les infrastructures locales\",\"underline\": true},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"2cf36f1c-a2f5-496a-b67a-6cc575d4bc95\": {\"id\": \"2cf36f1c-a2f5-496a-b67a-6cc575d4bc95\",\"value\": [{\"id\": \"00fa92d6-7167-41b2-bdce-4d1bf522c1e8\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0}},\"4c05f84f-a79e-469f-866f-0f06c984edf5\": {\"id\": \"4c05f84f-a79e-469f-866f-0f06c984edf5\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 14,\"depth\": 0},\"value\": [{\"id\": \"c3f1ae0b-7933-42c9-be92-789dd5749625\",\"type\": \"heading-three\",\"children\": [{\"text\": \"La Biodiversité Menacée\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"2026a5fe-1a68-484c-b736-589933e9d426\": {\"id\": \"2026a5fe-1a68-484c-b736-589933e9d426\",\"value\": [{\"id\": \"47242ca3-2355-4e6e-9cce-f352cb2fae93\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 15,\"depth\": 0}},\"7cc86620-3f9f-403a-bd68-e1edbfdeb8ee\": {\"id\": \"7cc86620-3f9f-403a-bd68-e1edbfdeb8ee\",\"value\": [{\"id\": \"6c22d5a5-20ba-4b63-9e18-4614c1581c72\",\"type\": \"paragraph\",\"children\": [{\"text\": \"La \"},{\"text\": \"faune et la flore\",\"bold\": true},{\"text\": \" ne sont pas épargnées par les \"},{\"text\": \"effets du réchauffement climatique\",\"underline\": true},{\"text\": \". Ces derniers mois, plusieurs espèces animales ont vu leur habitat naturel \"},{\"text\": \"gravement perturbé par les incendies de forêts\",\"underline\": true},{\"text\": \", les changements dans les cycles des saisons et la perte de biodiversité due aux événements climatiques extrêmes. Les récifs coralliens, essentiels à la survie de nombreuses espèces marines, continuent de blanchir à un rythme alarmant en raison de \"},{\"text\": \"l’augmentation des températures océaniques\",\"underline\": true},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 16,\"depth\": 0}},\"7de17cd9-b1b7-42a8-962d-c15382865912\": {\"id\": \"7de17cd9-b1b7-42a8-962d-c15382865912\",\"type\": \"Callout\",\"meta\": {\"order\": 17,\"depth\": 0},\"value\": [{\"id\": \"8bb4832a-35f4-438d-9735-b6a14d5f02f1\",\"type\": \"callout\",\"children\": [{\"text\": \"Dans les régions polaires, les ours polaires et autres espèces arctiques sont confrontés à une réduction rapide de la banquise, limitant leur accès aux sources de nourriture et menaçant directement leur survie à long terme.\"}],\"props\": {\"nodeType\": \"block\",\"theme\": \"error\"}}]},\"801426df-6b74-4558-80c8-ff2f3c43e284\": {\"id\": \"801426df-6b74-4558-80c8-ff2f3c43e284\",\"value\": [{\"id\": \"19b898e4-d140-4a8f-b5e4-d01a49bd17a3\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 18,\"depth\": 0}},\"89e79f19-53c5-4f50-b384-0445460b56e5\": {\"id\": \"89e79f19-53c5-4f50-b384-0445460b56e5\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 19,\"depth\": 0},\"value\": [{\"id\": \"4b2d8d13-70c0-4fb4-ab09-12cfc40e7247\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Un Appel Urgent à l’Action\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"4433a857-88d0-499c-9b10-4458e290f1e1\": {\"id\": \"4433a857-88d0-499c-9b10-4458e290f1e1\",\"type\": \"Paragraph\",\"meta\": {\"order\": 21,\"depth\": 0},\"value\": [{\"id\": \"c3a30855-2834-4802-ac53-b42848d5e26a\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les événements climatiques récents sont un rappel brutal que le \"},{\"text\": \"réchauffement climatique\",\"underline\": true},{\"text\": \" est une réalité présente, non un problème futur. La communauté scientifique exhorte les gouvernements du monde entier à prendre des mesures concrètes et immédiates pour \"},{\"text\": \"limiter les émissions de gaz à effet de serre\",\"underline\": true},{\"text\": \" et freiner \"},{\"text\": \"l’impact du changement climatique\",\"underline\": true},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}]},\"e41fa2c5-8e25-4458-9d86-45ee185748fc\": {\"id\": \"e41fa2c5-8e25-4458-9d86-45ee185748fc\",\"value\": [{\"id\": \"dd481abb-3944-4011-8bf1-9ed73ea62cce\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 20,\"depth\": 0}},\"abddb83a-bdbc-4988-9f06-27d83c0d04db\": {\"id\": \"abddb83a-bdbc-4988-9f06-27d83c0d04db\",\"value\": [{\"id\": \"b22d0cc2-112f-4894-aaf4-97b4cb2d5bd1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Face à ces catastrophes, les initiatives locales et internationales se multiplient pour tenter de \"},{\"text\": \"minimiser les dommages\",\"underline\": true},{\"text\": \", mais il est clair que des \"},{\"text\": \"actions à plus grande échelle sont nécessaires\",\"underline\": true},{\"text\": \". Les efforts pour renforcer les infrastructures, développer des énergies renouvelables et adopter des pratiques agricoles durables sont devenus une priorité mondiale.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 22,\"depth\": 0}},\"d14e884a-357e-44c4-9188-4871eeded27b\": {\"id\": \"d14e884a-357e-44c4-9188-4871eeded27b\",\"value\": [{\"id\": \"4abfac81-63af-444b-8d23-4984d4b7b319\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En conclusion\",\"bold\": true},{\"text\": \", \"},{\"text\": \"les effets du réchauffement climatique deviennent de plus en plus visibles\",\"highlight\": {\"color\": \"#C4554D\"}},{\"text\": \" \"},{\"text\": \"et destructeurs\",\"highlight\": {\"color\": \"#C4554D\"}},{\"text\": \". \"},{\"text\": \"Le temps presse\",\"bold\": true},{\"text\": \" pour agir et protéger notre planète des conséquences irréversibles d’un climat en perpétuelle évolution.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 24,\"depth\": 0}},\"39db006e-fdce-407b-ab04-e9da4a5421df\": {\"id\": \"39db006e-fdce-407b-ab04-e9da4a5421df\",\"value\": [{\"id\": \"7032a4f1-7f10-4111-b32c-65dcc6f8d2cb\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 25,\"depth\": 0}},\"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\": {\"id\": \"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\",\"value\": [{\"id\": \"0ff6d54f-fdfb-4e36-96aa-daa08e2c1bd9\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 23,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 3,
+            "likeCounter": 1
+        },
+        {
+            "id": 3,
+            "title": "La guerre en Ukraine toujours d'actualité",
+            "subtitle": "guerre, Ukraine, Russie",
+            "topicId": 5,
+            "authorId": 3,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"La guerre en Ukraine, qui a débuté en février 2022 avec l'invasion russe, continue de bouleverser l’Europe de l’Est et le monde entier. Ce conflit, qui s'est intensifié au fil des mois, a provoqué des destructions massives, des milliers de victimes, et un exode important de la population ukrainienne. Aujourd'hui, plus de deux ans après son début, la guerre entre dans une phase critique, avec des développements récents qui méritent d'être explorés.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0}},\"38fb3061-b074-456a-b24d-5b89db604054\": {\"id\": \"38fb3061-b074-456a-b24d-5b89db604054\",\"type\": \"Callout\",\"meta\": {\"order\": 8,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"callout\",\"children\": [{\"text\": \"L'Ukraine continue de bénéficier d'un soutien massif de la communauté internationale. Récemment, des livraisons supplémentaires d'armes occidentales, telles que des chars modernes et des systèmes de défense aérienne, ont renforcé la défense ukrainienne. Les États-Unis, l'Union européenne, ainsi que l'OTAN, jouent un rôle crucial dans l’envoi d’équipements et l’assistance logistique. Ce soutien reste essentiel alors que la guerre s’étire et que les pertes se multiplient de part et d'autre..\"}],\"props\": {\"nodeType\": \"block\"}}]},\"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\": {\"id\": \"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\",\"value\": [{\"id\": \"52f92137-ca32-4f14-96a1-8f34683a75c3\",\"type\": \"paragraph\",\"children\": [{\"text\": \"De son côté, la Russie fait face à des \"},{\"text\": \"difficultés croissantes\",\"underline\": true},{\"text\": \". Les \"},{\"text\": \"sanctions économiques\",\"bold\": true},{\"text\": \" imposées par les pays occidentaux continuent de peser lourdement sur son économie. Par ailleurs, des rapports indiquent que \"},{\"text\": \"Moscou peine à recruter de nouveaux soldats\",\"underline\": true},{\"text\": \", d’où des alliances militaires controversées, comme un \"},{\"text\": \"accord de recrutement\",\"bold\": true},{\"text\": \" avec la \"},{\"text\": \"Corée du Nord\",\"underline\": true},{\"text\": \". Cette pénurie de troupes affecte directement les opérations russes, notamment sur le front sud, où les forces \"},{\"text\": \"ukrainiennes continuent de gagner du terrain\",\"underline\": true},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"2cf36f1c-a2f5-496a-b67a-6cc575d4bc95\": {\"id\": \"2cf36f1c-a2f5-496a-b67a-6cc575d4bc95\",\"value\": [{\"id\": \"00fa92d6-7167-41b2-bdce-4d1bf522c1e8\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0}},\"4c05f84f-a79e-469f-866f-0f06c984edf5\": {\"id\": \"4c05f84f-a79e-469f-866f-0f06c984edf5\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 14,\"depth\": 0},\"value\": [{\"id\": \"c3f1ae0b-7933-42c9-be92-789dd5749625\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les conséquences humanitaires\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"2026a5fe-1a68-484c-b736-589933e9d426\": {\"id\": \"2026a5fe-1a68-484c-b736-589933e9d426\",\"value\": [{\"id\": \"47242ca3-2355-4e6e-9cce-f352cb2fae93\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 15,\"depth\": 0}},\"7de17cd9-b1b7-42a8-962d-c15382865912\": {\"id\": \"7de17cd9-b1b7-42a8-962d-c15382865912\",\"type\": \"Callout\",\"meta\": {\"order\": 16,\"depth\": 0},\"value\": [{\"id\": \"8bb4832a-35f4-438d-9735-b6a14d5f02f1\",\"type\": \"callout\",\"children\": [{\"text\": \"Les conséquences humanitaires de cette guerre sont désastreuses. Des millions de personnes ont été déplacées, et le nombre de réfugiés ne cesse d'augmenter. Les conditions de vie dans les zones occupées ou en conflit sont extrêmement précaires, et de nombreuses organisations humanitaires peinent à apporter l'aide nécessaire. Le traumatisme causé par la guerre continuera de marquer la population ukrainienne pendant des années.\"}],\"props\": {\"nodeType\": \"block\",\"theme\": \"error\"}}]},\"801426df-6b74-4558-80c8-ff2f3c43e284\": {\"id\": \"801426df-6b74-4558-80c8-ff2f3c43e284\",\"value\": [{\"id\": \"19b898e4-d140-4a8f-b5e4-d01a49bd17a3\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 17,\"depth\": 0}},\"89e79f19-53c5-4f50-b384-0445460b56e5\": {\"id\": \"89e79f19-53c5-4f50-b384-0445460b56e5\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 18,\"depth\": 0},\"value\": [{\"id\": \"4b2d8d13-70c0-4fb4-ab09-12cfc40e7247\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Vers un avenir incertain\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"e41fa2c5-8e25-4458-9d86-45ee185748fc\": {\"id\": \"e41fa2c5-8e25-4458-9d86-45ee185748fc\",\"value\": [{\"id\": \"dd481abb-3944-4011-8bf1-9ed73ea62cce\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 19,\"depth\": 0}},\"d14e884a-357e-44c4-9188-4871eeded27b\": {\"id\": \"d14e884a-357e-44c4-9188-4871eeded27b\",\"value\": [{\"id\": \"4abfac81-63af-444b-8d23-4984d4b7b319\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En conclusion, \",\"bold\": true},{\"bold\": true,\"text\": \"la guerre en Ukraine reste un conflit complexe et destructeur\",\"highlight\": {\"color\": \"#C4554D\"}},{\"bold\": true,\"text\": \", avec des répercussions politiques, économiques et humaines considérables. Les prochains mois seront décisifs dans l'évolution de cette guerre, qui continuera de façonner l'équilibre des forces en Europe et dans le monde.\"},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 22,\"depth\": 0}},\"39db006e-fdce-407b-ab04-e9da4a5421df\": {\"id\": \"39db006e-fdce-407b-ab04-e9da4a5421df\",\"value\": [{\"id\": \"7032a4f1-7f10-4111-b32c-65dcc6f8d2cb\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 23,\"depth\": 0}},\"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\": {\"id\": \"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\",\"value\": [{\"id\": \"0ff6d54f-fdfb-4e36-96aa-daa08e2c1bd9\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 21,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"L'intensification des combats sur le terrain\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"3b72524e-b4ae-4f49-b7f7-f1b237255f30\": {\"id\": \"3b72524e-b4ae-4f49-b7f7-f1b237255f30\",\"value\": [{\"id\": \"ce6c08ab-e84f-4aeb-bb36-1992604b244c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Au cours des derniers mois\",\"underline\": true},{\"text\": \", les \"},{\"text\": \"combats\",\"bold\": true},{\"text\": \" ont connu une recrudescence notable, particulièrement dans l'est du pays. Les villes de \"},{\"text\": \"Bakhmout, Kherson, et Donetsk\",\"underline\": true},{\"text\": \" restent des zones stratégiques où \"},{\"text\": \"l’armée ukrainienne\",\"underline\": true},{\"text\": \" et les \"},{\"text\": \"forces russes s’affrontent régulièrement\",\"underline\": true},{\"text\": \". Les forces ukrainiennes ont réussi à reprendre certaines positions clés, mais les \"},{\"text\": \"attaques russes ne cessent de se multiplier\",\"bold\": true},{\"text\": \". En parallèle, les bombardements ont continué de cibler les infrastructures civiles, plongeant une grande partie du pays dans l’obscurité et coupant l’accès à l’électricité et au chauffage.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"cdb4f049-ef98-4a3f-af9d-56e48563b082\": {\"id\": \"cdb4f049-ef98-4a3f-af9d-56e48563b082\",\"value\": [{\"id\": \"bdbb440d-41a7-4a20-b30c-b7c397bd6b49\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Le soutien international\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 6,\"depth\": 0}},\"c7b4bbd2-3c49-49ae-8361-2f6813dc62db\": {\"id\": \"c7b4bbd2-3c49-49ae-8361-2f6813dc62db\",\"value\": [{\"id\": \"c3651156-0daa-4675-bcf4-eb269839bc98\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 7,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"d4a3f32b-6e2c-418b-8d52-566afdbcda7f\": {\"id\": \"d4a3f32b-6e2c-418b-8d52-566afdbcda7f\",\"value\": [{\"id\": \"0a087141-dae5-4b65-b071-25813485102e\",\"type\": \"heading-three\",\"children\": [{\"text\": \"La situation en Russie\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 10,\"depth\": 0}},\"08fe0286-4209-493d-a91e-8285969915a0\": {\"id\": \"08fe0286-4209-493d-a91e-8285969915a0\",\"value\": [{\"id\": \"86d439c0-111b-436e-9e87-834ee1e9c4f1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 11,\"depth\": 0}},\"5468277f-d11b-4d69-a175-b1ebefd32e05\": {\"id\": \"5468277f-d11b-4d69-a175-b1ebefd32e05\",\"value\": [{\"id\": \"cf704f9d-fbc8-4375-96a9-e86b2cefa1df\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Alors que l’hiver approche, de nombreuses questions demeurent sur l’avenir de ce conflit. \"},{\"text\": \"L’Ukraine pourra-t-elle continuer à résister à l’offensive russe\",\"underline\": true},{\"text\": \"? La Russie, affaiblie, \"},{\"text\": \"pourrait-elle recourir à des moyens plus radicaux\",\"underline\": true},{\"text\": \"? Et enfin, la communauté internationale pourra-t-elle maintenir son soutien sur le long terme? Ce conflit, loin de trouver une issue, reste \"},{\"text\": \"l’un des défis les plus importants pour la paix mondiale aujourd’hui\",\"highlight\": {\"color\": \"#C4554D\"}},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 20,\"depth\": 0}},\"0057e22c-c9d4-4f92-82f2-273ff9211fac\": {\"id\": \"0057e22c-c9d4-4f92-82f2-273ff9211fac\",\"value\": [{\"id\": \"20c47fbc-eac3-42cb-b7e3-ec368ddcb4c8\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 5,
+            "likeCounter": 5
+        },
+        {
+            "id": 4,
+            "title": "Joker 2, des critiques mitigées pour ce deuxième film du joker",
+            "subtitle": "film, joker, critiques",
+            "topicId": 9,
+            "authorId": 4,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le très attendu Joker 2, intitulé Joker: Folie à Deux, est enfin arrivé sur les écrans, mais le film suscite des réactions contrastées. Loin du thriller psychologique sombre qui a captivé le public en 2019, cette suite surprend par son approche totalement différente : une comédie musicale. Ce choix artistique, bien que risqué, a immédiatement divisé les critiques et les fans de l’univers de Gotham.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0}},\"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\": {\"id\": \"3cc94ec3-f4f1-41c9-a7f4-3a70d8c556f9\",\"value\": [{\"id\": \"52f92137-ca32-4f14-96a1-8f34683a75c3\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En conclusion, malgré une \",\"bold\": true},{\"bold\": true,\"text\": \"performance toujours magistrale de Joaquin Phoenix\",\"highlight\": {\"color\": \"#C4554D\"}},{\"bold\": true,\"text\": \", Joker 2 est perçu comme une \"},{\"bold\": true,\"text\": \"déception aussi bien narrative que commerciale\",\"highlight\": {\"color\": \"#C4554D\"}},{\"bold\": true,\"text\": \". Tandis que le premier film avait bouleversé l’industrie, cette suite risque d’être rapidement oubliée.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"e41fa2c5-8e25-4458-9d86-45ee185748fc\": {\"id\": \"e41fa2c5-8e25-4458-9d86-45ee185748fc\",\"value\": [{\"id\": \"dd481abb-3944-4011-8bf1-9ed73ea62cce\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 11,\"depth\": 0}},\"39db006e-fdce-407b-ab04-e9da4a5421df\": {\"id\": \"39db006e-fdce-407b-ab04-e9da4a5421df\",\"value\": [{\"id\": \"7032a4f1-7f10-4111-b32c-65dcc6f8d2cb\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0}},\"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\": {\"id\": \"9cd9a0cc-19da-45e8-8548-1f51ed43d32e\",\"value\": [{\"id\": \"0ff6d54f-fdfb-4e36-96aa-daa08e2c1bd9\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les performance de Phoenix\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"4da55e18-0251-4945-bece-3982960c2b82\": {\"id\": \"4da55e18-0251-4945-bece-3982960c2b82\",\"value\": [{\"id\": \"f713e1df-1b0f-4bb7-aa15-487788c9bd21\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Joaquin Phoenix, qui avait brillamment incarné le personnage dans le premier film et décroché l’Oscar du meilleur acteur, est de retour dans le rôle d'Arthur Fleck. Son engagement dans le personnage est, sans surprise, intense et poignant, et il parvient encore une fois à capter toute la complexité du Joker. Cependant, malgré sa performance, certains critiques estiment que l’intrigue de ce deuxième opus n’apporte rien de nouveau à l’histoire d’origine. Là où le premier \"},{\"text\": \"Joker\",\"italic\": true},{\"text\": \" offrait une étude de personnage profondément troublante et unique, \"},{\"text\": \"Joker: Folie à Deux\",\"italic\": true},{\"text\": \" semble se perdre dans ses ambitions musicales et ne parvient pas à justifier sa propre existence en tant que suite.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"La réception au box-office est également décevante. Contrairement au premier film qui avait connu un succès phénoménal, Joker: Folie à Deux peine à attirer les foules. Le public, visiblement peu séduit par le concept de comédie musicale, ne s’est pas rué dans les salles comme on l’avait espéré. Les critiques du film pointent du doigt un manque de cohérence entre l’univers sombre du Joker et l’aspect musical, créant une œuvre hybride qui n’arrive pas à convaincre.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 6,\"depth\": 0},\"value\": [{\"id\": \"4f616e22-4631-4e62-b84f-4a91fc404508\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Des resultats décevants\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 7,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 2,
+            "likeCounter": 0
+        },
+        {
+            "id": 5,
+            "title": "Les élections Américaine 2024",
+            "subtitle": "",
+            "topicId": 2,
+            "authorId": 4,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les élections présidentielles américaines de 2024 s'annoncent comme un événement politique majeur, avec des enjeux considérables tant sur le plan national qu'international. Ce scrutin marquera un tournant pour les États-Unis, confrontés à des défis importants tels que l'économie, les inégalités sociales, la gestion de la pandémie, et les questions environnementales. Comme toujours, cette élection sera suivie de près à travers le monde, les candidats devant convaincre un électorat de plus en plus polarisé dans un contexte de divisions politiques profondes. Les prochains mois seront décisifs pour l'avenir du pays.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les candidats\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 2,
+            "likeCounter": 2
+        },
+        {
+            "id": 6,
+            "title": "Les récoltes agricoles en baisse depuis quelque années",
+            "subtitle": "",
+            "topicId": 4,
+            "authorId": 1,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"L'année 2024 a été marquée par une série de mauvaises récoltes agricoles dans de nombreuses régions du monde. En raison de conditions météorologiques extrêmes telles que les sécheresses prolongées, les inondations et les températures anormalement élevées, les agriculteurs ont vu leurs productions chuter de manière significative. Ces événements climatiques imprévisibles ont eu un impact direct sur la disponibilité des denrées alimentaires, exacerbant les préoccupations liées à la sécurité alimentaire mondiale. Les experts craignent que ces mauvaises récoltes n'entraînent une hausse des prix et des pénuries alimentaires dans les mois à venir.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 2,
+            "likeCounter": 2
+        },
+        {
+            "id": 7,
+            "title": "La Palestine rayé de la carte par google",
+            "subtitle": "",
+            "topicId": 5,
+            "authorId": 1,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Récemment, Google Maps a suscité une vive controverse en raison de l'absence de la Palestine sur ses cartes, une omission qui a déclenché une vague d'indignation sur les réseaux sociaux. Cette absence a été perçue par beaucoup comme un acte politique, amplifiant les tensions autour du statut de la Palestine dans le contexte du conflit israélo-palestinien. Bien que Google se défende en affirmant que ses cartes suivent les normes internationales, la question de la représentation de la Palestine sur les plateformes numériques continue de soulever des débats sur la neutralité technologique et la politique mondiale.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 1,
+            "likeCounter": 2
+        },
+        {
+            "id": 8,
+            "title": "Israel continue ces crimes de guerre au Liban",
+            "subtitle": "Israel, Liban, Guerre, Crimes",
+            "topicId": 5,
+            "authorId": 1,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Depuis plusieurs mois, la région du Liban est de nouveau marquée par des violences accrues liées aux opérations militaires israéliennes. Les attaques aériennes et les frappes ciblées menées par Israël sont vivement critiquées par la communauté internationale, qui dénonce des crimes de guerre et une escalade des tensions dans cette zone déjà instable. Ces actions militaires, justifiées par Israël comme des réponses à des menaces sécuritaires, aggravent encore les souffrances civiles au Liban et alimentent un climat d'instabilité croissante au Moyen-Orient.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 3,
+            "likeCounter": 2
+        },
+        {
+            "id": 9,
+            "title": "L'Animé One piece en pause jusqu'à 2025",
+            "subtitle": "One piece, animé, pause",
+            "topicId": 6,
+            "authorId": 5,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"L'animé One Piece, un pilier de la culture anime depuis des décennies, a récemment annoncé une pause qui ne prendra fin qu'en avril 2025. Cette décision a été accueillie avec une combinaison de déception et de compréhension parmi les fans. La série, qui adapte les aventures de Monkey D. Luffy et de son équipage, a captivé des millions de téléspectateurs. Voici un aperçu des raisons de cette pause, du remake de l'arc de l'île des Hommes-Poissons, et de l'impact sur le travail de son créateur, Eiichiro Oda.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Une Pause Nécessaire\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Pendant cette période d'attente, les fans peuvent se réjouir d'un remake de \"},{\"text\": \"l'arc de l'île des Hommes-Poissons\",\"bold\": true},{\"text\": \". Ce retour sur un arc clé permet non seulement de raviver l'intérêt des spectateurs pour \"},{\"text\": \"l'univers de One Piece\",\"underline\": true},{\"text\": \", mais également d'introduire de nouveaux éléments visuels et narratifs qui enrichissent l'histoire. Ce choix \"},{\"text\": \"témoigne de l’engagement des créateurs\",\"underline\": true},{\"text\": \" à offrir une expérience visuelle de qualité et à satisfaire les attentes des fans.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 6,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Remake de l'Arc de l'Île des Hommes-Poissons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 7,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Enfin, cette pause est également une opportunité pour \"},{\"text\": \"Eiichiro Oda\",\"bold\": true},{\"text\": \", le \"},{\"text\": \"créateur de One Piece\",\"underline\": true},{\"text\": \", de régénérer son inspiration et de rédiger davantage de chapitres. Avec l'intrigue actuelle de l'île Egghead, qui est très attendue, cette \"},{\"text\": \"période permettra à Oda de développer des arcs narratifs encore plus riches et captivants\",\"underline\": true},{\"text\": \". Les fans espèrent que ce temps supplémentaire contribuera à la conclusion satisfaisante de l'histoire épique qui a commencé il y a plus de 25 ans.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"8202837e-11ed-47e3-95ae-31de56de7daf\": {\"id\": \"8202837e-11ed-47e3-95ae-31de56de7daf\",\"value\": [{\"id\": \"f87fd75d-39b3-4597-869d-f830ac2d1aac\",\"type\": \"paragraph\",\"children\": [{\"text\": \"La \"},{\"text\": \"pause prolongée\",\"bold\": true},{\"text\": \" de l'animé est avant tout une mesure pour \"},{\"text\": \"améliorer la qualité\",\"bold\": true},{\"text\": \" de la production. En décalant la diffusion, les producteurs espèrent non seulement éviter le surmenage de \"},{\"text\": \"l'équipe d'animation\",\"underline\": true},{\"text\": \", mais aussi permettre une meilleure adaptation des chapitres du manga. La série avait récemment atteint un rythme de \"},{\"text\": \"production rapide\",\"underline\": true},{\"text\": \", et cette pause devrait permettre de maintenir la qualité qui a fait la renommée de \"},{\"text\": \"One Piece\",\"italic\": true},{\"text\": \".\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"6a3273e5-c80c-4eb0-98d3-bf8c8c3102cd\": {\"id\": \"6a3273e5-c80c-4eb0-98d3-bf8c8c3102cd\",\"value\": [{\"id\": \"ba5a27a4-5a08-4f0e-8b7c-fd0495bbe060\",\"type\": \"heading-three\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 5,\"depth\": 0}},\"65707b6d-0366-48f4-a25d-39751b0fd0a3\": {\"id\": \"65707b6d-0366-48f4-a25d-39751b0fd0a3\",\"value\": [{\"id\": \"498e3bff-80c6-41a9-93c2-c1c4eaac6a2e\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 11,\"depth\": 0}},\"b26127cc-3a1a-4ede-8ea0-7a9ef80c1d8b\": {\"id\": \"b26127cc-3a1a-4ede-8ea0-7a9ef80c1d8b\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 10,\"depth\": 0},\"value\": [{\"id\": \"08f88e4a-d973-4ee6-ade4-0b3e2c393de1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Laissez du Temps à Oda\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"086160e9-0ac5-4028-8a7a-da3c2bdcdb11\": {\"id\": \"086160e9-0ac5-4028-8a7a-da3c2bdcdb11\",\"type\": \"Callout\",\"meta\": {\"order\": 14,\"depth\": 0},\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"callout\",\"children\": [{\"text\": \"En somme\",\"bold\": true},{\"text\": \", bien que l'annonce de la pause ait suscité des inquiétudes, elle semble être une décision réfléchie pour garantir l'avenir de l'animé One Piece. Les fans peuvent donc profiter des remakes et attendre avec impatience le retour de leur série préférée en 2025.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"2fd9d028-d8b1-4888-9f4d-303e4bcf6a80\": {\"id\": \"2fd9d028-d8b1-4888-9f4d-303e4bcf6a80\",\"value\": [{\"id\": \"281f07d1-5143-4bdb-89c3-7d0f44c7d0ea\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 4,
+            "likeCounter": 2
+        },
+        {
+            "id": 10,
+            "title": "Les nouvelles serie 5000 de NVIDIA on leak !",
+            "subtitle": "NVIDIA",
+            "topicId": 10,
+            "authorId": 1,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les récents leaks concernant la série 5000 de NVIDIA ont suscité un vif intérêt et des discussions parmi les passionnés de technologie et de jeux vidéo. Ces informations divulguées révèlent des spécifications techniques, des performances anticipées, et des caractéristiques innovantes qui pourraient révolutionner le marché des cartes graphiques. Avec une concurrence féroce dans l'industrie, ces fuites soulèvent des questions sur les stratégies de NVIDIA et l'impact potentiel sur ses concurrents. Les utilisateurs attendent avec impatience les détails officiels et l'annonce de la série 5000, prévue pour bientôt.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 2,
+            "likeCounter": 2
+        },
+        {
+            "id": 11,
+            "title": "Kaizen le nouveau documentaire du youtubeur inoxtag !",
+            "subtitle": "",
+            "topicId": 10,
+            "authorId": 2,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le documentaire Kaizen réalisé par Inoxtag plonge les spectateurs dans l'univers captivant de l'évolution personnelle et professionnelle. À travers des témoignages inspirants et des récits authentiques, Inoxtag explore le concept japonais de l'amélioration continue, démontrant comment des petits changements peuvent mener à des transformations significatives dans la vie quotidienne. Ce film vise à motiver les jeunes générations à adopter une mentalité de progrès, tout en mettant en lumière les défis et les réussites qui jalonnent ce parcours.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 4,
+            "likeCounter": 0
+        },
+        {
+            "id": 12,
+            "title": "L'ouragan Leslie, des dégats constaté en France !",
+            "subtitle": "",
+            "topicId": 1,
+            "authorId": 4,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"L'ouragan Leslie, qui a frappé l'Atlantique en 2018, est un exemple marquant des puissances destructrices des tempêtes tropicales. Initialement classé comme un ouragan de catégorie 1, Leslie a engendré des conditions météorologiques extrêmes, notamment des vents violents et des pluies torrentielles, qui ont affecté plusieurs régions. Son impact a été particulièrement ressenti sur les côtes portugaises, où les inondations et les débris ont causé d'importants dégâts. Cet événement climatique rappelle l'importance de la préparation face aux catastrophes naturelles.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 4,
+            "likeCounter": 0
+        },
+        {
+            "id": 13,
+            "title": "Les Métropole local encourage l'agriculture local !",
+            "subtitle": "",
+            "topicId": 4,
+            "authorId": 5,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Les métropoles modernes sont de plus en plus conscientes de l'importance de soutenir l'agriculture locale pour promouvoir la durabilité et renforcer la sécurité alimentaire. En intégrant des initiatives telles que les marchés fermiers, les jardins communautaires et les programmes de formation pour les agriculteurs urbains, ces villes cherchent à réduire leur empreinte carbone tout en offrant aux habitants des produits frais et de qualité. Cette dynamique favorise non seulement la biodiversité, mais également des liens plus forts entre les consommateurs et les producteurs, contribuant ainsi à un écosystème alimentaire plus résilient.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 3,
+            "likeCounter": 0
+        },
+        {
+            "id": 14,
+            "title": "MHA arrive Bientôt à sa fin en animé !",
+            "subtitle": "Anime, saison 8, fin",
+            "topicId": 6,
+            "authorId": 5,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"98e7292e-ea9b-40a7-9b42-acf092e38309\": {\"id\": \"98e7292e-ea9b-40a7-9b42-acf092e38309\",\"value\": [{\"id\": \"e021fe02-5b57-4678-8448-2c25c8c19331\",\"type\": \"paragraph\",\"children\": [{\"text\": \"L'animé My Hero Academia, qui a captivé des millions de fans à travers le monde, touche à sa fin après plusieurs saisons riches en émotions et en actions. Cette série, qui suit les aventures d'étudiants aspirant à devenir des héros dans un monde peuplé de super-pouvoirs, a su aborder des thèmes profonds comme l'amitié, le sacrifice et la lutte contre l'injustice. Alors que les derniers épisodes approchent, les fans se préparent à dire adieu à des personnages emblématiques et à une histoire qui a marqué l'univers de l'animation.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]}}",
+            "draft": false,
+            "viewCounter": 4,
+            "likeCounter": 3
+        },
+        {
+            "id": 15,
+            "title": "Manga: Vagabond a quand une reprise pour cette oeuvre ?",
+            "subtitle": "",
+            "topicId": 7,
+            "authorId": 5,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"bde2a4e8-9ec9-45c1-90db-30412ae3dbe3\": {\"id\": \"bde2a4e8-9ec9-45c1-90db-30412ae3dbe3\",\"value\": [{\"id\": \"d7a8fc6c-0e31-402a-85db-c09d78093518\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le manga Vagabond, œuvre emblématique de Takehiko Inoue, s'inspire de la vie du célèbre samouraï Miyamoto Musashi. Bien que la série ait été acclamée pour son style artistique exceptionnel et son approche profonde des thèmes de la guerre et de la philosophie, elle est en pause depuis plusieurs années. Les fans se demandent alors quand Inoue reprendra ce projet inachevé, espérant que l'artiste trouvera bientôt le temps et l'inspiration pour poursuivre l'histoire de Musashi et ses quêtes intérieures.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 0,
+            "likeCounter": 0
+        },
+        {
+            "id": 16,
+            "title": "Le Wegovy un nouveau médicaments contre l'obésité en europe",
+            "subtitle": "",
+            "topicId": 13,
+            "authorId": 3,
+            "cid": "tmp",
+            "content": "{\"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\": {\"id\": \"b1028ca6-de04-4bb7-94ed-9619d23bf3ba\",\"value\": [{\"id\": \"0a03e0ad-e807-4d58-b71c-3fdc6242e64c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 1,\"depth\": 0}},\"b5858c44-50d6-4467-9dac-b47a96816ce7\": {\"id\": \"b5858c44-50d6-4467-9dac-b47a96816ce7\",\"value\": [{\"id\": \"befa836b-cb0b-4dc9-9225-0680d65cc818\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 10,\"depth\": 0}},\"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\": {\"id\": \"56ad5ec6-e8a4-413c-8887-2afe0aa8e1e1\",\"value\": [{\"id\": \"818c2820-d187-4aba-80e7-22514a3b2551\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Les raisons\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"HeadingThree\",\"meta\": {\"order\": 2,\"depth\": 0}},\"be45b614-4d04-4a6b-9199-6bc8d049f280\": {\"id\": \"be45b614-4d04-4a6b-9199-6bc8d049f280\",\"value\": [{\"id\": \"7a70eccc-d48a-4d5a-87ed-32f8e769b91c\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 3,\"depth\": 0}},\"ef447992-482a-4255-811d-bfc88037c7eb\": {\"id\": \"ef447992-482a-4255-811d-bfc88037c7eb\",\"value\": [{\"id\": \"2f23f963-af13-4d8d-8d01-2f1e2850889d\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 6,\"depth\": 0}},\"5af33de3-dd53-4577-8ee4-0762ec02f77c\": {\"id\": \"5af33de3-dd53-4577-8ee4-0762ec02f77c\",\"type\": \"Paragraph\",\"meta\": {\"order\": 9,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"En réponse aux interrogations de Kamala Harris, Donald Trump, qui serait le plus vieux président américain à prêter serment en cas de victoire le 5 novembre, a publié un message nocturne sur son réseau social, affirmant avoir obtenu des résultats « exceptionnels » à deux examens cognitifs distincts. « Je suis en bien meilleure santé que Clinton, Bush, Obama, Biden et, surtout, Kamala », a assuré l’ancien président républicain de 78 ans, à trois semaines du scrutin.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\": {\"id\": \"c27a15ca-6503-469c-9a7f-5dba4c26b5eb\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 7,\"depth\": 0},\"value\": [{\"id\": \"2c12c0d9-7f3a-4746-a7c8-701d9afc11e1\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Donald Trump répond à Kamala Harris\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"44d175e7-41c2-4293-bb3a-a13bce76326e\": {\"id\": \"44d175e7-41c2-4293-bb3a-a13bce76326e\",\"value\": [{\"id\": \"12715133-5d5d-4580-9f6d-b20c706f4ea1\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 8,\"depth\": 0}},\"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\": {\"id\": \"bc43fcec-b36a-4773-9ea7-46edb52fd5b7\",\"value\": [{\"id\": \"31aee67f-27fa-4cc4-8bc7-520815e69496\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 12,\"depth\": 0}},\"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\": {\"id\": \"d7c6c7ef-e827-4885-b962-fa0b71ec67ee\",\"type\": \"Paragraph\",\"meta\": {\"order\": 13,\"depth\": 0},\"value\": [{\"id\": \"aa4b8906-a3d2-4af6-bf1a-28c4110627a0\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Kamala Harris, qui fêtera ses soixante ans dimanche, a plusieurs fois accusé son adversaire dans la course à la Maison-Blanche d’être « instable » mentalement. Son équipe de campagne agite régulièrement les récits, parfois très confus, de Donald Trump lors de ses meetings de campagne comme autant d’illustrations d’un possible déclin cognitif du républicain.\"}],\"props\": {\"nodeType\": \"block\"}}]},\"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\": {\"id\": \"85fa62c8-56f9-49b2-b4f1-4b83e1bfab14\",\"value\": [{\"id\": \"1a234515-0504-4758-bbac-02d68cfc36b5\",\"type\": \"paragraph\",\"children\": [{\"text\": \"\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 14,\"depth\": 0}},\"be3d4a6e-9750-47dc-886b-e0df1af34cab\": {\"id\": \"be3d4a6e-9750-47dc-886b-e0df1af34cab\",\"value\": [{\"id\": \"d0be76f7-aa6d-4856-abcc-0cca220f0687\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Ce fut l’un des arguments de \"},{\"text\": \"Donald Trump\",\"underline\": true},{\"text\": \" contre \"},{\"text\": \"Joe Biden\",\"underline\": true},{\"text\": \" au début de la \"},{\"text\": \"campagne présidentielle\",\"underline\": true},{\"text\": \". Les nombreuses accusations du candidat républicain sur l’âge et la santé de Joe Biden vont-elles se retourner contre lui ? En effet, c’est maintenant à \"},{\"text\": \"Kamala Harris\",\"bold\": true},{\"text\": \" de s’interroger sur la santé de Donald Trump.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 4,\"depth\": 0}},\"0c021154-9979-4f50-8c41-9f480e5602bc\": {\"id\": \"0c021154-9979-4f50-8c41-9f480e5602bc\",\"value\": [{\"id\": \"36f9c703-5e43-4658-9e7f-b732409eb049\",\"type\": \"paragraph\",\"children\": [{\"text\": \"« J’espère qu’il va bien », a-t-elle déclaré, ce mardi, après que son rival a écourté lundi soir une réunion de campagne, restant longuement sur scène à écouter ses chansons préférées. « Donald Trump semble perdu, confus et comme figé sur scène », a commenté l’équipe de \"},{\"text\": \"campagne\",\"highlight\": {\"color\": \"black\"},\"underline\": true},{\"text\": \" de la démocrate,\",\"underline\": true},{\"text\": \" candidate à la présidentielle, en diffusant une vidéo de l’incident.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 5,\"depth\": 0}},\"69a5679f-5d09-4602-8d25-7446e552d1cc\": {\"id\": \"69a5679f-5d09-4602-8d25-7446e552d1cc\",\"type\": \"HeadingThree\",\"meta\": {\"order\": 11,\"depth\": 0},\"value\": [{\"id\": \"71bf1e1c-79be-4510-942d-e6f144f8e31f\",\"type\": \"heading-three\",\"children\": [{\"text\": \"Accusations répétées des démocrates\",\"bold\": true}],\"props\": {\"nodeType\": \"block\"}}]},\"82df6390-676b-4265-a371-1e4704478be1\": {\"id\": \"82df6390-676b-4265-a371-1e4704478be1\",\"value\": [{\"id\": \"f88025f3-8ddf-4694-afc3-d9a41b4614ee\",\"type\": \"paragraph\",\"children\": [{\"text\": \"Le médicament Wegovy, qui a fait ses preuves dans la lutte contre l'obésité, arrive enfin en Europe, suscitant un grand intérêt. Utilisé comme traitement pour aider à la perte de poids chez les personnes en surpoids ou obèses, ce médicament pourrait offrir une nouvelle option thérapeutique pour améliorer la santé publique. Les experts et professionnels de santé s'interrogent désormais sur son impact potentiel sur le système de santé européen et sur la manière dont il sera intégré dans les protocoles de traitement existants.\"}],\"props\": {\"nodeType\": \"block\"}}],\"type\": \"Paragraph\",\"meta\": {\"order\": 0,\"depth\": 0}}}",
+            "draft": false,
+            "viewCounter": 2,
+            "likeCounter": 0
+        }
+    ],
+    "anthologies": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "cool stuff",
+            "articles": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "name": "tech"
+        },
+        {
+            "id": 3,
+            "userId": 4,
+            "name": "approffondir"
+        },
+        {
+            "id": 4,
+            "userId": 3,
+            "name": "ce renseigner"
+        },
+        {
+            "id": 5,
+            "userId": 4,
+            "name": "fyi"
+        },
+        {
+            "id": 6,
+            "userId": 5,
+            "name": "test"
+        },
+        {
+            "id": 7,
+            "userId": 6,
+            "name": "interressant"
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 1
+        },
+        {
+            "id": 2,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 1
+        },
+        {
+            "id": 3,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 1
+        },
+        {
+            "id": 4,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 1
+        },
+        {
+            "id": 5,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 1
+        },
+        {
+            "id": 6,
+            "type": "LIKE",
+            "createdById": 1,
+            "articleId": 1
+        },
+        {
+            "id": 7,
+            "type": "LIKE",
+            "createdById": 4,
+            "articleId": 1
+        },
+        {
+            "id": 8,
+            "type": "LIKE",
+            "createdById": 6,
+            "articleId": 1
+        },
+
+        {
+            "id": 9,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 2
+        },
+        {
+            "id": 10,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 2
+        },
+        {
+            "id": 11,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 2
+        },
+        {
+            "id": 12,
+            "type": "LIKE",
+            "createdById": 1,
+            "articleId": 2
+        },
+
+        {
+            "id": 13,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 3
+        },
+        {
+            "id": 14,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 3
+        },
+        {
+            "id": 15,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 3
+        },
+        {
+            "id": 16,
+            "type": "VIEW",
+            "createdById": 5,
+            "articleId": 3
+        },
+        {
+            "id": 17,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 3
+        },
+        {
+            "id": 18,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 3
+        }
+        ,
+        {
+            "id": 19,
+            "type": "LIKE",
+            "createdById": 2,
+            "articleId": 3
+        },
+        {
+            "id": 20,
+            "type": "LIKE",
+            "createdById": 4,
+            "articleId": 3
+        },
+        {
+            "id": 21,
+            "type": "LIKE",
+            "createdById": 5,
+            "articleId": 3
+        },
+        {
+            "id": 22,
+            "type": "LIKE",
+            "createdById": 7,
+            "articleId": 3
+        },
+        {
+            "id": 23,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 4
+        },
+        {
+            "id": 24,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 4
+        },
+
+        {
+            "id": 25,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 5
+        },
+        {
+            "id": 26,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 5
+        },
+        {
+            "id": 27,
+            "type": "LIKE",
+            "createdById": 7,
+            "articleId": 5
+        },
+        {
+            "id": 28,
+            "type": "LIKE",
+            "createdById": 6,
+            "articleId": 5
+        },
+
+        {
+            "id": 29,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 6
+        },
+        {
+            "id": 30,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 6
+        },
+        {
+            "id": 31,
+            "type": "LIKE",
+            "createdById": 7,
+            "articleId": 6
+        },
+        {
+            "id": 32,
+            "type": "LIKE",
+            "createdById": 6,
+            "articleId": 6
+        },
+
+        {
+            "id": 33,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 7
+        },
+        {
+            "id": 34,
+            "type": "LIKE",
+            "createdById": 7,
+            "articleId": 7
+        },
+
+        {
+            "id": 35,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 8
+        },
+        {
+            "id": 36,
+            "type": "LIKE",
+            "createdById": 1,
+            "articleId": 7
+        },
+        {
+            "id": 37,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 8
+        },
+        {
+            "id": 38,
+            "type": "LIKE",
+            "createdById": 2,
+            "articleId": 8
+        },
+        {
+            "id": 39,
+            "type": "VIEW",
+            "createdById": 3,
+            "articleId": 8
+        },
+        {
+            "id": 40,
+            "type": "LIKE",
+            "createdById": 3,
+            "articleId": 8
+        },
+
+        {
+            "id": 41,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 9
+        },
+        {
+            "id": 42,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 9
+        },
+        {
+            "id": 43,
+            "type": "VIEW",
+            "createdById": 3,
+            "articleId": 9
+        },
+        {
+            "id": 44,
+            "type": "VIEW",
+            "createdById": 5,
+            "articleId": 9
+        },
+        {
+            "id": 45,
+            "type": "LIKE",
+            "createdById": 5,
+            "articleId": 9
+        },
+        {
+            "id": 46,
+            "type": "LIKE",
+            "createdById": 2,
+            "articleId": 9
+        },
+
+        {
+            "id": 47,
+            "type": "VIEW",
+            "createdById": 3,
+            "articleId": 10
+        },
+        {
+            "id": 48,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 10
+        },
+        {
+            "id": 49,
+            "type": "LIKE",
+            "createdById": 3,
+            "articleId": 10
+        },
+        {
+            "id": 50,
+            "type": "LIKE",
+            "createdById": 4,
+            "articleId": 10
+        },
+
+        {
+            "id": 51,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 11
+        },
+        {
+            "id": 52,
+            "type": "VIEW",
+            "createdById": 3,
+            "articleId": 11
+        },
+        {
+            "id": 53,
+            "type": "VIEW",
+            "createdById": 5,
+            "articleId": 11
+        },
+        {
+            "id": 54,
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 11
+        },
+
+        {
+            "id": 55,   
+            "type": "VIEW",
+            "createdById": 7,
+            "articleId": 12
+        },
+        {
+            "id": 56,
+            "type": "VIEW",
+            "createdById": 6,
+            "articleId": 12
+        },
+        {
+            "id": 57,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 12
+        },
+        {
+            "id": 58,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 12
+        },
+        {
+            "id": 55,
+            "type": "LIKE",
+            "createdById": 2,
+            "articleId": 12
+        },
+        {
+            "id": 56,
+            "type": "LIKE",
+            "createdById": 1,
+            "articleId": 12
+        },
+        {
+            "id": 57,
+            "type": "LIKE",
+            "createdById": 7,
+            "articleId": 12
+        },
+        {
+            "id": 58,
+            "type": "LIKE",
+            "createdById": 6,
+            "articleId": 12
+        },
+
+        {
+            "id": 59,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 13
+        },
+        {
+            "id": 60,
+            "type": "VIEW",
+            "createdById": 3,
+            "articleId": 13
+        },
+        {
+            "id": 61,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 13
+        },
+
+        {
+            "id": 62,
+            "type": "VIEW",
+            "createdById": 5,
+            "articleId": 14
+        },
+        {
+            "id": 63,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 14
+        },
+        {
+            "id": 64,
+            "type": "VIEW",
+            "createdById": 2,
+            "articleId": 14
+        },
+        {
+            "id": 65,
+            "type": "VIEW",
+            "createdById": 1,
+            "articleId": 14
+        },
+        {
+            "id": 66,
+            "type": "LIKE",
+            "createdById": 4,
+            "articleId": 14
+        },
+        {
+            "id": 67,
+            "type": "LIKE",
+            "createdById": 2,
+            "articleId": 14
+        },
+        {
+            "id": 68,
+            "type": "LIKE",
+            "createdById": 1,
+            "articleId": 14
+        },
+
+        {
+            "id": 69,
+            "type": "VIEW",
+            "createdById": 5,
+            "articleId": 16
+        },
+        {
+            "id": 70,
+            "type": "VIEW",
+            "createdById": 4,
+            "articleId": 16
+        }
+    ]
+}
