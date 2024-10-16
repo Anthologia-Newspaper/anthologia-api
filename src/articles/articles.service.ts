@@ -32,6 +32,7 @@ export class ArticlesService {
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
       const cid = await this.ipfs.pin(
         article.content,
+        createdArticle.title,
         createdArticle.subtitle ?? '',
         createdArticle.id,
       );
@@ -130,6 +131,7 @@ export class ArticlesService {
       if (article.cid) {
         newCid = await this.ipfs.update(
           articleUpdate.content ?? article.content,
+          articleUpdate.title ?? article.title ?? '',
           articleUpdate.subtitle ?? article.subtitle ?? '',
           article.cid,
           id,
