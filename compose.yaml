@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   backend:
     container_name: anthologia-api
@@ -7,14 +5,12 @@ services:
     env_file:
       - .env
     environment:
-      - DATABASE_URL=${DB_URL}
+      - DATABASE_URL=${NETWORK_DATABASE_URL}
     ports:
       - ${BACK_PORT}:${BACK_PORT}
     depends_on:
       database:
         condition: service_healthy
-    networks:
-      - backend_network
     healthcheck:
       test: 'npx prisma migrate status'
       interval: 10s
@@ -29,9 +25,6 @@ services:
       - PGUSER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
-    networks:
-      - backend_network
-      - database_network
     volumes:
       - database_volume:/var/lib/postgresql/data/
     healthcheck:
@@ -39,30 +32,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  studio:
-    container_name: anthologia-studio
-    image: timothyjmiller/prisma-studio:latest
-    restart: unless-stopped
-    env_file:
-      - .env
-    environment:
-      - POSTGRES_USERNAME=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_HOST=${DB_HOST}
-      - POSTGRES_PORT=${DB_PORT}
-      - POSTGRES_NAME=${DB_NAME}
-      - POSTGRES_URL=${DB_URL}
     ports:
-      - 5555:5555
-    depends_on:
-      database:
-        condition: service_healthy
-      backend:
-        condition: service_healthy
-        restart: true
-    networks:
-      - database_network
+      - "5432:5432"
 
 networks:
   backend_network:

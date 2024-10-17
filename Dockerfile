@@ -23,7 +23,7 @@ RUN npm run build
 ###
 # Production image
 ###
-FROM node:lts as app
+FROM node:lts AS app
 
 WORKDIR /app
 
