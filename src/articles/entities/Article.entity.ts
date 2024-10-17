@@ -20,6 +20,7 @@ export class ArticleEntity {
   updatedAt: Date;
   cid: string | null;
   content: string;
+  rawContent: string;
   draft: boolean;
   @Type(() => AnthologyEntity)
   anthology?: Anthology[];
