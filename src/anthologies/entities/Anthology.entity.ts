@@ -23,12 +23,3 @@ export class AnthologyEntity {
     Object.assign(this, partial);
   }
 }
-
-export class AnthologiesEntities {
-  @Type(() => AnthologyEntity)
-  anthologies: AnthologyEntity[];
-
-  constructor(partial: Partial<AnthologiesEntities>) {
-    Object.assign(this, partial);
-  }
-}

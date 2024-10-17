@@ -18,7 +18,6 @@ export class AnthologiesService {
     newAnthology: CreateAnthologyDto,
     isPublic: boolean,
     userId: number,
-    articles?: { id: number }[],
   ) {
     return await this.prisma.anthology.create({
       data: {
@@ -26,13 +25,18 @@ export class AnthologiesService {
         description: newAnthology.description,
         isPublic,
         articles: {
-          connect: articles,
+          connect: newAnthology.articles
+            ? newAnthology.articles.map((id) => ({ id }))
+            : [],
         },
         compiler: {
           connect: {
             id: userId,
           },
         },
+      },
+      include: {
+        articles: true,
       },
     });
   }
