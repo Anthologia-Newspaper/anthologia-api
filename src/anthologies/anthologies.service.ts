@@ -101,6 +101,9 @@ export class AnthologiesService {
           disconnect: removeArticles,
         },
       },
+      include: {
+        articles: true,
+      },
     });
   }
 
