@@ -50,6 +50,7 @@ async function main() {
         topicId: article.topicId,
         cid: article.cid,
         content: article.content,
+        rawContent: article.rawContent,
         draft: article.draft,
         viewCounter: article.viewCounter,
         likeCounter: article.likeCounter
