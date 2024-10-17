@@ -1,16 +1,106 @@
-/**
- * ! Executing this script will delete all data in your database and seed it with 10 topic.
- * ! Make sure to adjust the script to your needs.
- * Use any TypeScript runner to run this script, for example: `npx tsx seed.ts`
- * Learn more about the Seed Client by following our guide: https://docs.snaplet.dev/seed/getting-started
- */
-
-import { createSeedClient } from '@snaplet/seed';
-import { copycat } from '@snaplet/copycat';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
+import * as fs from 'fs';
+import * as path from 'path';
 
-const main = async () => {
+const prisma = new PrismaClient();
+
+async function main() {
+  // Read the seed data from the JSON file
+  const dataPath = path.join(__dirname, 'seed-data.json');
+  const seedData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+
+  // Seed users
+  for (const user of seedData.users) {
+    await prisma.user.upsert({
+      where: { id: user.id },
+      update: {},
+      create: {
+        username: user.username,
+        email: user.email,
+        password: await bcrypt.hash(user.password, 10),
+        profilePicCid: user.profilePicCid,
+        roles: user.roles,
+      }
+    });
+  }
+
+  // Seed topics
+  for (const topic of seedData.topics) {
+    await prisma.topic.upsert({
+      where: { id: topic.id },
+      update: {},
+      create: {
+        name: topic.name,
+        description: topic.description,
+        image: topic.image,
+      }
+    });
+  }
+
+  // Seed articles
+  for (const article of seedData.articles) {
+    await prisma.article.upsert({
+      where: { id: article.id },
+      update: {},
+      create: {
+        title: article.title,
+        subtitle: article.subtitle,
+        authorId: article.authorId,
+        topicId: article.topicId,
+        cid: article.cid,
+        content: article.content,
+        draft: article.draft,
+        viewCounter: article.viewCounter,
+        likeCounter: article.likeCounter
+      }
+    });
+  }
+
+  // Seed Anthologies
+  for (const anthology of seedData.anthologies) {
+    await prisma.anthology.upsert({
+      where: { id: anthology.id },
+      update: {},
+      create: {
+        userId: anthology.id,
+        name: anthology.name,
+        description: anthology.description,
+      }
+    })
+    // for (const articleId of anthology.articles) {
+    //   const article = await prisma.article.findFirst({where: { id: articleId }})
+
+    //   await prisma.anthology.
+    // }
+  }
+
+  // Seed Events
+  for (const event of seedData.events) {
+    await prisma.event.upsert({
+      where: { id: event.id },
+      update: {},
+      create: {
+        type: event.type,
+        createdById: event.createdById,
+        articleId: event.articleId,
+      }
+    });
+  }
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+
+// const main = async () => {
   // TODO: any types, it has to be commented until fixed
+
   // const seed = await createSeedClient();
 
   // // Truncate all tables in the database
@@ -39,9 +129,10 @@ const main = async () => {
 
   // Type completion not working? You might want to reload your TypeScript Server to pick up the changes
 
-  console.log('Database seeded successfully!');
+  // console.log('Database seeded successfully!');
 
-  process.exit();
-};
+  // process.exit();
+// };
 
-main();
+// main();
+
