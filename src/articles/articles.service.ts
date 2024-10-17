@@ -83,6 +83,10 @@ export class ArticlesService {
           { author: { username: { contains: query.q } } },
         ],
       },
+      include: {
+        author: true,
+        topic: true
+      }
     });
   }
 
