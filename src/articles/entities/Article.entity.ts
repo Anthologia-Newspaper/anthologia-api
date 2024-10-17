@@ -11,9 +11,10 @@ export class ArticleEntity {
   title: string;
   subtitle: string | null;
   @Type(() => TopicEntity)
-  topic?: TopicEntity;
+  topic: TopicEntity;
   topicId: number;
-  author?: UserEntity;
+  @Type(()=> UserEntity)
+  author: UserEntity;
   authorId: number;
   createdAt: Date;
   updatedAt: Date;

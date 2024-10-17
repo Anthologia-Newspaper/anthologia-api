@@ -7,7 +7,7 @@ export class TopicEntity {
   description: string;
   image: string;
   @Type(() => ArticleEntity)
-  articles: ArticleEntity;
+  articles?: ArticleEntity;
 
   constructor(partial: Partial<TopicEntity>) {
     Object.assign(this, partial);
