@@ -48,13 +48,9 @@ export class AnthologiesController {
     @Body() newAnthology: CreateAnthologyDto,
   ) {
     try {
-      const anthology = await this.anthologiesService.create(
-        newAnthology,
-        isPublic,
-        user.sub,
+      return new AnthologyEntity(
+        await this.anthologiesService.create(newAnthology, isPublic, user.sub),
       );
-
-      return new AnthologyEntity(anthology);
     } catch (err: unknown) {
       handleErrors(err);
     }

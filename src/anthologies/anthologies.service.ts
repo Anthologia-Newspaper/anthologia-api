@@ -123,6 +123,7 @@ export class AnthologiesService {
 
     return await this.prisma.anthology.delete({
       where: { id },
+      include: { articles: true },
     });
   }
 }
