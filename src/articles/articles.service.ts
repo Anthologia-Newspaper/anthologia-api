@@ -23,6 +23,7 @@ export class ArticlesService {
         title: article.title,
         subtitle: article.subtitle,
         content: article.content,
+        rawContent: article.rawContent,
         anthology: article.anthology
           ? { connect: { id: article.anthology } }
           : undefined,
