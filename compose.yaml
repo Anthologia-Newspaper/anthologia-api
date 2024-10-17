@@ -52,7 +52,7 @@ services:
       - POSTGRES_HOST=${DB_HOST}
       - POSTGRES_PORT=${DB_PORT}
       - POSTGRES_NAME=${DB_NAME}
-      - POSTGRES_URL=${PROD_DB_URL}
+      - POSTGRES_URL=${DB_URL}
     ports:
       - 5555:5555
     depends_on:
