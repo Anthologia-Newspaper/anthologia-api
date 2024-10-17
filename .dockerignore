@@ -5,3 +5,4 @@
 .env.example
 Dockerfile
 node_modules
+dist/
