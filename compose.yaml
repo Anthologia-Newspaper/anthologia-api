@@ -1,24 +1,72 @@
+version: '3'
+
 services:
   backend:
-    build: 
-      dockerfile: Dockerfile.dev
+    container_name: anthologia-api
+    build: .
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=${DB_URL}
     ports:
       - ${BACK_PORT}:${BACK_PORT}
-      - 5555:5555
-    volumes:
-      - ./:/app
-      - /app/node_modules
     depends_on:
-      - db
+      database:
+        condition: service_healthy
+    networks:
+      - backend_network
+    healthcheck:
+      test: 'npx prisma migrate status'
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  db:
-    image: postgres
-    restart: always
+  database:
+    container_name: anthologia-db
+    image: postgres:17-alpine
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: anthologia
+      - POSTGRES_USER=${DB_USER}
+      - PGUSER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+      - backend_network
+      - database_network
     volumes:
-      - /tmp/db/anthologia:/var/lib/postgresql/data/
+      - database_volume:/var/lib/postgresql/data/
+    healthcheck:
+      test: 'pg_isready -d $DB_NAME -U $DB_USER'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  studio:
+    container_name: anthologia-studio
+    image: timothyjmiller/prisma-studio:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USERNAME=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT}
+      - POSTGRES_NAME=${DB_NAME}
+      - POSTGRES_URL=${PROD_DB_URL}
     ports:
-      - 5432:5432
+      - 5555:5555
+    depends_on:
+      database:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+        restart: true
+    networks:
+      - database_network
+
+networks:
+  backend_network:
+  database_network:
+
+volumes:
+  database_volume:

@@ -10,31 +10,32 @@ import { copycat } from '@snaplet/copycat';
 import bcrypt from 'bcrypt';
 
 const main = async () => {
-  const seed = await createSeedClient();
+  // TODO: any types, it has to be commented until fixed
+  // const seed = await createSeedClient();
 
-  // Truncate all tables in the database
-  await seed.$resetDatabase();
+  // // Truncate all tables in the database
+  // await seed.$resetDatabase();
 
-  // Seed the database with 10 users
-  await seed.user((x) =>
-    x(10, ({ seed }) => ({
-      email: copycat.email(seed),
-      username: copycat.username(seed),
-      password: bcrypt.hashSync(copycat.username(seed), 10),
-      articles: (x) =>
-        x(5, ({ seed }) => ({
-          title: copycat.sentence(seed),
-          subtitle: copycat.sentence(seed),
-          content: copycat.paragraph(seed),
-          draft: copycat.bool(seed),
-          topic: {
-            name: copycat.word(seed),
-            description: copycat.sentence(seed),
-            image: copycat.url(seed),
-          },
-        })),
-    })),
-  );
+  // // Seed the database with 10 users
+  // await seed.user((x) =>
+  //   x(10, ({ seed }) => ({
+  //     email: copycat.email(seed),
+  //     username: copycat.username(seed),
+  //     password: bcrypt.hashSync(copycat.username(seed), 10),
+  //     articles: (x) =>
+  //       x(5, ({ seed }) => ({
+  //         title: copycat.sentence(seed),
+  //         subtitle: copycat.sentence(seed),
+  //         content: copycat.paragraph(seed),
+  //         draft: copycat.bool(seed),
+  //         topic: {
+  //           name: copycat.word(seed),
+  //           description: copycat.sentence(seed),
+  //           image: copycat.url(seed),
+  //         },
+  //       })),
+  //   })),
+  // );
 
   // Type completion not working? You might want to reload your TypeScript Server to pick up the changes
 
