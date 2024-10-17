@@ -39,7 +39,7 @@ model Article {
   bannerCid   String      @default("")
   cid         String?
   content     String
-  rawContent  String
+  rawContent  String      @default("")
   draft       Boolean     @default(true)
   anthology   Anthology[]
   viewCounter Int         @default(0)
