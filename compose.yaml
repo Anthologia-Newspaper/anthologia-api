@@ -8,6 +8,7 @@ services:
       - DATABASE_URL=${NETWORK_DATABASE_URL}
     ports:
       - ${BACK_PORT}:${BACK_PORT}
+      - "5555:5555"
     depends_on:
       database:
         condition: service_healthy
