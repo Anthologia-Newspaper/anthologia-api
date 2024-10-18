@@ -39,8 +39,8 @@ export class AnthologiesService {
         articles: {
           include: {
             author: true,
-            topic: true
-          }
+            topic: true,
+          },
         },
       },
     });
@@ -63,8 +63,8 @@ export class AnthologiesService {
           articles: {
             include: {
               author: true,
-              topic: true
-            }
+              topic: true,
+            },
           },
         },
       });
@@ -85,8 +85,8 @@ export class AnthologiesService {
         articles: {
           include: {
             author: true,
-            topic: true
-          }
+            topic: true,
+          },
         },
       },
     });
@@ -120,8 +120,8 @@ export class AnthologiesService {
         articles: {
           include: {
             author: true,
-            topic: true
-          }
+            topic: true,
+          },
         },
       },
     });
@@ -150,8 +150,8 @@ export class AnthologiesService {
         articles: {
           include: {
             author: true,
-            topic: true
-          }
+            topic: true,
+          },
         },
       },
     });
