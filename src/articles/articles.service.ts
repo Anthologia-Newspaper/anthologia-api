@@ -228,6 +228,10 @@ export class ArticlesService {
       where: { id },
     });
 
+    await this.prisma.event.deleteMany({
+      where: { articleId: id },
+    });
+
     if (
       article.cid !== null &&
       (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging')
