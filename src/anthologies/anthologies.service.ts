@@ -36,7 +36,12 @@ export class AnthologiesService {
         },
       },
       include: {
-        articles: true,
+        articles: {
+          include: {
+            author: true,
+            topic: true
+          }
+        },
       },
     });
   }
@@ -55,7 +60,12 @@ export class AnthologiesService {
           ],
         },
         include: {
-          articles: true,
+          articles: {
+            include: {
+              author: true,
+              topic: true
+            }
+          },
         },
       });
     }
@@ -72,7 +82,12 @@ export class AnthologiesService {
         ],
       },
       include: {
-        articles: true,
+        articles: {
+          include: {
+            author: true,
+            topic: true
+          }
+        },
       },
     });
   }
@@ -102,7 +117,12 @@ export class AnthologiesService {
         },
       },
       include: {
-        articles: true,
+        articles: {
+          include: {
+            author: true,
+            topic: true
+          }
+        },
       },
     });
   }
@@ -126,7 +146,14 @@ export class AnthologiesService {
 
     return await this.prisma.anthology.delete({
       where: { id },
-      include: { articles: true },
+      include: {
+        articles: {
+          include: {
+            author: true,
+            topic: true
+          }
+        },
+      },
     });
   }
 }
