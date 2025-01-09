@@ -36,6 +36,7 @@ export class ArticlesService {
         createdArticle.title,
         createdArticle.subtitle ?? '',
         createdArticle.id,
+        createdArticle.rawContent,
       );
 
       const articleWithCID = await this.prisma.article.update({
@@ -131,15 +132,20 @@ export class ArticlesService {
         where: { id },
       });
 
-      let newCid = article.cid;
+      if (article.draft === false) {
+        throw new ConflictException('Published articles cannot be modified.');
+      }
 
-      if (article.cid) {
-        newCid = await this.ipfs.update(
+      let newCid: string = '';
+
+      // * If the article is being published
+      if (articleUpdate.draft === false && article.draft === true) {
+        newCid = await this.ipfs.pin(
           articleUpdate.content ?? article.content,
-          articleUpdate.title ?? article.title ?? '',
+          articleUpdate.title ?? article.title,
           articleUpdate.subtitle ?? article.subtitle ?? '',
-          article.cid,
-          id,
+          article.id,
+          articleUpdate.rawContent ?? article.rawContent,
         );
       }
 
@@ -151,7 +157,7 @@ export class ArticlesService {
           title: articleUpdate.title,
           subtitle: articleUpdate.subtitle,
           content: articleUpdate.content,
-          cid: newCid,
+          cid: newCid ?? article.cid,
           anthology: articleUpdate.anthology
             ? { connect: { id: articleUpdate.anthology } }
             : undefined,
