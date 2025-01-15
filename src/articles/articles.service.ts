@@ -131,12 +131,11 @@ export class ArticlesService {
       where: { id },
     });
   
+    if (article.draft === false) {
+      throw new ConflictException('Published articles cannot be modified.');
+    }
+
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
-
-      if (article.draft === false) {
-        throw new ConflictException('Published articles cannot be modified.');
-      }
-
       let newCid: string = '';
 
       // * If the article is being published
