@@ -30,7 +30,7 @@ export class ArticlesService {
       },
     });
 
-    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging' && article.draft === false) {
       const cid = await this.ipfs.pin(
         article.content,
         createdArticle.title,
