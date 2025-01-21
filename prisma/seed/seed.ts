@@ -69,11 +69,6 @@ async function main() {
         description: anthology.description,
       }
     })
-    // for (const articleId of anthology.articles) {
-    //   const article = await prisma.article.findFirst({where: { id: articleId }})
-
-    //   await prisma.anthology.
-    // }
   }
 
   // Seed Events
