@@ -6,6 +6,7 @@ import * as path from 'path';
 const prisma = new PrismaClient();
 
 async function main() {
+  // Read the seed data from the JSON file
   const dataPath = path.join(__dirname, 'seed-data.json');
   const seedData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
@@ -68,11 +69,6 @@ async function main() {
         description: anthology.description,
       }
     })
-    // for (const articleId of anthology.articles) {
-    //   const article = await prisma.article.findFirst({where: { id: articleId }})
-
-    //   await prisma.anthology.
-    // }
   }
 
   // Seed Events
