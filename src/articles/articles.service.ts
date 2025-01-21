@@ -36,6 +36,7 @@ export class ArticlesService {
         createdArticle.title,
         createdArticle.subtitle ?? '',
         createdArticle.id,
+        createdArticle.rawContent,
       );
 
       const articleWithCID = await this.prisma.article.update({
@@ -126,20 +127,25 @@ export class ArticlesService {
   // ─── Update An Article ───────────────────────────────────────────────
 
   async update(id: number, articleUpdate: UpdateArticleDto) {
+    const article = await this.prisma.article.findFirstOrThrow({
+      where: { id },
+    });
+  
+    if (article.draft === false) {
+      throw new ConflictException('Published articles cannot be modified.');
+    }
+
     if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
-      const article = await this.prisma.article.findFirstOrThrow({
-        where: { id },
-      });
+      let newCid: string = '';
 
-      let newCid = article.cid;
-
-      if (article.cid) {
-        newCid = await this.ipfs.update(
+      // * If the article is being published
+      if (articleUpdate.draft === false && article.draft === true) {
+        newCid = await this.ipfs.pin(
           articleUpdate.content ?? article.content,
-          articleUpdate.title ?? article.title ?? '',
+          articleUpdate.title ?? article.title,
           articleUpdate.subtitle ?? article.subtitle ?? '',
-          article.cid,
-          id,
+          article.id,
+          articleUpdate.rawContent ?? article.rawContent,
         );
       }
 
@@ -147,11 +153,12 @@ export class ArticlesService {
         where: { id },
         data: {
           draft: articleUpdate.draft,
-          topic: { connect: { id: articleUpdate.topic } },
+          topic: { connect: { id: articleUpdate.topic ?? article.topicId} },
           title: articleUpdate.title,
           subtitle: articleUpdate.subtitle,
           content: articleUpdate.content,
-          cid: newCid,
+          rawContent: articleUpdate.rawContent,
+          cid: newCid ?? article.cid,
           anthology: articleUpdate.anthology
             ? { connect: { id: articleUpdate.anthology } }
             : undefined,
@@ -163,10 +170,11 @@ export class ArticlesService {
       where: { id },
       data: {
         draft: articleUpdate.draft,
-        topic: { connect: { id: articleUpdate.topic } },
+        topic: { connect: { id: articleUpdate.topic ?? article.topicId} },
         title: articleUpdate.title,
         subtitle: articleUpdate.subtitle,
         content: articleUpdate.content,
+        rawContent: articleUpdate.rawContent,
         anthology: articleUpdate.anthology
           ? { connect: { id: articleUpdate.anthology } }
           : undefined,

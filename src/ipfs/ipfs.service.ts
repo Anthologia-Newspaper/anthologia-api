@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { raw } from '@prisma/client/runtime/library';
 import axios from 'axios';
 import { handleErrors } from 'src/utils/handle-errors';
 @Injectable()
@@ -38,7 +39,7 @@ export class IPFSService {
 
   // ─────────────────────────────────────────────────────────────────────
 
-  async pin(articleContent: string, title: string, subtitle: string, id: number) {
+  async pin(articleContent: string, title: string, subtitle: string, id: number, articleRawContent: string) {
     try {
       const body = JSON.stringify({
         pinataContent: {
@@ -46,6 +47,7 @@ export class IPFSService {
           title: title,
           subtitle: subtitle,
           content: articleContent,
+          rawContent: articleRawContent
         },
         pinataMetadata: {
           name: `article_${id}_content`,
@@ -88,12 +90,13 @@ export class IPFSService {
 
   async update(
     newContent: string,
+    newRawContent: string,
     title: string,
     subtitle: string,
     hashToUpdate: string,
     id: number,
   ): Promise<string> {
     this.delete(hashToUpdate);
-    return await this.pin(newContent, title, subtitle, id);
+    return await this.pin(newContent, title, subtitle, id, newRawContent);
   }
 }
