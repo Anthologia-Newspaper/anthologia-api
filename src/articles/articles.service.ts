@@ -36,7 +36,7 @@ export class ArticlesService {
         createdArticle.title,
         createdArticle.subtitle ?? '',
         createdArticle.id,
-        createdArticle.rawContent,
+        article.rawContent,
       );
 
       const articleWithCID = await this.prisma.article.update({
