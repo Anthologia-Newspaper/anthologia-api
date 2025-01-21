@@ -1,3 +1,4 @@
+import { Article, User } from '@prisma/client';
 import { Expose, Type } from 'class-transformer';
 import { ArticleEntity } from 'src/articles/entities/Article.entity';
 import { UserEntity } from 'src/user/entities/User.entity';
@@ -5,10 +6,10 @@ import { UserEntity } from 'src/user/entities/User.entity';
 export class AnthologyEntity {
   id: number;
   @Type(() => UserEntity)
-  compiler: UserEntity;
+  compiler: User;
   userId: number;
   @Type(() => ArticleEntity)
-  articles: ArticleEntity[];
+  articles: Article[];
   @Expose()
   get articleCount(): number {
     return this.articles.length;
@@ -20,15 +21,6 @@ export class AnthologyEntity {
   updatedAt: Date;
 
   constructor(partial: Partial<AnthologyEntity>) {
-    Object.assign(this, partial);
-  }
-}
-
-export class AnthologiesEntities {
-  @Type(() => AnthologyEntity)
-  anthologies: AnthologyEntity[];
-
-  constructor(partial: Partial<AnthologiesEntities>) {
     Object.assign(this, partial);
   }
 }

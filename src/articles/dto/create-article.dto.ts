@@ -20,6 +20,9 @@ export class CreateArticleDto {
   @IsString()
   content: string;
 
+  @IsString()
+  rawContent: string;
+
   @IsOptional()
   @IsInt()
   @Transform(({ value }) => {

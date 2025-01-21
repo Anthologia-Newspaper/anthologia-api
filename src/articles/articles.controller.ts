@@ -158,15 +158,14 @@ export class ArticlesController {
   ) {
     try {
       const articles = await this.articlesService.findAll({
-        authorId: user.sub,
         isLiked: true,
+        draft: false,
         topicId: query.topicId,
         anthologyId: query.anthologyId,
         q: query.q,
         items: query.items,
         page: query.page,
       });
-
       return articles.map((article) => new ArticleEntity(article));
     } catch (err: unknown) {
       handleErrors(err);

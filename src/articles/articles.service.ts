@@ -23,6 +23,7 @@ export class ArticlesService {
         title: article.title,
         subtitle: article.subtitle,
         content: article.content,
+        rawContent: article.rawContent,
         anthology: article.anthology
           ? { connect: { id: article.anthology } }
           : undefined,
@@ -82,6 +83,10 @@ export class ArticlesService {
           { content: { contains: query.q } },
           { author: { username: { contains: query.q } } },
         ],
+      },
+      include: {
+        author: true,
+        topic: true,
       },
     });
   }
@@ -221,6 +226,10 @@ export class ArticlesService {
   async remove(id: number) {
     const article = await this.prisma.article.findFirstOrThrow({
       where: { id },
+    });
+
+    await this.prisma.event.deleteMany({
+      where: { articleId: id },
     });
 
     if (

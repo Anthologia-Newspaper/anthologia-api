@@ -79,6 +79,8 @@ export class AuthenticationService {
       refreshToken,
     )) as JwtPayload;
 
+    await this.prisma.user.findUniqueOrThrow({ where: { id: sub } });
+
     if (await this.prisma.revokedToken.findFirst({ where: { jti } }))
       throw new InvalidCredentials();
 

@@ -30,7 +30,6 @@ import { CreateAnthologyDto } from './dto/create-anthology.dto';
 import { GetAnthologiesQueryParams } from './dto/get-anthologies-query-params.dto';
 import { UpdateAnthologyDto } from './dto/update-anthology.dto';
 import { AnthologyEntity } from './entities/Anthology.entity';
-import { ArticleEntity } from 'src/articles/entities/Article.entity';
 
 @ApiTags('Anthologies')
 @ApiCookieAuth()
@@ -48,15 +47,8 @@ export class AnthologiesController {
     @Body() newAnthology: CreateAnthologyDto,
   ) {
     try {
-      const articles = newAnthology.articles.map((id) => ({ id }));
-
       return new AnthologyEntity(
-        await this.anthologiesService.create(
-          newAnthology,
-          isPublic,
-          user.sub,
-          articles,
-        ),
+        await this.anthologiesService.create(newAnthology, isPublic, user.sub),
       );
     } catch (err: unknown) {
       handleErrors(err);
@@ -85,10 +77,7 @@ export class AnthologiesController {
       );
 
       return anthologies.map((anthology) => {
-        const articles = anthology.articles.map(
-          (article) => new ArticleEntity(article),
-        );
-        return new AnthologyEntity({ ...anthology, articles });
+        return new AnthologyEntity(anthology);
       });
     } catch (err: unknown) {
       handleErrors(err);

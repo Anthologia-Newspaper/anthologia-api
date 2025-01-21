@@ -10,6 +10,7 @@ COPY package.json .
 COPY package-lock.json .
 
 RUN npm install --omit=dev
+RUN npm install --only=production
 
 # Copy source (see .dockerignore)
 COPY . .
@@ -22,7 +23,7 @@ RUN npm run build
 ###
 # Production image
 ###
-FROM node:lts as app
+FROM node:lts AS app
 
 WORKDIR /app
 

@@ -6,7 +6,10 @@ import * as path from 'path';
 const prisma = new PrismaClient();
 
 async function main() {
+<<<<<<< HEAD
   // Read the seed data from the JSON file
+=======
+>>>>>>> main
   const dataPath = path.join(__dirname, 'seed-data.json');
   const seedData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
@@ -50,9 +53,10 @@ async function main() {
         topicId: article.topicId,
         cid: article.cid,
         content: article.content,
+        rawContent: article.rawContent,
         draft: article.draft,
         viewCounter: article.viewCounter,
-        likeCounter: article.likeCounter
+        likeCounter: article.likeCounter,
       }
     });
   }

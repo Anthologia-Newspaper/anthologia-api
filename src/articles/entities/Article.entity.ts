@@ -1,4 +1,4 @@
-import { Anthology, Comment, Event } from '@prisma/client';
+import { Anthology, Comment, Event, Topic, User } from '@prisma/client';
 import { Type } from 'class-transformer';
 import { AnthologyEntity } from 'src/anthologies/entities/Anthology.entity';
 import { CommentEntity } from 'src/comments/entities/Comments.entity';
@@ -11,14 +11,16 @@ export class ArticleEntity {
   title: string;
   subtitle: string | null;
   @Type(() => TopicEntity)
-  topic?: TopicEntity;
+  topic: Topic;
   topicId: number;
-  author?: UserEntity;
+  @Type(() => UserEntity)
+  author: User;
   authorId: number;
   createdAt: Date;
   updatedAt: Date;
   cid: string | null;
   content: string;
+  rawContent: string;
   draft: boolean;
   @Type(() => AnthologyEntity)
   anthology?: Anthology[];

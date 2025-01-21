@@ -18,7 +18,6 @@ export class AnthologiesService {
     newAnthology: CreateAnthologyDto,
     isPublic: boolean,
     userId: number,
-    articles?: { id: number }[],
   ) {
     return await this.prisma.anthology.create({
       data: {
@@ -26,11 +25,21 @@ export class AnthologiesService {
         description: newAnthology.description,
         isPublic,
         articles: {
-          connect: articles,
+          connect: newAnthology.articles
+            ? newAnthology.articles.map((id) => ({ id }))
+            : [],
         },
         compiler: {
           connect: {
             id: userId,
+          },
+        },
+      },
+      include: {
+        articles: {
+          include: {
+            author: true,
+            topic: true,
           },
         },
       },
@@ -51,7 +60,12 @@ export class AnthologiesService {
           ],
         },
         include: {
-          articles: true,
+          articles: {
+            include: {
+              author: true,
+              topic: true,
+            },
+          },
         },
       });
     }
@@ -68,7 +82,12 @@ export class AnthologiesService {
         ],
       },
       include: {
-        articles: true,
+        articles: {
+          include: {
+            author: true,
+            topic: true,
+          },
+        },
       },
     });
   }
@@ -97,6 +116,14 @@ export class AnthologiesService {
           disconnect: removeArticles,
         },
       },
+      include: {
+        articles: {
+          include: {
+            author: true,
+            topic: true,
+          },
+        },
+      },
     });
   }
 
@@ -119,6 +146,14 @@ export class AnthologiesService {
 
     return await this.prisma.anthology.delete({
       where: { id },
+      include: {
+        articles: {
+          include: {
+            author: true,
+            topic: true,
+          },
+        },
+      },
     });
   }
 }
