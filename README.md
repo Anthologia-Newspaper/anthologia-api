@@ -24,7 +24,7 @@ sudo apt-get install docker-compose
 ```
 
 ### Quickstart
-Once you have the necessary dependencies installed, you can quickly get the API server up and running. Execute the following command in your terminal:
+Once you have the necessary dependencies installed, you can quickly get the API server up and running. Execute the following command in your terminal :
 
 ```bash
 docker-compose up --build
