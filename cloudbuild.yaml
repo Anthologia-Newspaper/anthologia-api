@@ -18,3 +18,5 @@ steps:
   - 'REGION'
 images:
 - 'gcr.io/$PROJECT_ID/anthologia:$COMMIT_SHA'
+options:
+  logging: CLOUD_LOGGING_ONLY
