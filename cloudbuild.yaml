@@ -15,7 +15,7 @@ steps:
   - '--image'
   - 'gcr.io/$PROJECT_ID/anthologia:$COMMIT_SHA'
   - '--region'
-  - 'REGION'
+  - 'europe-west1'
 images:
 - 'gcr.io/$PROJECT_ID/anthologia:$COMMIT_SHA'
 options:
