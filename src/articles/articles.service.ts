@@ -80,6 +80,7 @@ export class ArticlesService {
           query.isLiked === true ? { some: { id: query.authorId } } : undefined,
         OR: [
           { title: { contains: query.q } },
+          { topic: { name: { contains: query.q } } },
           { subtitle: { contains: query.q } },
           { content: { contains: query.q } },
           { author: { username: { contains: query.q } } },
@@ -90,6 +91,43 @@ export class ArticlesService {
         topic: true,
       },
     });
+  }
+
+  async findLikedArticles(query: GetArticlesQueryParamsDto, userId: number) {
+    const items = query.items ? query.items : 20;
+    const page = query.page ? query.page * items : 0;
+  
+    return await this.prisma.article.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: items,
+      skip: page,
+      where: {
+        authorId: query.authorId,
+        topicId: query.topicId,
+        anthology: query.anthologyId
+          ? { some: { id: query.anthologyId } }
+          : undefined,
+        draft: false,
+        // likes: {
+        //   some: {
+        //     id: userId,
+        //   },
+        // },
+        likes:
+          query.isLiked === true ? { some: { id: userId } } : undefined,
+        OR: [
+          { title: { contains: query.q } },
+          { topic: { name: { contains: query.q } } },
+          { subtitle: { contains: query.q } },
+          { content: { contains: query.q } },
+          { author: { username: { contains: query.q } } },
+        ],
+      },
+      include: {
+        author: true,
+        topic: true,
+      }
+    })
   }
 
   // ─── Find One Article ────────────────────────────────────────────────

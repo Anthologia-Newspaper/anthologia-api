@@ -157,15 +157,23 @@ export class ArticlesController {
     @Query() query: GetArticlesQueryParamsDto,
   ) {
     try {
-      const articles = await this.articlesService.findAll({
+      const articles = await this.articlesService.findLikedArticles({
         isLiked: true,
-        draft: false,
         topicId: query.topicId,
         anthologyId: query.anthologyId,
         q: query.q,
         items: query.items,
         page: query.page,
-      });
+      }, user.sub);
+      // const articles = await this.articlesService.findAll({
+      //   isLiked: true,
+      //   draft: false,
+      //   topicId: query.topicId,
+      //   anthologyId: query.anthologyId,
+      //   q: query.q,
+      //   items: query.items,
+      //   page: query.page,
+      // });
       return articles.map((article) => new ArticleEntity(article));
     } catch (err: unknown) {
       handleErrors(err);
